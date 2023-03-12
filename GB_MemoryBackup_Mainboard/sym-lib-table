@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name ATF15xx_CommonLib)(type Legacy)(uri ${KIPRJMOD}/../ATF15xx_CommonLib/symlibs/CPLD_Microchip_ATF15xx.lib)(options "")(descr ""))
+  (lib (name NintendoGBCart_ExtSymbol)(type Legacy)(uri ${KIPRJMOD}/../GB_CommonLib/symlibs/NintendoGBCart_ExtSymbol.lib)(options "")(descr ""))
+)
