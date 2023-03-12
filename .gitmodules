@@ -1,0 +1,3 @@
+[submodule "ATF15xx_CommonLib"]
+	path = ATF15xx_CommonLib
+	url = https://github.com/SONIC3D/ATF15xx_CommonLib.git
