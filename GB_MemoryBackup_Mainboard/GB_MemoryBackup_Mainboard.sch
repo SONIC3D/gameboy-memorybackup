@@ -484,9 +484,9 @@ Wire Wire Line
 	3350 6800 3000 6800
 Wire Wire Line
 	3350 6700 3000 6700
-Text Label 3050 6700 0    50   ~ 0
+Text Label 3100 6700 0    50   ~ 0
 ~ARD
-Text Label 3050 6800 0    50   ~ 0
+Text Label 3100 6800 0    50   ~ 0
 ~AWR
 Text Label 1500 7300 0    50   ~ 0
 AA14
@@ -507,21 +507,21 @@ AA15
 Text Label 1500 6500 0    50   ~ 0
 AA7
 Wire Wire Line
-	1800 7800 1450 7800
+	1800 7800 1400 7800
 Wire Wire Line
-	1800 7900 1450 7900
+	1800 7900 1400 7900
 Wire Wire Line
-	1800 8000 1450 8000
+	1800 8000 1400 8000
 Wire Wire Line
-	1800 8100 1450 8100
+	1800 8100 1400 8100
 Wire Wire Line
-	3350 8100 3000 8100
+	3400 8100 3000 8100
 Wire Wire Line
-	1800 7700 1450 7700
+	1800 7700 1400 7700
 Wire Wire Line
-	1800 7600 1450 7600
+	1800 7600 1400 7600
 Wire Wire Line
-	1800 7500 1450 7500
+	1800 7500 1400 7500
 Text Label 1550 7500 0    50   ~ 0
 AD0
 Text Label 1550 7600 0    50   ~ 0
@@ -536,7 +536,7 @@ Text Label 1550 8000 0    50   ~ 0
 AD5
 Text Label 1550 8100 0    50   ~ 0
 AD6
-Text Label 3050 8100 0    50   ~ 0
+Text Label 3100 8100 0    50   ~ 0
 AD7
 Wire Wire Line
 	3450 7100 3000 7100
@@ -560,7 +560,7 @@ Wire Wire Line
 	3450 6400 3000 6400
 Text Label 3050 6400 0    50   ~ 0
 ~ARD_T
-Text Label 3050 7000 0    50   ~ 0
+Text Label 3100 7000 0    50   ~ 0
 ~SW_1
 Wire Wire Line
 	3000 7000 3350 7000
@@ -585,18 +585,7 @@ Wire Wire Line
 Wire Wire Line
 	3000 7500 3450 7500
 Wire Wire Line
-	3000 6900 3450 6900
-$Comp
-L power:GND #PWR?
-U 1 1 64242EE9
-P 3450 6900
-F 0 "#PWR?" H 3450 6650 50  0001 C CNN
-F 1 "GND" H 3455 6727 50  0000 C CNN
-F 2 "" H 3450 6900 50  0001 C CNN
-F 3 "" H 3450 6900 50  0001 C CNN
-	1    3450 6900
-	0    -1   -1   0   
-$EndComp
+	3000 6900 3350 6900
 Text Label 3050 7100 0    50   ~ 0
 F010_A14
 $Comp
@@ -801,12 +790,12 @@ CPLD Power
 Text Label 2900 5900 2    50   ~ 0
 VccINT
 Wire Wire Line
-	1800 6900 1350 6900
+	1800 6900 1550 6900
 Wire Wire Line
-	1800 6400 1350 6400
-Text Label 1400 6400 0    50   ~ 0
+	1800 6400 1550 6400
+Text Label 1600 6400 0    50   ~ 0
 TDI
-Text Label 1400 6900 0    50   ~ 0
+Text Label 1600 6900 0    50   ~ 0
 TMS
 Wire Wire Line
 	3000 7400 3550 7400
@@ -816,4 +805,67 @@ Text Label 3150 7900 0    50   ~ 0
 TCK
 Text Label 3150 7400 0    50   ~ 0
 TDO
+$Comp
+L NintendoGBCart_ExtSymbol:SW_Push SW2
+U 1 1 64692872
+P 13050 8350
+F 0 "SW2" H 13050 8635 50  0000 C CNN
+F 1 "SW_Push" H 13050 8544 50  0000 C CNN
+F 2 "" H 13050 8550 50  0001 C CNN
+F 3 "~" H 13050 8550 50  0001 C CNN
+	1    13050 8350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	12150 8350 12550 8350
+Wire Wire Line
+	13250 8350 13700 8350
+Wire Wire Line
+	13700 8350 13700 8450
+$Comp
+L power:GND #PWR?
+U 1 1 646AFFD0
+P 13700 8450
+F 0 "#PWR?" H 13700 8200 50  0001 C CNN
+F 1 "GND" H 13705 8277 50  0000 C CNN
+F 2 "" H 13700 8450 50  0001 C CNN
+F 3 "" H 13700 8450 50  0001 C CNN
+	1    13700 8450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R2
+U 1 1 646B0732
+P 12550 8100
+F 0 "R2" H 12609 8146 50  0000 L CNN
+F 1 "10K" H 12609 8055 50  0000 L CNN
+F 2 "" H 12550 8100 50  0001 C CNN
+F 3 "~" H 12550 8100 50  0001 C CNN
+	1    12550 8100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 646B073C
+P 12550 7900
+F 0 "#PWR?" H 12550 7750 50  0001 C CNN
+F 1 "+5V" H 12565 8073 50  0000 C CNN
+F 2 "" H 12550 7900 50  0001 C CNN
+F 3 "" H 12550 7900 50  0001 C CNN
+	1    12550 7900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	12550 7900 12550 8000
+Wire Wire Line
+	12550 8200 12550 8350
+Connection ~ 12550 8350
+Wire Wire Line
+	12550 8350 12850 8350
+Text Label 12200 8350 0    50   ~ 0
+~SW_2
+Text Notes 12150 8950 0    50   ~ 0
+SW2(Push):\nPushed: "On" (U0.~SW_2~=0) Triggered specific signal.
+Text Label 3100 6900 0    50   ~ 0
+~SW_2
 $EndSCHEMATC
