@@ -313,63 +313,63 @@ Text Label 14150 4400 0    50   ~ 0
 $Comp
 L NintendoGBCart_ExtSymbol:SW_SPDT SW1
 U 1 1 64763428
-P 13000 7050
-F 0 "SW1" H 13000 7335 50  0000 C CNN
-F 1 "SW_SPDT" H 13000 7244 50  0000 C CNN
-F 2 "" H 13000 7050 50  0001 C CNN
-F 3 "~" H 13000 7050 50  0001 C CNN
-	1    13000 7050
+P 13950 6350
+F 0 "SW1" H 13950 6635 50  0000 C CNN
+F 1 "SW_SPDT" H 13950 6544 50  0000 C CNN
+F 2 "" H 13950 6350 50  0001 C CNN
+F 3 "~" H 13950 6350 50  0001 C CNN
+	1    13950 6350
 	1    0    0    -1  
 $EndComp
-NoConn ~ 13200 7150
+NoConn ~ 14150 6450
 Wire Wire Line
-	13200 6950 13700 6950
+	14150 6250 14650 6250
 Wire Wire Line
-	13700 6950 13700 7050
+	14650 6250 14650 6350
 $Comp
 L power:GND #PWR0115
 U 1 1 641FF99E
-P 13700 7050
-F 0 "#PWR0115" H 13700 6800 50  0001 C CNN
-F 1 "GND" H 13705 6877 50  0000 C CNN
-F 2 "" H 13700 7050 50  0001 C CNN
-F 3 "" H 13700 7050 50  0001 C CNN
-	1    13700 7050
+P 14650 6350
+F 0 "#PWR0115" H 14650 6100 50  0001 C CNN
+F 1 "GND" H 14655 6177 50  0000 C CNN
+F 2 "" H 14650 6350 50  0001 C CNN
+F 3 "" H 14650 6350 50  0001 C CNN
+	1    14650 6350
 	1    0    0    -1  
 $EndComp
-Connection ~ 12550 7050
+Connection ~ 13500 6350
 Wire Wire Line
-	12550 7050 12800 7050
+	13500 6350 13750 6350
 $Comp
 L Device:R_Small R1
-U 1 1 642458D9
-P 12550 6800
-F 0 "R1" H 12609 6846 50  0000 L CNN
-F 1 "10K" H 12609 6755 50  0000 L CNN
-F 2 "" H 12550 6800 50  0001 C CNN
-F 3 "~" H 12550 6800 50  0001 C CNN
-	1    12550 6800
+U 1 1 64EAD1E1
+P 13500 6100
+F 0 "R1" H 13559 6146 50  0000 L CNN
+F 1 "10K" H 13559 6055 50  0000 L CNN
+F 2 "" H 13500 6100 50  0001 C CNN
+F 3 "~" H 13500 6100 50  0001 C CNN
+	1    13500 6100
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:+5V #PWR0116
-U 1 1 642458E3
-P 12550 6600
-F 0 "#PWR0116" H 12550 6450 50  0001 C CNN
-F 1 "+5V" H 12565 6773 50  0000 C CNN
-F 2 "" H 12550 6600 50  0001 C CNN
-F 3 "" H 12550 6600 50  0001 C CNN
-	1    12550 6600
+U 1 1 64EAD1E2
+P 13500 5900
+F 0 "#PWR0116" H 13500 5750 50  0001 C CNN
+F 1 "+5V" H 13515 6073 50  0000 C CNN
+F 2 "" H 13500 5900 50  0001 C CNN
+F 3 "" H 13500 5900 50  0001 C CNN
+	1    13500 5900
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	12550 6600 12550 6700
+	13500 5900 13500 6000
 Wire Wire Line
-	12550 6900 12550 7050
-Text Label 12200 7050 0    50   ~ 0
+	13500 6200 13500 6350
+Text Label 13150 6350 0    50   ~ 0
 ~SW_1
 Wire Wire Line
-	12150 7050 12550 7050
+	13100 6350 13500 6350
 Wire Wire Line
 	12450 4600 12900 4600
 Wire Wire Line
@@ -378,7 +378,7 @@ Wire Wire Line
 	14100 4200 14700 4200
 $Comp
 L NintendoGBCart_ExtSymbol:GB_Cart_Slot-1Row-32Pins J2
-U 1 1 62134BA4
+U 1 1 64EAD1D7
 P 13500 3850
 F 0 "J2" H 13968 5131 50  0000 C CNN
 F 1 "GB_Cart_Slot-1Row-32Pins" H 13968 5040 50  0000 C CNN
@@ -413,7 +413,7 @@ Wire Wire Line
 	2600 6200 2900 6200
 $Comp
 L Device:C_Small C3
-U 1 1 64149090
+U 1 1 64EAD1DD
 P 3100 5950
 F 0 "C3" V 2871 5950 50  0000 C CNN
 F 1 "0.1uF" V 2962 5950 50  0000 C CNN
@@ -424,7 +424,7 @@ F 3 "~" H 3100 5950 50  0001 C CNN
 $EndComp
 $Comp
 L power:GND #PWR0123
-U 1 1 6414909A
+U 1 1 64EAD1DE
 P 3200 5950
 F 0 "#PWR0123" H 3200 5700 50  0001 C CNN
 F 1 "GND" H 3205 5777 50  0000 C CNN
@@ -795,63 +795,63 @@ TDO
 $Comp
 L NintendoGBCart_ExtSymbol:SW_Push SW2
 U 1 1 64692872
-P 13050 8350
-F 0 "SW2" H 13050 8635 50  0000 C CNN
-F 1 "SW_Push" H 13050 8544 50  0000 C CNN
-F 2 "" H 13050 8550 50  0001 C CNN
-F 3 "~" H 13050 8550 50  0001 C CNN
-	1    13050 8350
+P 14000 7650
+F 0 "SW2" H 14000 7935 50  0000 C CNN
+F 1 "SW_Push" H 14000 7844 50  0000 C CNN
+F 2 "" H 14000 7850 50  0001 C CNN
+F 3 "~" H 14000 7850 50  0001 C CNN
+	1    14000 7650
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	12150 8350 12550 8350
+	13100 7650 13500 7650
 Wire Wire Line
-	13250 8350 13700 8350
+	14200 7650 14650 7650
 Wire Wire Line
-	13700 8350 13700 8450
+	14650 7650 14650 7750
 $Comp
 L power:GND #PWR0126
 U 1 1 646AFFD0
-P 13700 8450
-F 0 "#PWR0126" H 13700 8200 50  0001 C CNN
-F 1 "GND" H 13705 8277 50  0000 C CNN
-F 2 "" H 13700 8450 50  0001 C CNN
-F 3 "" H 13700 8450 50  0001 C CNN
-	1    13700 8450
+P 14650 7750
+F 0 "#PWR0126" H 14650 7500 50  0001 C CNN
+F 1 "GND" H 14655 7577 50  0000 C CNN
+F 2 "" H 14650 7750 50  0001 C CNN
+F 3 "" H 14650 7750 50  0001 C CNN
+	1    14650 7750
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:R_Small R2
 U 1 1 646B0732
-P 12550 8100
-F 0 "R2" H 12609 8146 50  0000 L CNN
-F 1 "10K" H 12609 8055 50  0000 L CNN
-F 2 "" H 12550 8100 50  0001 C CNN
-F 3 "~" H 12550 8100 50  0001 C CNN
-	1    12550 8100
+P 13500 7400
+F 0 "R2" H 13559 7446 50  0000 L CNN
+F 1 "10K" H 13559 7355 50  0000 L CNN
+F 2 "" H 13500 7400 50  0001 C CNN
+F 3 "~" H 13500 7400 50  0001 C CNN
+	1    13500 7400
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:+5V #PWR0127
 U 1 1 646B073C
-P 12550 7900
-F 0 "#PWR0127" H 12550 7750 50  0001 C CNN
-F 1 "+5V" H 12565 8073 50  0000 C CNN
-F 2 "" H 12550 7900 50  0001 C CNN
-F 3 "" H 12550 7900 50  0001 C CNN
-	1    12550 7900
+P 13500 7200
+F 0 "#PWR0127" H 13500 7050 50  0001 C CNN
+F 1 "+5V" H 13515 7373 50  0000 C CNN
+F 2 "" H 13500 7200 50  0001 C CNN
+F 3 "" H 13500 7200 50  0001 C CNN
+	1    13500 7200
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	12550 7900 12550 8000
+	13500 7200 13500 7300
 Wire Wire Line
-	12550 8200 12550 8350
-Connection ~ 12550 8350
+	13500 7500 13500 7650
+Connection ~ 13500 7650
 Wire Wire Line
-	12550 8350 12850 8350
-Text Label 12200 8350 0    50   ~ 0
+	13500 7650 13800 7650
+Text Label 13150 7650 0    50   ~ 0
 ~SW_2
-Text Notes 12150 8950 0    50   ~ 0
+Text Notes 13100 8250 0    50   ~ 0
 SW2(Push):\nPushed: "On" (U3.~SW_2~=0) Triggered the specific signal.
 Text Label 3100 6900 0    50   ~ 0
 ~SW_2
@@ -1023,7 +1023,7 @@ Wire Wire Line
 	5550 4700 5550 4800
 $Comp
 L power:GND #PWR0120
-U 1 1 644808EC
+U 1 1 64EAD1E3
 P 5550 5000
 F 0 "#PWR0120" H 5550 4750 50  0001 C CNN
 F 1 "GND" H 5555 4827 50  0000 C CNN
@@ -1036,7 +1036,7 @@ Wire Wire Line
 	5550 4500 6000 4500
 $Comp
 L NintendoGBCart_ExtSymbol:28SF040-PLCC32 U2
-U 1 1 6475DD2D
+U 1 1 64EAD1E4
 P 9650 4000
 F 0 "U2" H 9650 5500 50  0000 C CNN
 F 1 "28SF040-120-4C-NH-PLCC32" H 9650 5400 50  0000 C CNN
@@ -1049,7 +1049,7 @@ Wire Wire Line
 	10250 4000 10800 4000
 $Comp
 L power:GND #PWR0121
-U 1 1 6475DD44
+U 1 1 64EAD1E6
 P 9700 5300
 F 0 "#PWR0121" H 9700 5050 50  0001 C CNN
 F 1 "GND" H 9705 5127 50  0000 C CNN
@@ -1219,7 +1219,7 @@ Wire Wire Line
 Connection ~ 7200 2550
 Wire Wire Line
 	7200 2550 7200 2500
-Text Notes 12150 7600 0    50   ~ 0
+Text Notes 13100 6900 0    50   ~ 0
 SW1(SWITCH):\nPin 1: "On" (U3.~SW_1~=0) Turn this cart on.\nPin 3: "Off" (U3.~SW_1~=1) Turn this cart off.\n        (Pass-through cart, running the game software only)
 Text Label 8700 4900 0    50   ~ 0
 F040_A18
@@ -1254,4 +1254,12 @@ Wire Wire Line
 Connection ~ 5550 4900
 Wire Wire Line
 	5550 4900 5550 5000
+Text Notes -3200 13250 0    50   ~ 0
+https://problemkaputt.de/pandocs.htm#interrupts\n\nOriginal Interrupt Vector placed on:\n0040h-0060h in ROM.\n\nJump Vectors in First ROM Bank\n  0000,0008,0010,0018,0020,0028,0030,0038   // for RST commands\n  0040,0048,0050,0058,0060                    // for Interrupts\n\n\n=========\nRST instruction:\n  rst  n         xx          16 —— call to 00,08,10,18,20,28,30,38\n\nTrigger V-Blank(INT 40h):\nI/O port $FF0F:\nBit 0: V-Blank  Interrupt Request (INT 40h)  (1=Request)\n=========\n
+Text Notes 4000 8000 0    50   ~ 0
+CPLD Equations:\n\n// Internal Nodes\nHC373_LE = !SW_1 & !AWR & !A15 & !A14 & A13 & ![A12..A7] & AD7;  // Switch is turned ON, and Write access to 0x2000, and AD7 is 1\nMODE_GameCart.ck = HC373_LE;\nMODE_GameCart.d = AD6;  // Switch to the GameCart mode, if the bit6 is set. Or else, switch to the MemoryBackup Mode.\nMODE_Flash010Only.ck = HC373_LE;\nMODE_Flash010Only.d = !AD6 & AD5;  // In MemoryBackup Mode, if AD5 is 1, indicates that 28SF040 is disabled.\n                                       // Then AD4..AD1 values are ignored and the AD0 value will be latched to F010_A14.\n\n// Output control signals\n!ARD_T = SW_1 & !ARD                 // Switch is turned off, and read\n        # !SW_1 & MODE_GameCart & !ARD   // Switch is turned ON, and stays in GameCartridge Mode, and read\n!AWR_T = SW_1 & !AWR                 // Switch is turned off, and write\n        # !SW_1 & MODE_GameCart & !AWR   // Switch is turned ON, and stays in GameCartridge Mode, and write\nAA15_T = SW_1 &  AA15                 // Switch is turned off, and AA15=1\n        # !SW_1 & MODE_GameCart & AA15   // Switch is turned ON, and stays in GameCartridge Mode, and AA15=1\n!F_CE_040 = !SW_1 & !MODE_GameCart & !MODE_Flash010Only & !A15 &  A14;  // Switch is turned ON, and stays in MemoryBackUp Mode, and not in Flash010Only mode, and Read/Write accessing 0x4000-0x7FFF\n!F_CE_010 = !SW_1 & !MODE_GameCart & !A15 & !A14;  // Switch is turned ON, and stays in MemoryBackUp Mode, and Read/Write accessing 0x0000-0x3FFF\n           # !SW_1 & !MODE_GameCart & MODE_Flash010Only & !A15 &  A14;  // Switch is turned ON, and stays in MemoryBackUp Mode, and in Flash010Only mode, and Read/Write accessing 0x4000-0x7FFF\n\n// Output ROM 010 and 040 address signals\n[F040_A18..F040_A14].ck = HC373_LE & AD6;\n                          # HC373_LE & !AD5;\n[F040_A18..F040_A14].d = (AD4..AD0);\nF010_A14.ck = HC373_LE & !AD6 & AD5;\nF010_A14.d = AD0;\n
+Text Notes 600  12900 0    50   ~ 0
+https://gbdev.gg8.se/forums/viewtopic.php?id=618\nhttps://gekkio.fi/files/gb-docs/gbctr.pdf  (p.62-p.63)\nhttp://www.psxdev.net/forum/viewtopic.php?t=652&start=20\n\nThe Game Boy pulls #CS(Pin5) low when the CPU is accessing $A000-$FDFF.\n\n\nWhen accessing $0000-7FFF the correct chip select signal is actually A15, because A15 is low when accessing that memory area and high at all other times.\n\nSo A15 fulfills the role of #ROM_CS at the same time, and you must use A15 as the chip select if you intend to respond to reads/writes in $0000-$7FFF.\n\n\nBut for SRAM usage, the emulator need to access 0xA000-0xBFFF on cartridge.\nThat mean A15=1 and A14=0 and #CS(pin5)=0
+Text Notes 5050 11100 0    50   ~ 0
+Memory Maps:\n\nIf switch is turned off, all I/O operations are pass-throughed to the game cartridge in the top cartridge slot.\n\nIf switch is turned on:\n\n[Memory]\n$0000-$3FFF:\n  If (MODE_GameCart==true) state, all I/O operation are pass-throughed to the game cartridge $0000-$3FFF.\n  Accessing AT29C010.\n\n$4000-$7FFF:\n  If (MODE_GameCart==true) state, all I/O operation are pass-throughed to the game cartridge $4000-$7FFF.\n  Else if (MODE_Flash010Only==fale) state, accessing the current bank of 28SF040.(See below for bank switch detail of the 28SF040)\n  Else accessing AT29C010.\n\n[Registers]\n$2000:\n  if (bit7 != 1) {\n    ignore;\n  } else if (bit6==1) {\n    MODE_GameCart=true;  [bit4..bit0] latched to 28SF040.[A18..A14];\n  } else {\n    if (bit5==0) {\n      MODE_Flash010Only=false;  [bit4..bit0] latched to 28SF040.[A18..A14];\n    } else  {\n      MODE_Flash010Only=true;  [bit0] latched to AT29C010.[A14];}\n  }\nExample:\n  [$2000] = b’0xxxxxxx; // ignored\n  [$2000] = b’110vwxyz; // 28SF040.[A18..A14] = vwxyz;  MODE_GameCart=true;\n  [$2000] = b’111vwxyz; // 28SF040.[A18..A14] = vwxyz;  MODE_GameCart=true;\n  [$2000] = b’100vwxyz; // 28SF040.[A18..A14] = vwxyz;  MODE_GameCart=false; MODE_Flash010Only=false;\n  [$2000] = b’101vwxyz; // AT29C010.[A14] = z;          MODE_GameCart=false; MODE_Flash010Only=true;\n
 $EndSCHEMATC
