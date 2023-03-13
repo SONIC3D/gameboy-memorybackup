@@ -414,17 +414,6 @@ Connection ~ 2600 6200
 Wire Wire Line
 	2600 6200 2900 6200
 $Comp
-L power:+5V #PWR?
-U 1 1 641482CB
-P 2900 5900
-F 0 "#PWR?" H 2900 5750 50  0001 C CNN
-F 1 "+5V" H 2915 6073 50  0000 C CNN
-F 2 "" H 2900 5900 50  0001 C CNN
-F 3 "" H 2900 5900 50  0001 C CNN
-	1    2900 5900
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:C_Small C?
 U 1 1 64149090
 P 3100 5950
@@ -610,4 +599,221 @@ F 3 "" H 3450 6900 50  0001 C CNN
 $EndComp
 Text Label 3050 7100 0    50   ~ 0
 F010_A14
+$Comp
+L Connector_Generic:Conn_02x05_Odd_Even J3
+U 1 1 638FDC56
+P 3450 10650
+F 0 "J3" H 3500 11067 50  0000 C CNN
+F 1 "JTAG-A" H 3500 10976 50  0000 C CNN
+F 2 "Connector_PinHeader_Boxed_2.54mm:PinHeader_2x05_P2.54mm_Vertical" H 3450 10650 50  0001 C CNN
+F 3 "~" H 3450 10650 50  0001 C CNN
+	1    3450 10650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3750 10450 4000 10450
+Wire Wire Line
+	3750 10550 4000 10550
+Wire Wire Line
+	3750 10650 4000 10650
+Wire Wire Line
+	3750 10750 4000 10750
+Wire Wire Line
+	3750 10850 4000 10850
+Wire Wire Line
+	3250 10450 3000 10450
+Wire Wire Line
+	3250 10550 3000 10550
+Wire Wire Line
+	3250 10650 3000 10650
+Wire Wire Line
+	3250 10750 3000 10750
+Wire Wire Line
+	3250 10850 3000 10850
+NoConn ~ 3000 10750
+NoConn ~ 4000 10650
+NoConn ~ 4000 10750
+$Comp
+L power:GND #PWR0117
+U 1 1 63C93AC6
+P 4000 10450
+F 0 "#PWR0117" H 4000 10200 50  0001 C CNN
+F 1 "GND" V 4005 10322 50  0000 R CNN
+F 2 "" H 4000 10450 50  0001 C CNN
+F 3 "" H 4000 10450 50  0001 C CNN
+	1    4000 10450
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR0118
+U 1 1 63C94223
+P 4000 10850
+F 0 "#PWR0118" H 4000 10600 50  0001 C CNN
+F 1 "GND" V 4005 10722 50  0000 R CNN
+F 2 "" H 4000 10850 50  0001 C CNN
+F 3 "" H 4000 10850 50  0001 C CNN
+	1    4000 10850
+	0    -1   -1   0   
+$EndComp
+Text Label 3200 10650 2    50   ~ 0
+TMS
+Text Label 3200 10450 2    50   ~ 0
+TCK
+Text Label 3200 10550 2    50   ~ 0
+TDO
+Text Label 3200 10850 2    50   ~ 0
+TDI
+Text Label 4000 10550 0    50   ~ 0
+VccINT
+Text Label 850  10350 0    50   ~ 0
+TCK
+Text Label 850  10150 0    50   ~ 0
+TMS
+Text Label 850  10250 0    50   ~ 0
+TDI
+$Comp
+L Device:R_Small R8
+U 1 1 637A7412
+P 1300 9950
+F 0 "R8" H 1241 9904 50  0000 R CNN
+F 1 "10K" H 1241 9995 50  0000 R CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" H 1300 9950 50  0001 C CNN
+F 3 "~" H 1300 9950 50  0001 C CNN
+	1    1300 9950
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R_Small R9
+U 1 1 637A84B9
+P 1550 9950
+F 0 "R9" H 1491 9904 50  0000 R CNN
+F 1 "10K" H 1491 9995 50  0000 R CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" H 1550 9950 50  0001 C CNN
+F 3 "~" H 1550 9950 50  0001 C CNN
+	1    1550 9950
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1300 10150 1300 10050
+Wire Wire Line
+	800  10150 1300 10150
+Wire Wire Line
+	1550 10250 1550 10050
+Wire Wire Line
+	800  10250 1550 10250
+Wire Wire Line
+	1300 9850 1300 9750
+Wire Wire Line
+	1550 9850 1550 9750
+Wire Wire Line
+	1300 9750 1550 9750
+Connection ~ 1550 9750
+Wire Wire Line
+	1550 9750 1900 9750
+Text Label 1900 9750 0    50   ~ 0
+VccIO
+Wire Wire Line
+	800  10350 1550 10350
+$Comp
+L power:GND #PWR0119
+U 1 1 6387C84E
+P 1550 10750
+F 0 "#PWR0119" H 1550 10500 50  0001 C CNN
+F 1 "GND" H 1555 10577 50  0000 C CNN
+F 2 "" H 1550 10750 50  0001 C CNN
+F 3 "" H 1550 10750 50  0001 C CNN
+	1    1550 10750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1550 10350 1550 10450
+$Comp
+L Device:R_Small R10
+U 1 1 6389BC49
+P 1550 10550
+F 0 "R10" H 1491 10504 50  0000 R CNN
+F 1 "1K" H 1491 10595 50  0000 R CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" H 1550 10550 50  0001 C CNN
+F 3 "~" H 1550 10550 50  0001 C CNN
+	1    1550 10550
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1550 10650 1550 10750
+Wire Notes Line
+	600  9350 2400 9350
+Wire Notes Line
+	2400 9350 2400 11100
+Wire Notes Line
+	2400 11100 600  11100
+Wire Notes Line
+	600  11100 600  9350
+Text Notes 650  9500 0    50   ~ 0
+JTAG Pins Pull-Up and Pull-Down for ISP
+Wire Notes Line
+	2500 10000 4550 10000
+Wire Notes Line
+	4550 10000 4550 11100
+Wire Notes Line
+	4550 11100 2500 11100
+Wire Notes Line
+	2500 11100 2500 10000
+Text Notes 2550 10150 0    50   ~ 0
+JTAG port
+Wire Notes Line
+	2500 9350 2500 9900
+Wire Notes Line
+	2500 9900 4550 9900
+Wire Notes Line
+	4550 9900 4550 9350
+Wire Notes Line
+	4550 9350 2500 9350
+$Comp
+L power:+5V #PWR?
+U 1 1 643A8B7F
+P 4150 9600
+F 0 "#PWR?" H 4150 9450 50  0001 C CNN
+F 1 "+5V" H 4165 9773 50  0000 C CNN
+F 2 "" H 4150 9600 50  0001 C CNN
+F 3 "" H 4150 9600 50  0001 C CNN
+	1    4150 9600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4150 9600 4150 9700
+Wire Wire Line
+	4150 9700 3750 9700
+Text Label 3250 9800 0    50   ~ 0
+VccIO
+Wire Wire Line
+	3250 9800 3750 9800
+Wire Wire Line
+	3750 9800 3750 9700
+Wire Wire Line
+	3750 9600 3250 9600
+Connection ~ 3750 9700
+Wire Wire Line
+	3750 9700 3750 9600
+Text Label 3250 9600 0    50   ~ 0
+VccINT
+Text Notes 2550 9500 0    50   ~ 0
+CPLD Power
+Text Label 2900 5900 2    50   ~ 0
+VccINT
+Wire Wire Line
+	1800 6900 1350 6900
+Wire Wire Line
+	1800 6400 1350 6400
+Text Label 1400 6400 0    50   ~ 0
+TDI
+Text Label 1400 6900 0    50   ~ 0
+TMS
+Wire Wire Line
+	3000 7400 3550 7400
+Wire Wire Line
+	3000 7900 3550 7900
+Text Label 3150 7900 0    50   ~ 0
+TCK
+Text Label 3150 7400 0    50   ~ 0
+TDO
 $EndSCHEMATC
