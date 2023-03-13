@@ -15,7 +15,7 @@ Comment4 ""
 $EndDescr
 $Comp
 L NintendoGBCart_ExtSymbol:GB_Cart_EdgeConn-1Row-32Pins J1
-U 1 1 620CED94
+U 1 1 6476341E
 P 2400 3850
 F 0 "J1" H 2868 5131 50  0000 C CNN
 F 1 "GB_Cart_EdgeConn-1Row-32Pins" H 2868 5040 50  0000 C CNN
@@ -26,7 +26,7 @@ F 3 "https://fms.komkon.org/GameBoy/Tech/Hardware.html" H 2400 3800 50  0001 C C
 $EndComp
 $Comp
 L power:+5V #PWR0101
-U 1 1 6216D5D7
+U 1 1 64763420
 P 1950 2650
 F 0 "#PWR0101" H 1950 2500 50  0001 C CNN
 F 1 "+5V" H 1965 2823 50  0000 C CNN
@@ -41,7 +41,7 @@ Wire Wire Line
 	1950 2750 1950 2650
 $Comp
 L power:GND #PWR0102
-U 1 1 62176B74
+U 1 1 64763421
 P 2400 4950
 F 0 "#PWR0102" H 2400 4700 50  0001 C CNN
 F 1 "GND" H 2405 4777 50  0000 C CNN
@@ -150,7 +150,7 @@ Wire Wire Line
 	14600 4400 14100 4400
 $Comp
 L power:+5V #PWR0104
-U 1 1 622067B3
+U 1 1 64763422
 P 13000 2650
 F 0 "#PWR0104" H 13000 2500 50  0001 C CNN
 F 1 "+5V" H 13015 2823 50  0000 C CNN
@@ -165,7 +165,7 @@ Wire Wire Line
 	13000 2750 13500 2750
 $Comp
 L power:GND #PWR0105
-U 1 1 62213C71
+U 1 1 64763423
 P 13500 4950
 F 0 "#PWR0105" H 13500 4700 50  0001 C CNN
 F 1 "GND" H 13505 4777 50  0000 C CNN
@@ -312,7 +312,7 @@ Text Label 14150 4400 0    50   ~ 0
 ~ARST
 $Comp
 L NintendoGBCart_ExtSymbol:SW_SPDT SW1
-U 1 1 641FF991
+U 1 1 64763428
 P 13000 7050
 F 0 "SW1" H 13000 7335 50  0000 C CNN
 F 1 "SW_SPDT" H 13000 7244 50  0000 C CNN
@@ -337,8 +337,6 @@ F 3 "" H 13700 7050 50  0001 C CNN
 	1    13700 7050
 	1    0    0    -1  
 $EndComp
-Text Notes 12150 7550 0    50   ~ 0
-SW1(SWITCH):\nPin 1: "On" (U0.~SW_1~=0) Turn this cart on.\nPin 3: "Off" (U0.~SW_1~=1) Turn this cart off.(Pass-through cart)
 Connection ~ 12550 7050
 Wire Wire Line
 	12550 7050 12800 7050
@@ -390,10 +388,10 @@ F 3 "https://fms.komkon.org/GameBoy/Tech/Hardware.html" H 13500 3800 50  0001 C 
 	1    0    0    -1  
 $EndComp
 $Comp
-L ATF15xx_CommonLib:Generic-ATF15xx-PLCC44 U0
-U 1 1 64131503
+L ATF15xx_CommonLib:Generic-ATF15xx-PLCC44 U3
+U 1 1 64763424
 P 2400 7200
-F 0 "U0" H 2400 8381 50  0000 C CNN
+F 0 "U3" H 2400 8381 50  0000 C CNN
 F 1 "Generic-ATF15xx-PLCC44" H 2400 8290 50  0000 C CNN
 F 2 "Package_LCC:PLCC-44_THT-Socket" H 2400 8650 50  0001 C CNN
 F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-0995-CPLD-ATF1502AS(L)-Datasheet.pdf" H 2400 8650 50  0001 C CNN
@@ -414,10 +412,10 @@ Connection ~ 2600 6200
 Wire Wire Line
 	2600 6200 2900 6200
 $Comp
-L Device:C_Small C?
+L Device:C_Small C3
 U 1 1 64149090
 P 3100 5950
-F 0 "C?" V 2871 5950 50  0000 C CNN
+F 0 "C3" V 2871 5950 50  0000 C CNN
 F 1 "0.1uF" V 2962 5950 50  0000 C CNN
 F 2 "" H 3100 5950 50  0001 C CNN
 F 3 "~" H 3100 5950 50  0001 C CNN
@@ -425,10 +423,10 @@ F 3 "~" H 3100 5950 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0123
 U 1 1 6414909A
 P 3200 5950
-F 0 "#PWR?" H 3200 5700 50  0001 C CNN
+F 0 "#PWR0123" H 3200 5700 50  0001 C CNN
 F 1 "GND" H 3205 5777 50  0000 C CNN
 F 2 "" H 3200 5950 50  0001 C CNN
 F 3 "" H 3200 5950 50  0001 C CNN
@@ -452,10 +450,10 @@ Connection ~ 2600 8300
 Wire Wire Line
 	2600 8300 2500 8300
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0124
 U 1 1 6416E70C
 P 2400 8350
-F 0 "#PWR?" H 2400 8100 50  0001 C CNN
+F 0 "#PWR0124" H 2400 8100 50  0001 C CNN
 F 1 "GND" H 2405 8177 50  0000 C CNN
 F 2 "" H 2400 8350 50  0001 C CNN
 F 3 "" H 2400 8350 50  0001 C CNN
@@ -661,10 +659,10 @@ TMS
 Text Label 850  10250 0    50   ~ 0
 TDI
 $Comp
-L Device:R_Small R8
+L Device:R_Small R11
 U 1 1 637A7412
 P 1300 9950
-F 0 "R8" H 1241 9904 50  0000 R CNN
+F 0 "R11" H 1241 9904 50  0000 R CNN
 F 1 "10K" H 1241 9995 50  0000 R CNN
 F 2 "Resistor_SMD:R_0805_2012Metric" H 1300 9950 50  0001 C CNN
 F 3 "~" H 1300 9950 50  0001 C CNN
@@ -672,10 +670,10 @@ F 3 "~" H 1300 9950 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:R_Small R9
+L Device:R_Small R12
 U 1 1 637A84B9
 P 1550 9950
-F 0 "R9" H 1491 9904 50  0000 R CNN
+F 0 "R12" H 1491 9904 50  0000 R CNN
 F 1 "10K" H 1491 9995 50  0000 R CNN
 F 2 "Resistor_SMD:R_0805_2012Metric" H 1550 9950 50  0001 C CNN
 F 3 "~" H 1550 9950 50  0001 C CNN
@@ -716,17 +714,6 @@ F 3 "" H 1550 10750 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	1550 10350 1550 10450
-$Comp
-L Device:R_Small R10
-U 1 1 6389BC49
-P 1550 10550
-F 0 "R10" H 1491 10504 50  0000 R CNN
-F 1 "1K" H 1491 10595 50  0000 R CNN
-F 2 "Resistor_SMD:R_0805_2012Metric" H 1550 10550 50  0001 C CNN
-F 3 "~" H 1550 10550 50  0001 C CNN
-	1    1550 10550
-	-1   0    0    1   
-$EndComp
 Wire Wire Line
 	1550 10650 1550 10750
 Wire Notes Line
@@ -758,10 +745,10 @@ Wire Notes Line
 Wire Notes Line
 	4550 9350 2500 9350
 $Comp
-L power:+5V #PWR?
+L power:+5V #PWR0125
 U 1 1 643A8B7F
 P 4150 9600
-F 0 "#PWR?" H 4150 9450 50  0001 C CNN
+F 0 "#PWR0125" H 4150 9450 50  0001 C CNN
 F 1 "+5V" H 4165 9773 50  0000 C CNN
 F 2 "" H 4150 9600 50  0001 C CNN
 F 3 "" H 4150 9600 50  0001 C CNN
@@ -823,10 +810,10 @@ Wire Wire Line
 Wire Wire Line
 	13700 8350 13700 8450
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0126
 U 1 1 646AFFD0
 P 13700 8450
-F 0 "#PWR?" H 13700 8200 50  0001 C CNN
+F 0 "#PWR0126" H 13700 8200 50  0001 C CNN
 F 1 "GND" H 13705 8277 50  0000 C CNN
 F 2 "" H 13700 8450 50  0001 C CNN
 F 3 "" H 13700 8450 50  0001 C CNN
@@ -845,10 +832,10 @@ F 3 "~" H 12550 8100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+5V #PWR?
+L power:+5V #PWR0127
 U 1 1 646B073C
 P 12550 7900
-F 0 "#PWR?" H 12550 7750 50  0001 C CNN
+F 0 "#PWR0127" H 12550 7750 50  0001 C CNN
 F 1 "+5V" H 12565 8073 50  0000 C CNN
 F 2 "" H 12550 7900 50  0001 C CNN
 F 3 "" H 12550 7900 50  0001 C CNN
@@ -865,7 +852,406 @@ Wire Wire Line
 Text Label 12200 8350 0    50   ~ 0
 ~SW_2
 Text Notes 12150 8950 0    50   ~ 0
-SW2(Push):\nPushed: "On" (U0.~SW_2~=0) Triggered specific signal.
+SW2(Push):\nPushed: "On" (U3.~SW_2~=0) Triggered the specific signal.
 Text Label 3100 6900 0    50   ~ 0
 ~SW_2
+$Comp
+L NintendoGBCart_ExtSymbol:AT29C040A-PLCC32 U1
+U 1 1 62148CFE
+P 6600 4000
+F 0 "U1" H 6600 5481 50  0000 C CNN
+F 1 "AT29C010A-PLCC32" H 6600 5390 50  0000 C CNN
+F 2 "Package_LCC:PLCC-32_11.4x14.0mm_P1.27mm" H 6600 4000 50  0001 C CNN
+F 3 "https://media.digikey.com/pdf/Data%20Sheets/Atmel%20PDFs/AT29C040A.pdf" H 6600 4000 50  0001 C CNN
+	1    6600 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7200 4000 7750 4000
+$Comp
+L power:+5V #PWR0112
+U 1 1 625869DA
+P 7200 2500
+F 0 "#PWR0112" H 7200 2350 50  0001 C CNN
+F 1 "+5V" H 7215 2673 50  0000 C CNN
+F 2 "" H 7200 2500 50  0001 C CNN
+F 3 "" H 7200 2500 50  0001 C CNN
+	1    7200 2500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6650 2700 7200 2700
+$Comp
+L power:GND #PWR0113
+U 1 1 625A4656
+P 6650 5300
+F 0 "#PWR0113" H 6650 5050 50  0001 C CNN
+F 1 "GND" H 6655 5127 50  0000 C CNN
+F 2 "" H 6650 5300 50  0001 C CNN
+F 3 "" H 6650 5300 50  0001 C CNN
+	1    6650 5300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7200 4100 7750 4100
+Text Label 7250 4100 0    50   ~ 0
+~ARD
+Text Label 7250 3100 0    50   ~ 0
+AD0
+Wire Wire Line
+	7200 3800 7450 3800
+Wire Wire Line
+	7200 3700 7450 3700
+Wire Wire Line
+	7200 3600 7450 3600
+Wire Wire Line
+	7200 3500 7450 3500
+Wire Wire Line
+	7200 3400 7450 3400
+Wire Wire Line
+	7200 3300 7450 3300
+Wire Wire Line
+	7200 3200 7450 3200
+Wire Wire Line
+	7200 3100 7450 3100
+Text Label 7250 3200 0    50   ~ 0
+AD1
+Text Label 7250 3400 0    50   ~ 0
+AD3
+Text Label 7250 3600 0    50   ~ 0
+AD5
+Text Label 7250 3700 0    50   ~ 0
+AD6
+Text Label 7250 3800 0    50   ~ 0
+AD7
+Text Label 7250 3500 0    50   ~ 0
+AD4
+Text Label 7250 3300 0    50   ~ 0
+AD2
+$Comp
+L Device:C_Small C1
+U 1 1 63ED779E
+P 7400 2550
+F 0 "C1" V 7537 2550 50  0000 C CNN
+F 1 "0.1uF" V 7628 2550 50  0000 C CNN
+F 2 "" H 7400 2550 50  0001 C CNN
+F 3 "~" H 7400 2550 50  0001 C CNN
+	1    7400 2550
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0103
+U 1 1 63EF04C3
+P 7550 2550
+F 0 "#PWR0103" H 7550 2300 50  0001 C CNN
+F 1 "GND" V 7555 2422 50  0000 R CNN
+F 2 "" H 7550 2550 50  0001 C CNN
+F 3 "" H 7550 2550 50  0001 C CNN
+	1    7550 2550
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	7500 2550 7550 2550
+Wire Wire Line
+	7200 4200 7750 4200
+Text Label 7250 4200 0    50   ~ 0
+~AWR
+Text Label 5950 4200 2    50   ~ 0
+AA11
+Text Label 5950 4100 2    50   ~ 0
+AA10
+Text Label 5950 4000 2    50   ~ 0
+AA9
+Text Label 5950 3900 2    50   ~ 0
+AA8
+Text Label 5950 3800 2    50   ~ 0
+AA7
+Text Label 5950 3700 2    50   ~ 0
+AA6
+Text Label 5950 3600 2    50   ~ 0
+AA5
+Text Label 5950 3500 2    50   ~ 0
+AA4
+Text Label 5950 3300 2    50   ~ 0
+AA2
+Text Label 5950 3200 2    50   ~ 0
+AA1
+Wire Wire Line
+	6000 4100 5650 4100
+Wire Wire Line
+	6000 4200 5650 4200
+Wire Wire Line
+	6000 4000 5650 4000
+Wire Wire Line
+	6000 3900 5650 3900
+Wire Wire Line
+	6000 3400 5650 3400
+Wire Wire Line
+	6000 3500 5650 3500
+Wire Wire Line
+	6000 3600 5650 3600
+Wire Wire Line
+	6000 3700 5650 3700
+Wire Wire Line
+	6000 3800 5650 3800
+Wire Wire Line
+	6000 3300 5650 3300
+Wire Wire Line
+	6000 3200 5650 3200
+Text Label 5950 3400 2    50   ~ 0
+AA3
+Wire Wire Line
+	6000 3100 5650 3100
+Text Label 5950 3100 2    50   ~ 0
+AA0
+Wire Wire Line
+	6000 4300 5650 4300
+Text Label 5950 4300 2    50   ~ 0
+AA12
+Wire Wire Line
+	6000 4400 5650 4400
+Wire Wire Line
+	6000 4600 5550 4600
+Wire Wire Line
+	6000 4700 5550 4700
+Text Label 5950 4400 2    50   ~ 0
+AA13
+Wire Wire Line
+	5550 4600 5550 4700
+Connection ~ 5550 4700
+Wire Wire Line
+	5550 4700 5550 4800
+$Comp
+L power:GND #PWR0120
+U 1 1 644808EC
+P 5550 5000
+F 0 "#PWR0120" H 5550 4750 50  0001 C CNN
+F 1 "GND" H 5555 4827 50  0000 C CNN
+F 2 "" H 5550 5000 50  0001 C CNN
+F 3 "" H 5550 5000 50  0001 C CNN
+	1    5550 5000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5550 4500 6000 4500
+$Comp
+L NintendoGBCart_ExtSymbol:28SF040-PLCC32 U2
+U 1 1 6475DD2D
+P 9650 4000
+F 0 "U2" H 9650 5500 50  0000 C CNN
+F 1 "28SF040-120-4C-NH-PLCC32" H 9650 5400 50  0000 C CNN
+F 2 "Package_LCC:PLCC-32_11.4x14.0mm_P1.27mm" H 9650 4000 50  0001 C CNN
+F 3 "https://www.ramos.it/public/schede/SST28SF040-120-4C-NH.pdf" H 9650 4000 50  0001 C CNN
+	1    9650 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10250 4000 10800 4000
+$Comp
+L power:GND #PWR0121
+U 1 1 6475DD44
+P 9700 5300
+F 0 "#PWR0121" H 9700 5050 50  0001 C CNN
+F 1 "GND" H 9705 5127 50  0000 C CNN
+F 2 "" H 9700 5300 50  0001 C CNN
+F 3 "" H 9700 5300 50  0001 C CNN
+	1    9700 5300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10250 4100 10800 4100
+Text Label 10300 4100 0    50   ~ 0
+~ARD
+Text Label 10300 3100 0    50   ~ 0
+AD0
+Wire Wire Line
+	10250 3800 10500 3800
+Wire Wire Line
+	10250 3700 10500 3700
+Wire Wire Line
+	10250 3600 10500 3600
+Wire Wire Line
+	10250 3500 10500 3500
+Wire Wire Line
+	10250 3400 10500 3400
+Wire Wire Line
+	10250 3300 10500 3300
+Wire Wire Line
+	10250 3200 10500 3200
+Wire Wire Line
+	10250 3100 10500 3100
+Text Label 10300 3200 0    50   ~ 0
+AD1
+Text Label 10300 3400 0    50   ~ 0
+AD3
+Text Label 10300 3600 0    50   ~ 0
+AD5
+Text Label 10300 3700 0    50   ~ 0
+AD6
+Text Label 10300 3800 0    50   ~ 0
+AD7
+Text Label 10300 3500 0    50   ~ 0
+AD4
+Text Label 10300 3300 0    50   ~ 0
+AD2
+Wire Wire Line
+	10250 4200 10800 4200
+Text Label 10300 4200 0    50   ~ 0
+~AWR
+Text Label 9000 4200 2    50   ~ 0
+AA11
+Text Label 9000 4100 2    50   ~ 0
+AA10
+Text Label 9000 4000 2    50   ~ 0
+AA9
+Text Label 9000 3900 2    50   ~ 0
+AA8
+Text Label 9000 3800 2    50   ~ 0
+AA7
+Text Label 9000 3700 2    50   ~ 0
+AA6
+Text Label 9000 3600 2    50   ~ 0
+AA5
+Text Label 9000 3500 2    50   ~ 0
+AA4
+Text Label 9000 3300 2    50   ~ 0
+AA2
+Text Label 9000 3200 2    50   ~ 0
+AA1
+Wire Wire Line
+	9050 4100 8700 4100
+Wire Wire Line
+	9050 4200 8700 4200
+Wire Wire Line
+	9050 4000 8700 4000
+Wire Wire Line
+	9050 3900 8700 3900
+Wire Wire Line
+	9050 3400 8700 3400
+Wire Wire Line
+	9050 3500 8700 3500
+Wire Wire Line
+	9050 3600 8700 3600
+Wire Wire Line
+	9050 3700 8700 3700
+Wire Wire Line
+	9050 3800 8700 3800
+Wire Wire Line
+	9050 3300 8700 3300
+Wire Wire Line
+	9050 3200 8700 3200
+Text Label 9000 3400 2    50   ~ 0
+AA3
+Wire Wire Line
+	9050 3100 8700 3100
+Text Label 9000 3100 2    50   ~ 0
+AA0
+Wire Wire Line
+	9050 4300 8700 4300
+Text Label 9000 4300 2    50   ~ 0
+AA12
+Wire Wire Line
+	9050 4400 8700 4400
+Text Label 9000 4400 2    50   ~ 0
+AA13
+$Comp
+L power:+5V #PWR0122
+U 1 1 6475DD38
+P 10300 2500
+F 0 "#PWR0122" H 10300 2350 50  0001 C CNN
+F 1 "+5V" H 10315 2673 50  0000 C CNN
+F 2 "" H 10300 2500 50  0001 C CNN
+F 3 "" H 10300 2500 50  0001 C CNN
+	1    10300 2500
+	1    0    0    -1  
+$EndComp
+Text Label 10300 4000 0    50   ~ 0
+~F_CE_040
+Text Label 7250 4000 0    50   ~ 0
+~F_CE_010
+Wire Wire Line
+	8600 4500 9050 4500
+Wire Wire Line
+	8600 4600 9050 4600
+Wire Wire Line
+	8600 4700 9050 4700
+Wire Wire Line
+	8600 4800 9050 4800
+Wire Wire Line
+	8600 4900 9050 4900
+Wire Wire Line
+	10300 2500 10300 2550
+Wire Wire Line
+	10300 2700 9700 2700
+Wire Wire Line
+	7200 2700 7200 2550
+Wire Wire Line
+	7300 2550 7200 2550
+$Comp
+L Device:C_Small C2
+U 1 1 648B0694
+P 10500 2550
+F 0 "C2" V 10637 2550 50  0000 C CNN
+F 1 "0.1uF" V 10728 2550 50  0000 C CNN
+F 2 "" H 10500 2550 50  0001 C CNN
+F 3 "~" H 10500 2550 50  0001 C CNN
+	1    10500 2550
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0140
+U 1 1 648B069E
+P 10650 2550
+F 0 "#PWR0140" H 10650 2300 50  0001 C CNN
+F 1 "GND" V 10655 2422 50  0000 R CNN
+F 2 "" H 10650 2550 50  0001 C CNN
+F 3 "" H 10650 2550 50  0001 C CNN
+	1    10650 2550
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	10600 2550 10650 2550
+Wire Wire Line
+	10400 2550 10300 2550
+Connection ~ 10300 2550
+Wire Wire Line
+	10300 2550 10300 2700
+Connection ~ 7200 2550
+Wire Wire Line
+	7200 2550 7200 2500
+Text Notes 12150 7600 0    50   ~ 0
+SW1(SWITCH):\nPin 1: "On" (U3.~SW_1~=0) Turn this cart on.\nPin 3: "Off" (U3.~SW_1~=1) Turn this cart off.\n        (Pass-through cart, running the game software only)
+Text Label 8700 4900 0    50   ~ 0
+F040_A18
+Text Label 8700 4800 0    50   ~ 0
+F040_A17
+Text Label 8700 4700 0    50   ~ 0
+F040_A16
+Text Label 8700 4600 0    50   ~ 0
+F040_A15
+Text Label 8700 4500 0    50   ~ 0
+F040_A14
+Text Label 5650 4500 0    50   ~ 0
+F010_A14
+$Comp
+L Device:R_Small R13
+U 1 1 6389BC49
+P 1550 10550
+F 0 "R13" H 1491 10504 50  0000 R CNN
+F 1 "1K" H 1491 10595 50  0000 R CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" H 1550 10550 50  0001 C CNN
+F 3 "~" H 1550 10550 50  0001 C CNN
+	1    1550 10550
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	6000 4800 5550 4800
+Connection ~ 5550 4800
+Wire Wire Line
+	5550 4800 5550 4900
+Wire Wire Line
+	6000 4900 5550 4900
+Connection ~ 5550 4900
+Wire Wire Line
+	5550 4900 5550 5000
 $EndSCHEMATC
