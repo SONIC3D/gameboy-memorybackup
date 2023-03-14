@@ -1,0 +1,800 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>/Users/luzongjing/Documents/KiCad_Projects/GB_Cart/S3D_Gameboy_MemoryBackup_Homebrew/GB_MemoryBackup_Mainboard/GB_MemoryBackup_Mainboard.sch</source>
+    <date>Wednesday, 15 March 2023 at 03:56:19</date>
+    <tool>Eeschema (5.1.10-1-10_14)</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>GB MemoryBackup Mainboard</title>
+        <company>SONIC3D</company>
+        <rev>1.0</rev>
+        <date>2023-03-13</date>
+        <source>GB_MemoryBackup_Mainboard.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="J1">
+      <value>GB_Cart_EdgeConn-1Row-32Pins</value>
+      <footprint>NintendoGBCart_ExtFootprint:GB_Cart_1x32_P1.50mm_Edge_For_RawPCB</footprint>
+      <datasheet>https://fms.komkon.org/GameBoy/Tech/Hardware.html</datasheet>
+      <libsource lib="NintendoGBCart_ExtSymbol" part="GB_Cart_EdgeConn-1Row-32Pins" description="GameBoy Cart Edge Connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6476341E</tstamp>
+    </comp>
+    <comp ref="SW1">
+      <value>SW_SPDT</value>
+      <footprint>Button_Switch_THT_JLCPCB:SW-TH_SK12D07VG3</footprint>
+      <datasheet>https://atta.szlcsc.com//upload/public/pdf/source/20190925/C431547_01B93C6F3FA5C09E15F8CCBF4E6DB91A.pdf</datasheet>
+      <fields>
+        <field name="LCSC">C431547</field>
+        <field name="LCSC_Bak">C393937</field>
+      </fields>
+      <libsource lib="NintendoGBCart_ExtSymbol" part="SW_SPDT" description="Switch, single pole double throw"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>64763428</tstamp>
+    </comp>
+    <comp ref="R1">
+      <value>10K</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="LCSC">C17414</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>64EAD1E1</tstamp>
+    </comp>
+    <comp ref="J2">
+      <value>GB_Cart_Slot-1Row-32Pins</value>
+      <footprint>NintendoGBCart_ExtFootprint:GB_GBA_Cartridge_Slot</footprint>
+      <datasheet>https://fms.komkon.org/GameBoy/Tech/Hardware.html</datasheet>
+      <libsource lib="NintendoGBCart_ExtSymbol" part="GB_Cart_Slot-1Row-32Pins" description="GameBoy Cart Slot"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>64EAD1D7</tstamp>
+    </comp>
+    <comp ref="U3">
+      <value>Generic-ATF15xx-PLCC44</value>
+      <footprint>Package_LCC_JLCPCB:LCC-44_L23.2-W23.2-P1.27-T</footprint>
+      <datasheet>http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-0995-CPLD-ATF1502AS(L)-Datasheet.pdf</datasheet>
+      <fields>
+        <field name="LCSC">C2828044</field>
+      </fields>
+      <libsource lib="ATF15xx_CommonLib" part="Generic-ATF15xx-PLCC44" description="Microchip CPLD, Generic PLCC-44 package symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>64763424</tstamp>
+    </comp>
+    <comp ref="C3">
+      <value>0.1uF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="LCSC">C49678</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>64EAD1DD</tstamp>
+    </comp>
+    <comp ref="J3">
+      <value>JTAG-A</value>
+      <footprint>Connector_PinHeader_Boxed_2.54mm:PinHeader_2x05_P2.54mm_Vertical</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector_Generic" part="Conn_02x05_Odd_Even" description="Generic connector, double row, 02x05, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>638FDC56</tstamp>
+    </comp>
+    <comp ref="R11">
+      <value>10K</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="LCSC">C17414</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>637A7412</tstamp>
+    </comp>
+    <comp ref="R12">
+      <value>10K</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="LCSC">C17414</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>637A84B9</tstamp>
+    </comp>
+    <comp ref="SW2">
+      <value>SW_Push</value>
+      <footprint>Button_Switch_THT_JLCPCB:KEY-TH_K2-1109DE-CXXW-XX</footprint>
+      <datasheet>https://atta.szlcsc.com//upload/public/pdf/source/20210810/329661682BA8B3C2B40574DEC7B97564.pdf</datasheet>
+      <fields>
+        <field name="LCSC">C136732</field>
+      </fields>
+      <libsource lib="NintendoGBCart_ExtSymbol" part="SW_Push" description="Push button switch, generic, two pins"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>64692872</tstamp>
+    </comp>
+    <comp ref="R2">
+      <value>10K</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="LCSC">C17414</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>646B0732</tstamp>
+    </comp>
+    <comp ref="U1">
+      <value>AT29C010A-PLCC32</value>
+      <footprint>Package_LCC_JLCPCB:PLCC-32_L14.0-W11.5-P1.27-T</footprint>
+      <datasheet>https://media.digikey.com/pdf/Data%20Sheets/Atmel%20PDFs/AT29C040A.pdf</datasheet>
+      <fields>
+        <field name="LCSC">C72257</field>
+      </fields>
+      <libsource lib="NintendoGBCart_ExtSymbol" part="AT29C040A-PLCC32" description="Flash EEProm 512Ko 4Mbit 5V CMOS Sector-Program"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>62148CFE</tstamp>
+    </comp>
+    <comp ref="C1">
+      <value>0.1uF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="LCSC">C49678</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>63ED779E</tstamp>
+    </comp>
+    <comp ref="U2">
+      <value>28SF040-120-4C-NH-PLCC32</value>
+      <footprint>Package_LCC_JLCPCB:PLCC-32_L14.0-W11.5-P1.27-T</footprint>
+      <datasheet>https://www.ramos.it/public/schede/SST28SF040-120-4C-NH.pdf</datasheet>
+      <fields>
+        <field name="LCSC">C72257</field>
+      </fields>
+      <libsource lib="NintendoGBCart_ExtSymbol" part="28SF040-PLCC32" description="Flash EEProm 512Ko 4Mbit 5V CMOS Sector-Erase Byte-Program"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>64EAD1E4</tstamp>
+    </comp>
+    <comp ref="C2">
+      <value>0.1uF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="LCSC">C49678</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>648B0694</tstamp>
+    </comp>
+    <comp ref="R13">
+      <value>1K</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="LCSC">C17513</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6389BC49</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="ATF15xx_CommonLib" part="Generic-ATF15xx-PLCC44">
+      <description>Microchip CPLD, Generic PLCC-44 package symbol</description>
+      <docs>http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-0995-CPLD-ATF1502AS(L)-Datasheet.pdf</docs>
+      <footprints>
+        <fp>PLCC-44*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">Generic-ATF15xx-PLCC44</field>
+        <field name="Footprint">Package_LCC:PLCC-44_THT-Socket</field>
+      </fields>
+      <pins>
+        <pin num="1" name="I/GCLR" type="passive"/>
+        <pin num="2" name="I/OE2/GCLK2" type="passive"/>
+        <pin num="3" name="VCC" type="passive"/>
+        <pin num="4" name="I/O" type="passive"/>
+        <pin num="5" name="I/O" type="passive"/>
+        <pin num="6" name="I/O" type="passive"/>
+        <pin num="7" name="I/O/TDI" type="passive"/>
+        <pin num="8" name="I/O" type="passive"/>
+        <pin num="9" name="I/O" type="passive"/>
+        <pin num="10" name="GND" type="passive"/>
+        <pin num="11" name="I/O/PD1" type="passive"/>
+        <pin num="12" name="I/O" type="passive"/>
+        <pin num="13" name="I/O/TMS" type="passive"/>
+        <pin num="14" name="I/O" type="passive"/>
+        <pin num="15" name="VCC" type="passive"/>
+        <pin num="16" name="I/O" type="passive"/>
+        <pin num="17" name="I/O" type="passive"/>
+        <pin num="18" name="I/O" type="passive"/>
+        <pin num="19" name="I/O" type="passive"/>
+        <pin num="20" name="I/O" type="passive"/>
+        <pin num="21" name="I/O" type="passive"/>
+        <pin num="22" name="GND" type="passive"/>
+        <pin num="23" name="VCC" type="passive"/>
+        <pin num="24" name="I/O" type="passive"/>
+        <pin num="25" name="I/O/PD2" type="passive"/>
+        <pin num="26" name="I/O" type="passive"/>
+        <pin num="27" name="I/O" type="passive"/>
+        <pin num="28" name="I/O" type="passive"/>
+        <pin num="29" name="I/O" type="passive"/>
+        <pin num="30" name="GND" type="passive"/>
+        <pin num="31" name="I/O" type="passive"/>
+        <pin num="32" name="I/O/TCK" type="passive"/>
+        <pin num="33" name="I/O" type="passive"/>
+        <pin num="34" name="I/O" type="passive"/>
+        <pin num="35" name="VCC" type="passive"/>
+        <pin num="36" name="I/O" type="passive"/>
+        <pin num="37" name="I/O" type="passive"/>
+        <pin num="38" name="I/O/TDO" type="passive"/>
+        <pin num="39" name="I/O" type="passive"/>
+        <pin num="40" name="I/O" type="passive"/>
+        <pin num="41" name="I/O/GCLK3" type="passive"/>
+        <pin num="42" name="GND" type="passive"/>
+        <pin num="43" name="I/GCLK1" type="passive"/>
+        <pin num="44" name="I/OE1/Vpp" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_02x05_Odd_Even">
+      <description>Generic connector, double row, 02x05, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_2x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_02x05_Odd_Even</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+        <pin num="5" name="Pin_5" type="passive"/>
+        <pin num="6" name="Pin_6" type="passive"/>
+        <pin num="7" name="Pin_7" type="passive"/>
+        <pin num="8" name="Pin_8" type="passive"/>
+        <pin num="9" name="Pin_9" type="passive"/>
+        <pin num="10" name="Pin_10" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="C_Small">
+      <description>Unpolarized capacitor, small symbol</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C_Small</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R_Small">
+      <description>Resistor, small symbol</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R_Small</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="NintendoGBCart_ExtSymbol" part="28SF040-PLCC32">
+      <aliases>
+        <alias>28SF040A-PLCC32</alias>
+        <alias>28VF040A-PLCC32</alias>
+        <alias>28LF040-PLCC32</alias>
+        <alias>28VF040-PLCC32</alias>
+        <alias>AT29C040A-PLCC32</alias>
+      </aliases>
+      <description>Flash EEProm 512Ko 4Mbit 5V CMOS Sector-Erase Byte-Program</description>
+      <docs>https://www.ramos.it/public/schede/SST28SF040-120-4C-NH.pdf</docs>
+      <footprints>
+        <fp>PLCC-32*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">28SF040-PLCC32</field>
+        <field name="Footprint">Package_LCC:PLCC-32_11.4x14.0mm_P1.27mm</field>
+      </fields>
+      <pins>
+        <pin num="1" name="A18" type="input"/>
+        <pin num="2" name="A16" type="input"/>
+        <pin num="3" name="A15" type="input"/>
+        <pin num="4" name="A12" type="input"/>
+        <pin num="5" name="A7" type="input"/>
+        <pin num="6" name="A6" type="input"/>
+        <pin num="7" name="A5" type="input"/>
+        <pin num="8" name="A4" type="input"/>
+        <pin num="9" name="A3" type="input"/>
+        <pin num="10" name="A2" type="input"/>
+        <pin num="11" name="A1" type="input"/>
+        <pin num="12" name="A0" type="input"/>
+        <pin num="13" name="D0" type="3state"/>
+        <pin num="14" name="D1" type="3state"/>
+        <pin num="15" name="D2" type="3state"/>
+        <pin num="16" name="GND" type="power_in"/>
+        <pin num="17" name="D3" type="3state"/>
+        <pin num="18" name="D4" type="3state"/>
+        <pin num="19" name="D5" type="3state"/>
+        <pin num="20" name="D6" type="3state"/>
+        <pin num="21" name="D7" type="3state"/>
+        <pin num="22" name="/CE" type="input"/>
+        <pin num="23" name="A10" type="input"/>
+        <pin num="24" name="/OE" type="input"/>
+        <pin num="25" name="A11" type="input"/>
+        <pin num="26" name="A9" type="input"/>
+        <pin num="27" name="A8" type="input"/>
+        <pin num="28" name="A13" type="input"/>
+        <pin num="29" name="A14" type="input"/>
+        <pin num="30" name="A17" type="input"/>
+        <pin num="31" name="/WE" type="input"/>
+        <pin num="32" name="VCC" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="NintendoGBCart_ExtSymbol" part="GB_Cart_EdgeConn-1Row-32Pins">
+      <description>GameBoy Cart Edge Connector</description>
+      <docs>https://fms.komkon.org/GameBoy/Tech/Hardware.html</docs>
+      <footprints>
+        <fp>PLCC-32*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">GB_Cart_EdgeConn-1Row-32Pins</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VCC" type="power_out"/>
+        <pin num="2" name="CLK/PHI" type="output"/>
+        <pin num="3" name="/WR" type="output"/>
+        <pin num="4" name="/RD" type="output"/>
+        <pin num="5" name="/SRAM_CS" type="output"/>
+        <pin num="6" name="A0" type="output"/>
+        <pin num="7" name="A1" type="output"/>
+        <pin num="8" name="A2" type="output"/>
+        <pin num="9" name="A3" type="output"/>
+        <pin num="10" name="A4" type="output"/>
+        <pin num="11" name="A5" type="output"/>
+        <pin num="12" name="A6" type="output"/>
+        <pin num="13" name="A7" type="output"/>
+        <pin num="14" name="A8" type="output"/>
+        <pin num="15" name="A9" type="output"/>
+        <pin num="16" name="A10" type="output"/>
+        <pin num="17" name="A11" type="output"/>
+        <pin num="18" name="A12" type="output"/>
+        <pin num="19" name="A13" type="output"/>
+        <pin num="20" name="A14" type="output"/>
+        <pin num="21" name="A15" type="output"/>
+        <pin num="22" name="D0" type="3state"/>
+        <pin num="23" name="D1" type="3state"/>
+        <pin num="24" name="D2" type="3state"/>
+        <pin num="25" name="D3" type="3state"/>
+        <pin num="26" name="D4" type="3state"/>
+        <pin num="27" name="D5" type="3state"/>
+        <pin num="28" name="D6" type="3state"/>
+        <pin num="29" name="D7" type="3state"/>
+        <pin num="30" name="/Reset" type="passive"/>
+        <pin num="31" name="AudioIn" type="passive"/>
+        <pin num="32" name="GND" type="power_out"/>
+      </pins>
+    </libpart>
+    <libpart lib="NintendoGBCart_ExtSymbol" part="GB_Cart_Slot-1Row-32Pins">
+      <aliases>
+        <alias>GBA_Cart_Slot</alias>
+      </aliases>
+      <description>GameBoy Cart Slot</description>
+      <docs>https://fms.komkon.org/GameBoy/Tech/Hardware.html</docs>
+      <footprints>
+        <fp>PLCC-32*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">GB_Cart_Slot-1Row-32Pins</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VCC" type="power_in"/>
+        <pin num="2" name="CLK/PHI" type="input"/>
+        <pin num="3" name="/WR" type="input"/>
+        <pin num="4" name="/RD" type="input"/>
+        <pin num="5" name="/SRAM_CS" type="input"/>
+        <pin num="6" name="A0" type="input"/>
+        <pin num="7" name="A1" type="input"/>
+        <pin num="8" name="A2" type="input"/>
+        <pin num="9" name="A3" type="input"/>
+        <pin num="10" name="A4" type="input"/>
+        <pin num="11" name="A5" type="input"/>
+        <pin num="12" name="A6" type="input"/>
+        <pin num="13" name="A7" type="input"/>
+        <pin num="14" name="A8" type="input"/>
+        <pin num="15" name="A9" type="input"/>
+        <pin num="16" name="A10" type="input"/>
+        <pin num="17" name="A11" type="input"/>
+        <pin num="18" name="A12" type="input"/>
+        <pin num="19" name="A13" type="input"/>
+        <pin num="20" name="A14" type="input"/>
+        <pin num="21" name="A15" type="input"/>
+        <pin num="22" name="D0" type="3state"/>
+        <pin num="23" name="D1" type="3state"/>
+        <pin num="24" name="D2" type="3state"/>
+        <pin num="25" name="D3" type="3state"/>
+        <pin num="26" name="D4" type="3state"/>
+        <pin num="27" name="D5" type="3state"/>
+        <pin num="28" name="D6" type="3state"/>
+        <pin num="29" name="D7" type="3state"/>
+        <pin num="30" name="/Reset" type="passive"/>
+        <pin num="31" name="AudioIn" type="passive"/>
+        <pin num="32" name="GND" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="NintendoGBCart_ExtSymbol" part="SW_Push">
+      <description>Push button switch, generic, two pins</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">SW_Push</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="NintendoGBCart_ExtSymbol" part="SW_SPDT">
+      <description>Switch, single pole double throw</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">SW_SPDT</field>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="passive"/>
+        <pin num="2" name="B" type="passive"/>
+        <pin num="3" name="C" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="ATF15xx_CommonLib">
+      <uri>/Users/luzongjing/Documents/KiCad_Projects/GB_Cart/S3D_Gameboy_MemoryBackup_Homebrew/GB_MemoryBackup_Mainboard/../ATF15xx_CommonLib/symlibs/CPLD_Microchip_ATF15xx.lib</uri>
+    </library>
+    <library logical="Connector_Generic">
+      <uri>/Library/Application Support/kicad/library/Connector_Generic.lib</uri>
+    </library>
+    <library logical="Device">
+      <uri>/Library/Application Support/kicad/library/Device.lib</uri>
+    </library>
+    <library logical="NintendoGBCart_ExtSymbol">
+      <uri>/Users/luzongjing/Documents/KiCad_Projects/GB_Cart/S3D_Gameboy_MemoryBackup_Homebrew/GB_MemoryBackup_Mainboard/../GB_CommonLib/symlibs/NintendoGBCart_ExtSymbol.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="GND">
+      <node ref="U1" pin="1"/>
+      <node ref="U1" pin="16"/>
+      <node ref="U1" pin="2"/>
+      <node ref="U1" pin="3"/>
+      <node ref="U1" pin="30"/>
+      <node ref="C1" pin="1"/>
+      <node ref="J1" pin="32"/>
+      <node ref="J3" pin="2"/>
+      <node ref="R13" pin="1"/>
+      <node ref="J3" pin="10"/>
+      <node ref="C3" pin="1"/>
+      <node ref="U2" pin="16"/>
+      <node ref="U3" pin="42"/>
+      <node ref="U3" pin="30"/>
+      <node ref="U3" pin="22"/>
+      <node ref="U3" pin="10"/>
+      <node ref="SW2" pin="2"/>
+      <node ref="J2" pin="32"/>
+      <node ref="SW1" pin="1"/>
+      <node ref="C2" pin="1"/>
+    </net>
+    <net code="2" name="/AA14">
+      <node ref="J1" pin="20"/>
+      <node ref="J2" pin="20"/>
+      <node ref="U3" pin="18"/>
+    </net>
+    <net code="3" name="/AA13">
+      <node ref="U2" pin="28"/>
+      <node ref="U3" pin="17"/>
+      <node ref="U1" pin="28"/>
+      <node ref="J1" pin="19"/>
+      <node ref="J2" pin="19"/>
+    </net>
+    <net code="4" name="/AA12">
+      <node ref="J1" pin="18"/>
+      <node ref="U2" pin="4"/>
+      <node ref="U3" pin="16"/>
+      <node ref="J2" pin="18"/>
+      <node ref="U1" pin="4"/>
+    </net>
+    <net code="5" name="/AA11">
+      <node ref="U2" pin="25"/>
+      <node ref="U3" pin="14"/>
+      <node ref="J1" pin="17"/>
+      <node ref="J2" pin="17"/>
+      <node ref="U1" pin="25"/>
+    </net>
+    <net code="6" name="/AA10">
+      <node ref="U1" pin="23"/>
+      <node ref="J2" pin="16"/>
+      <node ref="U2" pin="23"/>
+      <node ref="U3" pin="12"/>
+      <node ref="J1" pin="16"/>
+    </net>
+    <net code="7" name="/AA9">
+      <node ref="U1" pin="26"/>
+      <node ref="U2" pin="26"/>
+      <node ref="U3" pin="11"/>
+      <node ref="J2" pin="15"/>
+      <node ref="J1" pin="15"/>
+    </net>
+    <net code="8" name="/AA8">
+      <node ref="J1" pin="14"/>
+      <node ref="U2" pin="27"/>
+      <node ref="U1" pin="27"/>
+      <node ref="J2" pin="14"/>
+      <node ref="U3" pin="9"/>
+    </net>
+    <net code="9" name="/AA7">
+      <node ref="U3" pin="8"/>
+      <node ref="U2" pin="5"/>
+      <node ref="J1" pin="13"/>
+      <node ref="J2" pin="13"/>
+      <node ref="U1" pin="5"/>
+    </net>
+    <net code="10" name="/AA6">
+      <node ref="U1" pin="6"/>
+      <node ref="U2" pin="6"/>
+      <node ref="J2" pin="12"/>
+      <node ref="J1" pin="12"/>
+    </net>
+    <net code="11" name="/AA5">
+      <node ref="J2" pin="11"/>
+      <node ref="U2" pin="7"/>
+      <node ref="J1" pin="11"/>
+      <node ref="U1" pin="7"/>
+    </net>
+    <net code="12" name="/AA4">
+      <node ref="U1" pin="8"/>
+      <node ref="U2" pin="8"/>
+      <node ref="J1" pin="10"/>
+      <node ref="J2" pin="10"/>
+    </net>
+    <net code="13" name="/AA2">
+      <node ref="J2" pin="8"/>
+      <node ref="U2" pin="10"/>
+      <node ref="J1" pin="8"/>
+      <node ref="U1" pin="10"/>
+    </net>
+    <net code="14" name="/AA1">
+      <node ref="J2" pin="7"/>
+      <node ref="U2" pin="11"/>
+      <node ref="U1" pin="11"/>
+      <node ref="J1" pin="7"/>
+    </net>
+    <net code="15" name="/AA3">
+      <node ref="J1" pin="9"/>
+      <node ref="U1" pin="9"/>
+      <node ref="J2" pin="9"/>
+      <node ref="U2" pin="9"/>
+    </net>
+    <net code="16" name="/AA0">
+      <node ref="J1" pin="6"/>
+      <node ref="U1" pin="12"/>
+      <node ref="U2" pin="12"/>
+      <node ref="J2" pin="6"/>
+    </net>
+    <net code="17" name="/AA15">
+      <node ref="J1" pin="21"/>
+      <node ref="U3" pin="19"/>
+    </net>
+    <net code="18" name="/AD0">
+      <node ref="J1" pin="22"/>
+      <node ref="U1" pin="13"/>
+      <node ref="U2" pin="13"/>
+      <node ref="J2" pin="22"/>
+      <node ref="U3" pin="20"/>
+    </net>
+    <net code="19" name="/AD7">
+      <node ref="U1" pin="21"/>
+      <node ref="J1" pin="29"/>
+      <node ref="U2" pin="21"/>
+      <node ref="J2" pin="29"/>
+      <node ref="U3" pin="29"/>
+    </net>
+    <net code="20" name="/AD6">
+      <node ref="J2" pin="28"/>
+      <node ref="U3" pin="28"/>
+      <node ref="J1" pin="28"/>
+      <node ref="U2" pin="20"/>
+      <node ref="U1" pin="20"/>
+    </net>
+    <net code="21" name="/AD5">
+      <node ref="U1" pin="19"/>
+      <node ref="U2" pin="19"/>
+      <node ref="U3" pin="27"/>
+      <node ref="J2" pin="27"/>
+      <node ref="J1" pin="27"/>
+    </net>
+    <net code="22" name="/AD4">
+      <node ref="U1" pin="18"/>
+      <node ref="U2" pin="18"/>
+      <node ref="U3" pin="26"/>
+      <node ref="J2" pin="26"/>
+      <node ref="J1" pin="26"/>
+    </net>
+    <net code="23" name="/AD3">
+      <node ref="U3" pin="25"/>
+      <node ref="U1" pin="17"/>
+      <node ref="J1" pin="25"/>
+      <node ref="J2" pin="25"/>
+      <node ref="U2" pin="17"/>
+    </net>
+    <net code="24" name="/AD2">
+      <node ref="U1" pin="15"/>
+      <node ref="J2" pin="24"/>
+      <node ref="J1" pin="24"/>
+      <node ref="U2" pin="15"/>
+      <node ref="U3" pin="24"/>
+    </net>
+    <net code="25" name="/AD1">
+      <node ref="U2" pin="14"/>
+      <node ref="J1" pin="23"/>
+      <node ref="U3" pin="21"/>
+      <node ref="U1" pin="14"/>
+      <node ref="J2" pin="23"/>
+    </net>
+    <net code="26" name="/~AWR">
+      <node ref="U3" pin="1"/>
+      <node ref="U2" pin="31"/>
+      <node ref="U1" pin="31"/>
+      <node ref="J1" pin="3"/>
+    </net>
+    <net code="27" name="/~AWR_T">
+      <node ref="J2" pin="3"/>
+      <node ref="U3" pin="5"/>
+    </net>
+    <net code="28" name="/AA15_T">
+      <node ref="U3" pin="4"/>
+      <node ref="J2" pin="21"/>
+    </net>
+    <net code="29" name="/~ARST">
+      <node ref="J1" pin="30"/>
+      <node ref="J2" pin="30"/>
+    </net>
+    <net code="30" name="/ACLK">
+      <node ref="J1" pin="2"/>
+      <node ref="J2" pin="2"/>
+    </net>
+    <net code="31" name="/~ARD">
+      <node ref="J1" pin="4"/>
+      <node ref="U1" pin="24"/>
+      <node ref="U3" pin="2"/>
+      <node ref="U2" pin="24"/>
+    </net>
+    <net code="32" name="/~ARD_T">
+      <node ref="U3" pin="6"/>
+      <node ref="J2" pin="4"/>
+    </net>
+    <net code="33" name="/AAudioIn">
+      <node ref="J2" pin="31"/>
+      <node ref="J1" pin="31"/>
+    </net>
+    <net code="34" name="/~ASRAM_CS">
+      <node ref="J1" pin="5"/>
+      <node ref="J2" pin="5"/>
+    </net>
+    <net code="35" name="Net-(SW1-Pad3)">
+      <node ref="SW1" pin="3"/>
+    </net>
+    <net code="36" name="/~SW_1">
+      <node ref="R1" pin="2"/>
+      <node ref="SW1" pin="2"/>
+      <node ref="U3" pin="43"/>
+    </net>
+    <net code="37" name="/~F_CE_010">
+      <node ref="U1" pin="22"/>
+      <node ref="U3" pin="40"/>
+    </net>
+    <net code="38" name="/~F_CE_040">
+      <node ref="U3" pin="39"/>
+      <node ref="U2" pin="22"/>
+    </net>
+    <net code="39" name="/F040_A14">
+      <node ref="U2" pin="29"/>
+      <node ref="U3" pin="31"/>
+    </net>
+    <net code="40" name="/F040_A15">
+      <node ref="U2" pin="3"/>
+      <node ref="U3" pin="33"/>
+    </net>
+    <net code="41" name="/F040_A16">
+      <node ref="U3" pin="34"/>
+      <node ref="U2" pin="2"/>
+    </net>
+    <net code="42" name="/F040_A17">
+      <node ref="U2" pin="30"/>
+      <node ref="U3" pin="36"/>
+    </net>
+    <net code="43" name="/F040_A18">
+      <node ref="U2" pin="1"/>
+      <node ref="U3" pin="37"/>
+    </net>
+    <net code="44" name="/F010_A14">
+      <node ref="U3" pin="41"/>
+      <node ref="U1" pin="29"/>
+    </net>
+    <net code="45" name="Net-(J3-Pad6)">
+      <node ref="J3" pin="6"/>
+    </net>
+    <net code="46" name="Net-(J3-Pad7)">
+      <node ref="J3" pin="7"/>
+    </net>
+    <net code="47" name="Net-(J3-Pad8)">
+      <node ref="J3" pin="8"/>
+    </net>
+    <net code="48" name="/TMS">
+      <node ref="U3" pin="13"/>
+      <node ref="J3" pin="5"/>
+      <node ref="R11" pin="1"/>
+    </net>
+    <net code="49" name="/TCK">
+      <node ref="J3" pin="1"/>
+      <node ref="R13" pin="2"/>
+      <node ref="U3" pin="32"/>
+    </net>
+    <net code="50" name="/TDO">
+      <node ref="U3" pin="38"/>
+      <node ref="J3" pin="3"/>
+    </net>
+    <net code="51" name="/TDI">
+      <node ref="R12" pin="1"/>
+      <node ref="J3" pin="9"/>
+      <node ref="U3" pin="7"/>
+    </net>
+    <net code="52" name="+5V">
+      <node ref="U3" pin="15"/>
+      <node ref="U3" pin="23"/>
+      <node ref="U3" pin="3"/>
+      <node ref="U2" pin="32"/>
+      <node ref="U3" pin="35"/>
+      <node ref="J1" pin="1"/>
+      <node ref="J2" pin="1"/>
+      <node ref="C3" pin="2"/>
+      <node ref="R1" pin="1"/>
+      <node ref="R2" pin="1"/>
+      <node ref="J3" pin="4"/>
+      <node ref="C1" pin="2"/>
+      <node ref="R11" pin="2"/>
+      <node ref="R12" pin="2"/>
+      <node ref="U1" pin="32"/>
+      <node ref="C2" pin="2"/>
+    </net>
+    <net code="53" name="/~SW_2">
+      <node ref="R2" pin="2"/>
+      <node ref="SW2" pin="1"/>
+      <node ref="U3" pin="44"/>
+    </net>
+  </nets>
+</export>
