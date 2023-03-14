@@ -19,7 +19,7 @@ U 1 1 6476341E
 P 2400 3850
 F 0 "J1" H 2868 5131 50  0000 C CNN
 F 1 "GB_Cart_EdgeConn-1Row-32Pins" H 2868 5040 50  0000 C CNN
-F 2 "NintendoGBCart_ExtFootprint:GB_Cart_1x32_P1.50mm_Edge_For_CartShell" H 2400 3800 50  0001 C CNN
+F 2 "NintendoGBCart_ExtFootprint:GB_Cart_1x32_P1.50mm_Edge_For_RawPCB" H 2400 3800 50  0001 C CNN
 F 3 "https://fms.komkon.org/GameBoy/Tech/Hardware.html" H 2400 3800 50  0001 C CNN
 	1    2400 3850
 	1    0    0    -1  
