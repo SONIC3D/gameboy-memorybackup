@@ -1,3 +1,5 @@
 (fp_lib_table
   (lib (name NintendoGBCart_ExtFootprint)(type KiCad)(uri ${KIPRJMOD}/../GB_CommonLib/fplibs/NintendoGBCart_ExtFootprint.pretty)(options "")(descr ""))
+  (lib (name Package_LCC_JLCPCB)(type KiCad)(uri ${KIPRJMOD}/../GB_CommonLib/fplibs/Package_LCC_JLCPCB.pretty)(options "")(descr ""))
+  (lib (name Connector_PinHeader_Boxed_2.54mm)(type KiCad)(uri ${KIPRJMOD}/../GB_CommonLib/fplibs/Connector_PinHeader_Boxed_2.54mm.pretty)(options "")(descr ""))
 )
