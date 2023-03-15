@@ -1,0 +1,87 @@
+Name     GB_MEMBAK_V1_1_ATF1502AS ;
+PartNo   00 ;
+Date     2023/03/15 ;
+Revision 00 ;
+Designer SONIC3D ;
+Company  SONIC3D ;
+Assembly GB_MEMBAK_PCB_v1_1 ;
+Location U3 ;
+Device   f1502ispplcc44 ;
+
+/* ReadMe:                                                                      */
+/*                                                                              */
+/* This project contains logic equations to turn the cart into a Nintendo       */
+/* Gameboy memory storage cart. Compatibility depends on the boot ROM code      */
+/* inside this cart.                                                            */
+
+/* ATF15xx usable extention:                                                    */
+/*      D, T, S, R, L                                                           */
+/*      OE, OEMUX                                                               */
+/*      CK, CKMUX                                                               */
+/*      AR, AP                                                                  */
+/*      DQ, LQ, LE                                                              */
+/*      IO                                                                      */
+/* Notes:                                                                       */
+/*      L, AP, LE are missed in doc3303, but tested usable in 1504 fitter)      */
+/* Documents:                                                                   */
+/*      doc3303_AN_3303 - Converting ABEL Design Files to CUPL)                 */
+/*      doc0737_WinCUPL USER MANUAL                                             */
+/*      Atmel-3614-CPLD-ATF15-Overview                                          */
+
+/* *************** INPUT PINS *********************/
+PIN 1   = AWR_n                   ; /*                                 */
+PIN 2   = ARD_n                   ; /*                                 */
+PIN 8   = AA7                     ; /*                                 */
+PIN 9   = AA8                     ; /*                                 */
+PIN 11  = AA9                     ; /*                                 */
+PIN 12  = AA10                    ; /*                                 */
+PIN 14  = AA11                    ; /*                                 */
+PIN 16  = AA12                    ; /*                                 */
+PIN 17  = AA13                    ; /*                                 */
+PIN 18  = AA14                    ; /*                                 */
+PIN 19  = AA15                    ; /*                                 */
+PIN 20  = AD0                     ; /*                                 */
+PIN 21  = AD1                     ; /*                                 */
+PIN 24  = AD2                     ; /*                                 */
+PIN 25  = AD3                     ; /*                                 */
+PIN 26  = AD4                     ; /*                                 */
+PIN 27  = AD5                     ; /*                                 */
+PIN 28  = AD6                     ; /*                                 */
+PIN 29  = AD7                     ; /*                                 */
+PIN 43  = SW_1_n                  ; /*                                 */
+PIN 44  = SW_2_n                  ; /* Not used in this project        */
+
+/* *************** OUTPUT PINS *********************/
+PIN 4   = AA15_T                  ; /*                                 */
+PIN 5   = AWR_T_n                 ; /*                                 */
+PIN 6   = ARD_T_n                 ; /*                                 */
+PIN 31  = F040_A14                ; /*                                 */
+PIN 33  = F040_A15                ; /*                                 */
+PIN 34  = F040_A16                ; /*                                 */
+PIN 36  = F040_A17                ; /*                                 */
+PIN 37  = F040_A18                ; /*                                 */
+PIN 39  = F_CE_040_n              ; /*                                 */
+PIN 40  = F_CE_010_n              ; /*                                 */
+PIN 41  = F010_A14                ; /*                                 */
+
+/* *********** INPUT/OUTPUT PINS *******************/
+
+/* ********** REGISTERED OUTPUT PINS ***************/
+
+
+/* ****** Output and output enable equations *******/
+
+AA15_T      = AA15;
+AWR_T_n     = AWR_n;
+ARD_T_n     = ARD_n;
+F040_A14    = 'b'0;
+F040_A15    = 'b'0;
+F040_A16    = 'b'0;
+F040_A17    = 'b'0;
+F040_A18    = 'b'0;
+!F_CE_040_n = 'b'0;
+!F_CE_010_n = 'b'0;
+F010_A14    = 'b'0;
+
+
+/* End */
