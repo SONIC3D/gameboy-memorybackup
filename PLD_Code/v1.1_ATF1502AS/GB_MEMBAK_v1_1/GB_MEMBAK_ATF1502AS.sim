@@ -1,0 +1,114 @@
+%SIGNAL
+PIN  12 =  AA10 
+PIN  14 =  AA11 
+PIN  16 =  AA12 
+PIN  17 =  AA13 
+PIN  18 =  AA14 
+PIN  19 =  AA15 
+PIN   4 =  AA15_T 
+PIN   8 =  AA7 
+PIN   9 =  AA8 
+PIN  11 =  AA9 
+PIN  20 =  AD0 
+PIN  21 =  AD1 
+PIN  24 =  AD2 
+PIN  25 =  AD3 
+PIN  26 =  AD4 
+PIN  27 =  AD5 
+PIN  28 =  AD6 
+PIN  29 =  AD7 
+PIN   6 =  ARD_T_n 
+PIN   2 =  ARD_n 
+PIN   5 =  AWR_T_n 
+PIN   1 =  AWR_n 
+PIN  41 =  F010_A14 
+PIN  31 =  F040_A14 
+PIN  33 =  F040_A15 
+PIN  34 =  F040_A16 
+PIN  36 =  F040_A17 
+PIN  37 =  F040_A18 
+PIN  40 =  F_CE_010_n 
+PIN  39 =  F_CE_040_n 
+PIN   1 =  HC373_LE 
+PIN   4 =  MODE_F010_Only 
+PIN   2 =  MODE_GameCart 
+PIN  43 =  SW_1_n 
+PIN  44 =  SW_2_n 
+%END
+
+%FIELD
+%END
+
+%EQUATION
+AA15_T =>
+    AA15 & SW_1_n
+  # AA15 & MODE_GameCart & !SW_1_n
+
+!ARD_T_n =>
+    !ARD_n & SW_1_n
+  # AA15 & !ARD_n & MODE_GameCart & !SW_1_n
+  # AA14 & !ARD_n & MODE_GameCart & !SW_1_n
+
+!AWR_T_n =>
+    !AWR_n & SW_1_n
+  # !AWR_n & MODE_GameCart & !SW_1_n
+
+F010_A14.d  =>
+    AD0
+
+F010_A14.ck  =>
+    AD5 & !AD6 & HC373_LE
+
+F040_A14.d  =>
+    AD0
+
+F040_A14.ck  =>
+    AD6 & HC373_LE
+
+F040_A15.d  =>
+    AD1
+
+F040_A15.ck  =>
+    AD6 & HC373_LE
+
+F040_A16.d  =>
+    AD2
+
+F040_A16.ck  =>
+    AD6 & HC373_LE
+
+F040_A17.d  =>
+    AD3
+
+F040_A17.ck  =>
+    AD6 & HC373_LE
+
+F040_A18.d  =>
+    AD4
+
+F040_A18.ck  =>
+    AD6 & HC373_LE
+
+!F_CE_010_n =>
+    AA14 & !AA15 & MODE_F010_Only & !MODE_GameCart & !SW_1_n
+  # !AA14 & !AA15 & !MODE_GameCart & !SW_1_n
+
+!F_CE_040_n =>
+    AA14 & !AA15 & !MODE_F010_Only & !MODE_GameCart & !SW_1_n
+
+HC373_LE =>
+    !AA10 & !AA11 & !AA12 & AA13 & !AA14 & !AA15 & !AA7 & !AA8 & !AA9 & AD7 & !AWR_n & !SW_1_n
+
+MODE_F010_Only.d  =>
+    AD5 & !AD6
+
+MODE_F010_Only.ck  =>
+    HC373_LE
+
+MODE_GameCart.d  =>
+    AD6
+
+MODE_GameCart.ck  =>
+    HC373_LE
+
+%END

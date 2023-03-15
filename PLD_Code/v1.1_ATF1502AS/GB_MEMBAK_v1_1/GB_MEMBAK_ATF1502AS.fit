@@ -1,0 +1,380 @@
+Atmel ATF1502AS Fitter Version 1.8.7.8 ,running Wed Mar 15 23:28:39 2023
+
+
+fit1502 C:\WINCUPL\PROJECT\GB_MEMBAK_V1_1\GB_MEMBAK_ATF1502AS.tt2 -CUPL -dev P1502C44 -JTAG ON
+
+
+****** Initial fitting strategy and property ******
+ Pla_in_file = GB_MEMBAK_ATF1502AS.tt2
+ Pla_out_file = GB_MEMBAK_ATF1502AS.tt3
+ Jedec_file = GB_MEMBAK_ATF1502AS.jed
+ Vector_file = GB_MEMBAK_ATF1502AS.tmv
+ verilog_file = GB_MEMBAK_ATF1502AS.vt
+ Time_file = 
+ Log_file = GB_MEMBAK_ATF1502AS.fit
+ err_file = 
+ Device_name = PLCC44
+ Module_name = 
+ Package_type = PLCC
+ Preassign_file = 
+ Property_file = 
+ Sleep_mode = 
+ Preassignment = 
+ Security_mode = OFF
+ Pin_keep_mode = ON
+ Dedicated_input_clock = 
+ Dedicated_input_reset = 
+ Dedicated_input_oe = 
+ supporter = CUPL
+ optimize = ON
+ Soft_buffer = 
+ Xor_synthesis = OFF
+ Foldback_logic =  on
+ Expander = 
+ Cascade_logic = OFF
+ Dedicated_input = 
+ Output_fast = OFF
+ *******************************
+ Power down pin 1 = OFF
+ Power down pin 2 = OFF
+ power_reset = OFF
+ JTAG = ON
+ TDI pullup = OFF
+ TMS pullup = OFF
+ MC_power = OFF
+ Open_collector = OFF
+ ITD0 = ON
+ ITD1 = ON
+ ITD2 = ON
+ Fast_inlatch = off
+ *******************************
+Info: C:\WINCUPL\PROJECT\GB_MEMBAK_V1_1\GB_MEMBAK_ATF1502AS uses 95% of the pins available in device PLCC44
+  If you wish to have more pins available for future logic changes
+  Atmel  recommends using a larger device
+---------------------------------------------------------
+ Fitter_Pass 1, Preassign = KEEP, LOGIC_DOUBLING : OFF 
+ ... 
+## ERROR : Pin used more than once : 4
+ ## ERROR : Bad user pin assignement 
+---------------------------------------------------------
+ Fitter_Pass 2, Preassign = KEEP, NODE ASSIGN : OFF 
+ ... 
+
+Performing global Output Enable pin assignments ...
+
+Performing global pin assignments ...
+--------------------------------------
+
+
+
+Final global control pins assignment (if applicable)...
+-------------------------------------------------------
+
+
+
+Performing input pin pre-assignments ...
+------------------------------------
+ARD_n assigned to pin  2
+SW_1_n assigned to pin  43
+AWR_n assigned to pin  1
+
+Attempt to place floating signals ...
+------------------------------------
+AA15_T is placed at pin 4 (MC 1)
+AWR_T_n is placed at pin 5 (MC 2)
+ARD_T_n is placed at pin 6 (MC 3)
+TDI is placed at pin 7 (MC 4)
+AA7 is placed at pin 8 (MC 5)
+AA8 is placed at pin 9 (MC 6)
+AA9 is placed at pin 11 (MC 7)
+AA10 is placed at pin 12 (MC 8)
+TMS is placed at pin 13 (MC 9)
+AA11 is placed at pin 14 (MC 10)
+AA12 is placed at pin 16 (MC 11)
+AA13 is placed at pin 17 (MC 12)
+AA14 is placed at pin 18 (MC 13)
+AA15 is placed at pin 19 (MC 14)
+AD0 is placed at pin 20 (MC 15)
+MODE_GameCart is placed at feedback node 615 (MC 15)
+AD1 is placed at pin 21 (MC 16)
+MODE_F010_Only is placed at feedback node 616 (MC 16)
+F010_A14 is placed at pin 41 (MC 17)
+F_CE_010_n is placed at pin 40 (MC 18)
+F_CE_040_n is placed at pin 39 (MC 19)
+TDO is placed at pin 38 (MC 20)
+F040_A18 is placed at pin 37 (MC 21)
+F040_A17 is placed at pin 36 (MC 22)
+F040_A16 is placed at pin 34 (MC 23)
+F040_A15 is placed at pin 33 (MC 24)
+TCK is placed at pin 32 (MC 25)
+F040_A14 is placed at pin 31 (MC 26)
+AD7 is placed at pin 29 (MC 27)
+AD6 is placed at pin 28 (MC 28)
+AD5 is placed at pin 27 (MC 29)
+AD4 is placed at pin 26 (MC 30)
+AD3 is placed at pin 25 (MC 31)
+AD2 is placed at pin 24 (MC 32)
+
+                                                                 
+                                                                 
+                                               F                 
+                                               _                 
+                                            F  C                 
+                  A  A                      0  E                 
+                  R  W  A             S     1  _                 
+                  D  R  A     A  A    W     0  0                 
+                  _  _  1     R  W    _     _  1                 
+                  T  T  5  V  D  R    1  G  A  0                 
+                  _  _  _  C  _  _    _  N  1  _                 
+                  n  n  T  C  n  n    n  D  4  n                 
+               ____________________________________              
+              /   6  5  4  3  2  1 44 43 42 41 40  \             
+         TDI |  7                                39 | F_CE_040_n 
+         AA7 |  8                                38 | TDO        
+         AA8 |  9                                37 | F040_A18   
+         GND | 10                                36 | F040_A17   
+         AA9 | 11                                35 | VCC        
+        AA10 | 12            ATF1502             34 | F040_A16   
+         TMS | 13          44-Lead PLCC          33 | F040_A15   
+        AA11 | 14                                32 | TCK        
+         VCC | 15                                31 | F040_A14   
+        AA12 | 16                                30 | GND        
+        AA13 | 17                                29 | AD7        
+             |   18 19 20 21 22 23 24 25 26 27 28   |            
+              \____________________________________/             
+                 A  A  A  A  G  V  A  A  A  A  A                 
+                 A  A  D  D  N  C  D  D  D  D  D                 
+                 1  1  0  1  D  C  2  3  4  5  6                 
+                 4  5                                            
+
+
+
+VCC = Supply Voltage pin which must be connected to (5.0V or 3.0V)
+
+GND = GND pin which must be connected to ground
+
+TMS,TDI,TDO,TDI = JTAG pins which must reserved for the JTAG interface
+
+NC = Unused I/O pins which must be unconnected on the board
+
+Universal-Interconnect-Multiplexer assignments
+------------------------------------------------
+FanIn assignment for block A [16]
+{
+AA8,AA9,AA7,AA10,AWR_n,AA15,AD5,AA14,ARD_n,AD6,AD7,AA11,AA12,AA13,
+MODE_GameCart,
+SW_1_n,
+}
+Multiplexer assignment for block A
+SW_1_n			(MC2	FB)  : MUX 0		Ref (GCLK)
+AA8			(MC13	P)   : MUX 1		Ref (A6p)
+AA9			(MC14	P)   : MUX 4		Ref (A7p)
+AA7			(MC12	P)   : MUX 5		Ref (A5p)
+AA10			(MC8	P)   : MUX 6		Ref (A8p)
+MODE_GameCart		(MC1	FB)  : MUX 8		Ref (A15fb)
+AWR_n			(MC5	FB)  : MUX 20		Ref (GCLR)
+AA15			(MC3	P)   : MUX 24		Ref (A14p)
+AD5			(MC6	P)   : MUX 26		Ref (B29p)
+AA14			(MC4	P)   : MUX 28		Ref (A13p)
+ARD_n			(MC16	FB)  : MUX 30		Ref (OE2)
+AD6			(MC7	P)   : MUX 32		Ref (B28p)
+AD7			(MC15	P)   : MUX 33		Ref (B27p)
+AA11			(MC9	P)   : MUX 35		Ref (A10p)
+AA12			(MC10	P)   : MUX 37		Ref (A11p)
+AA13			(MC11	P)   : MUX 38		Ref (A12p)
+
+FanIn assignment for block B [21]
+{
+AA8,AA7,AA10,AA9,AD0,AD5,AD3,AA15,AD2,AA14,AD4,AD1,AWR_n,AA12,AD6,AD7,AA11,AA13,
+MODE_F010_Only,MODE_GameCart,
+SW_1_n,
+}
+Multiplexer assignment for block B
+MODE_F010_Only		(MC2	FB)  : MUX 0		Ref (A16fb)
+AA8			(MC14	P)   : MUX 1		Ref (A6p)
+AA7			(MC13	P)   : MUX 5		Ref (A5p)
+AA10			(MC9	P)   : MUX 6		Ref (A8p)
+AA9			(MC15	P)   : MUX 7		Ref (A7p)
+MODE_GameCart		(MC1	FB)  : MUX 8		Ref (A15fb)
+SW_1_n			(MC3	FB)  : MUX 9		Ref (GCLK)
+AD0			(MC17	P)   : MUX 20		Ref (A15p)
+AD5			(MC7	P)   : MUX 22		Ref (B29p)
+AD3			(MC20	P)   : MUX 23		Ref (B31p)
+AA15			(MC4	P)   : MUX 24		Ref (A14p)
+AD2			(MC19	P)   : MUX 25		Ref (B32p)
+AA14			(MC5	P)   : MUX 26		Ref (A13p)
+AD4			(MC21	P)   : MUX 27		Ref (B30p)
+AD1			(MC18	P)   : MUX 28		Ref (A16p)
+AWR_n			(MC6	FB)  : MUX 29		Ref (GCLR)
+AA12			(MC11	P)   : MUX 30		Ref (A11p)
+AD6			(MC8	P)   : MUX 32		Ref (B28p)
+AD7			(MC16	P)   : MUX 33		Ref (B27p)
+AA11			(MC10	P)   : MUX 35		Ref (A10p)
+AA13			(MC12	P)   : MUX 38		Ref (A12p)
+
+Creating JEDEC file C:\WINCUPL\PROJECT\GB_MEMBAK_V1_1\GB_MEMBAK_ATF1502AS.jed ...
+
+PLCC44 programmed logic:
+-----------------------------------
+AA15_T = ((AA15 & MODE_GameCart.Q)
+	# (AA15 & SW_1_n));
+
+ARD_T_n = ((!SW_1_n & !AA15 & !AA14)
+	# (!SW_1_n & !MODE_GameCart.Q)
+	# ARD_n);
+
+AWR_T_n = ((!SW_1_n & !MODE_GameCart.Q)
+	# AWR_n);
+
+F010_A14.D = AD0;
+
+F040_A16.D = AD2;
+
+F040_A14.D = AD0;
+
+F040_A15.D = AD1;
+
+F040_A17.D = AD3;
+
+F040_A18.D = AD4;
+
+!F_CE_010_n = ((!AA15 & !MODE_GameCart.Q & !SW_1_n & MODE_F010_Only.Q)
+	# (!AA14 & !AA15 & !MODE_GameCart.Q & !SW_1_n));
+
+!F_CE_040_n = (AA14 & !AA15 & !MODE_F010_Only.Q & !MODE_GameCart.Q & !SW_1_n);
+
+MODE_F010_Only.D = (AD5 & !AD6);
+
+MODE_GameCart.D = AD6;
+
+F010_A14.C = (AD5 & !AD6 & !AA10 & !AA11 & !AA12 & AA13 & !AA14 & !AA15 & !AA7 & !AA8 & !AA9 & AD7 & !AWR_n & !SW_1_n);
+
+F040_A16.C = (AD6 & !AA10 & !AA11 & !AA12 & AA13 & !AA14 & !AA15 & !AA7 & !AA8 & !AA9 & AD7 & !AWR_n & !SW_1_n);
+
+F040_A14.C = (AD6 & !AA10 & !AA11 & !AA12 & AA13 & !AA14 & !AA15 & !AA7 & !AA8 & !AA9 & AD7 & !AWR_n & !SW_1_n);
+
+F040_A15.C = (AD6 & !AA10 & !AA11 & !AA12 & AA13 & !AA14 & !AA15 & !AA7 & !AA8 & !AA9 & AD7 & !AWR_n & !SW_1_n);
+
+F040_A17.C = (AD6 & !AA10 & !AA11 & !AA12 & AA13 & !AA14 & !AA15 & !AA7 & !AA8 & !AA9 & AD7 & !AWR_n & !SW_1_n);
+
+F040_A18.C = (AD6 & !AA10 & !AA11 & !AA12 & AA13 & !AA14 & !AA15 & !AA7 & !AA8 & !AA9 & AD7 & !AWR_n & !SW_1_n);
+
+MODE_F010_Only.C = (!AA10 & !AA11 & !AA12 & AA13 & !AA14 & !AA15 & !AA7 & !AA8 & !AA9 & AD7 & !AWR_n & !SW_1_n);
+
+MODE_GameCart.C = (!AA10 & !AA11 & !AA12 & AA13 & !AA14 & !AA15 & !AA7 & !AA8 & !AA9 & AD7 & !AWR_n & !SW_1_n);
+
+
+PLCC44 Pin/Node Placement:
+------------------------------------
+Pin 1  = AWR_n;
+Pin 2  = ARD_n;
+Pin 4  = AA15_T; /* MC 1 */
+Pin 5  = AWR_T_n; /* MC 2 */
+Pin 6  = ARD_T_n; /* MC 3 */
+Pin 7  = TDI; /* MC 4 */
+Pin 8  = AA7; /* MC 5 */
+Pin 9  = AA8; /* MC 6 */
+Pin 11 = AA9; /* MC  7 */
+Pin 12 = AA10; /* MC  8 */
+Pin 13 = TMS; /* MC  9 */
+Pin 14 = AA11; /* MC 10 */ 
+Pin 16 = AA12; /* MC 11 */ 
+Pin 17 = AA13; /* MC 12 */ 
+Pin 18 = AA14; /* MC 13 */ 
+Pin 19 = AA15; /* MC 14 */ 
+Pin 20 = AD0; /* MC 15 */ 
+Pin 21 = AD1; /* MC 16 */ 
+Pin 24 = AD2; /* MC 32 */ 
+Pin 25 = AD3; /* MC 31 */ 
+Pin 26 = AD4; /* MC 30 */ 
+Pin 27 = AD5; /* MC 29 */ 
+Pin 28 = AD6; /* MC 28 */ 
+Pin 29 = AD7; /* MC 27 */ 
+Pin 31 = F040_A14; /* MC 26 */ 
+Pin 32 = TCK; /* MC 25 */ 
+Pin 33 = F040_A15; /* MC 24 */ 
+Pin 34 = F040_A16; /* MC 23 */ 
+Pin 36 = F040_A17; /* MC 22 */ 
+Pin 37 = F040_A18; /* MC 21 */ 
+Pin 38 = TDO; /* MC 20 */ 
+Pin 39 = F_CE_040_n; /* MC 19 */ 
+Pin 40 = F_CE_010_n; /* MC 18 */ 
+Pin 41 = F010_A14; /* MC 17 */ 
+Pin 43 = SW_1_n;
+PINNODE 615 = MODE_GameCart; /* MC 15 Feedback */
+PINNODE 616 = MODE_F010_Only; /* MC 16 Feedback */
+
+** Resource Usage **
+
+
+DCERP Field = Summary of Allocations.
+|||||
+|||||_Preset [p,-]       ==  p = PT preset, - No Preset.
+||||
+||||__Reset [g,r,-]      ==  g= Global AR, r = PT reset, - No reset.
+|||
+|||___Clock Enable [e,-] ==  e = Product Term, - always enabled, - none.
+||
+||____Clock [c,g,-],     ==  c = Product term, g = Global term, - No Clock.
+|
+|_____Type [C,D,L,T],    ==  Register type C= combin, D=dff, L=latch, T=tff.
+
+For input only = INPUT.
+
+MCell Pin# Oe   PinDrive   DCERP  FBDrive        DCERP  Foldback  CascadeOut     TotPT output_slew
+MC1   4    on   AA15_T     C----  --                    --        --             2     slow
+MC2   5    on   AWR_T_n    C----  --                    --        --             2     slow
+MC3   6    on   ARD_T_n    C----  --                    --        --             3     slow
+MC4   7    --   TDI        INPUT  --                    --        --             0     slow
+MC5   8    --   AA7        INPUT  --                    --        --             0     slow
+MC6   9    --   AA8        INPUT  --                    --        --             0     slow
+MC7   11   --   AA9        INPUT  --                    --        --             0     slow
+MC8   12   --   AA10       INPUT  --                    --        --             0     slow
+MC9   13   --   TMS        INPUT  --                    --        --             0     slow
+MC10  14   --   AA11       INPUT  --                    --        --             0     slow
+MC11  16   --   AA12       INPUT  --                    --        --             0     slow
+MC12  17   --   AA13       INPUT  --                    --        --             0     slow
+MC13  18   --   AA14       INPUT  --                    --        --             0     slow
+MC14  19   --   AA15       INPUT  --                    --        --             0     slow
+MC15  20   --   AD0        INPUT  MODE_GameCart  Dc---  --        --             2     slow
+MC16  21   --   AD1        INPUT  MODE_F010_Only Dc---  --        --             2     slow
+MC17  41   on   F010_A14   Dc---  --                    --        --             2     slow
+MC18  40   on   F_CE_010_n C----  --                    --        --             2     slow
+MC19  39   on   F_CE_040_n C----  --                    --        --             1     slow
+MC20  38   --   TDO        INPUT  --                    --        --             0     slow
+MC21  37   on   F040_A18   Dc---  --                    --        --             2     slow
+MC22  36   on   F040_A17   Dc---  --                    --        --             2     slow
+MC23  34   on   F040_A16   Dc---  --                    --        --             2     slow
+MC24  33   on   F040_A15   Dc---  --                    --        --             2     slow
+MC25  32   --   TCK        INPUT  --                    --        --             0     slow
+MC26  31   on   F040_A14   Dc---  --                    --        --             2     slow
+MC27  29   --   AD7        INPUT  --                    --        --             0     slow
+MC28  28   --   AD6        INPUT  --                    --        --             0     slow
+MC29  27   --   AD5        INPUT  --                    --        --             0     slow
+MC30  26   --   AD4        INPUT  --                    --        --             0     slow
+MC31  25   --   AD3        INPUT  --                    --        --             0     slow
+MC32  24   --   AD2        INPUT  --                    --        --             0     slow
+MC0   2         ARD_n      INPUT  --                    --        --             0     slow
+MC0   1         AWR_n      INPUT  --                    --        --             0     slow
+MC0   44        --                --                    --        --             0     slow
+MC0   43        SW_1_n     INPUT  --                    --        --             0     slow
+
+Logic Array Block	Logic Cells	I/O Pins	Foldbacks	TotalPT		FanIN	Cascades
+A: LC1	- LC16		5/16(31%)	16/16(100%)	0/16(0%)	11/80(13%)	(16)	0
+B: LC17	- LC32		8/16(50%)	16/16(100%)	0/16(0%)	15/80(18%)	(21)	0
+
+Total dedicated input used:	3/4 	(75%)
+Total I/O pins used		32/32 	(100%)
+Total Logic cells used 		13/32 	(40%)
+Total Flip-Flop used 		8/32 	(25%)
+Total Foldback logic used 	0/32 	(0%)
+Total Nodes+FB/MCells 		13/32 	(40%)
+Total cascade used 		0
+Total input pins 		24
+Total output pins 		11
+Total Pts 			26
+Creating pla file C:\WINCUPL\PROJECT\GB_MEMBAK_V1_1\GB_MEMBAK_ATF1502AS.tt3 with 0 inputs 0 outputs, 0 pins 0 nodes and 0 pterms...
+
+----------------  End fitter, Design FITS
+$Device PLCC44 fits 
+FIT1502 completed in 0.00 seconds

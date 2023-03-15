@@ -68,20 +68,67 @@ PIN 41  = F010_A14                ; /*                                 */
 
 /* ********** REGISTERED OUTPUT PINS ***************/
 
+/* ***************** NODE PINS *********************/
+PINNODE 1 = HC373_LE              ; /*                                 */
+PINNODE 2 = MODE_GameCart         ; /*                                 */
+PINNODE 4 = MODE_F010_Only        ; /* PINNODE 3 is invalid            */
 
 /* ****** Output and output enable equations *******/
 
-AA15_T      = AA15;
-AWR_T_n     = AWR_n;
-ARD_T_n     = ARD_n;
-F040_A14    = 'b'0;
-F040_A15    = 'b'0;
-F040_A16    = 'b'0;
-F040_A17    = 'b'0;
-F040_A18    = 'b'0;
-!F_CE_040_n = 'b'0;
-!F_CE_010_n = 'b'0;
-F010_A14    = 'b'0;
+/* ----- [BEGIN] Pass-through cart implementation ----- */
+        /* AA15_T      = AA15;      */
+        /* AWR_T_n     = AWR_n;     */
+        /* ARD_T_n     = ARD_n;     */
+        /* F040_A14    = 'b'0;      */
+        /* F040_A15    = 'b'0;      */
+        /* F040_A16    = 'b'0;      */
+        /* F040_A17    = 'b'0;      */
+        /* F040_A18    = 'b'0;      */
+        /* !F_CE_040_n = 'b'0;      */
+        /* !F_CE_010_n = 'b'0;      */
+        /* F010_A14    = 'b'0;      */
+/* ----- [END] Pass-through cart implementation ----- */
+
+/* ----- [BEGIN] Buried nodes logic ----- */
+HC373_LE    = !SW_1_n & !AWR_n & !AA15 & !AA14 &  AA13 & !AA12 & !AA11 & !AA10 & !AA9 & !AA8 & !AA7 & AD7; /* Switch is turned ON, and Write access to 0x2000, and AD7 is 1 */
+
+MODE_GameCart.ck    = HC373_LE;
+MODE_GameCart.d     = AD6;          /* Switch to the GameCart mode, if the data bit6 is 1. Otherwise, switch to the MemoryBackup Mode. */
+
+MODE_F010_Only.ck   = HC373_LE;
+MODE_F010_Only.d    = !AD6 & AD5;   /* In MemoryBackup Mode, if the data bit5 is 1, indicates that 28SF040 is disabled, only AT29C010 is enabled. */
+                                    /* In this case, data bit[4..1] values are ignored and the data bit0 value will be latched to F010_A14. */
+/* ----- [END] Buried nodes logic ----- */
+
+!ARD_T_n    = SW_1_n & !ARD_n                                   /* Switch is turned off, pass-through */
+            # !SW_1_n & MODE_GameCart & !ARD_n & (AA15 # AA14); /* Switch is turned on, and stays in GameCart Mode and read */
+
+!AWR_T_n    = SW_1_n & !AWR_n                   /* Switch is turned off, pass-through */
+            # !SW_1_n & MODE_GameCart & !AWR_n; /* Switch is turned on, and stays in GameCart Mode and write */
+
+AA15_T      = SW_1_n & AA15                     /* Switch is turned off, pass-through */
+            # !SW_1_n & MODE_GameCart & AA15;   /* Switch is turned on, and stays in GameCart Mode and AA15=1 */
+
+!F_CE_040_n = !SW_1_n & !MODE_GameCart & !MODE_F010_Only & !AA15 & AA14;  /* Switch is turned on, and stays in MemoryBackup Mode, and not in Flash010_Only mode, and R/W accessing 0x4000-0x7FFF. */
+
+!F_CE_010_n = !SW_1_n & !MODE_GameCart &  MODE_F010_Only & !AA15 & AA14   /* Switch is turned on, and stays in MemoryBackup Mode, and in Flash010_Only mode, and R/W accessing 0x4000-0x7FFF. */
+            # !SW_1_n & !MODE_GameCart & !AA15 & !AA14;                   /* Switch is turned on, and stays in MemoryBackup Mode, and R/W accessing 0x0000-0x3FFF. */
+
+/* ----- [BEGIN] Program ROM/Storage ROM banking address line latch ----- */
+F010_A14.ck     = HC373_LE & !AD6 & AD5;
+F010_A14.d      = AD0;
+
+F040_A14.ck     = HC373_LE & AD6;
+F040_A15.ck     = HC373_LE & AD6;
+F040_A16.ck     = HC373_LE & AD6;
+F040_A17.ck     = HC373_LE & AD6;
+F040_A18.ck     = HC373_LE & AD6;
+F040_A14.d      = AD0;
+F040_A15.d      = AD1;
+F040_A16.d      = AD2;
+F040_A17.d      = AD3;
+F040_A18.d      = AD4;
+/* ----- [END] Program ROM/Storage ROM banking address line latch ----- */
 
 
 /* End */
