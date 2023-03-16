@@ -6,7 +6,7 @@ encoding utf-8
 Sheet 1 1
 Title "GB MemoryBackup Mainboard"
 Date "2023-03-13"
-Rev "1.0"
+Rev "1.2"
 Comp "SONIC3D"
 Comment1 ""
 Comment2 ""
@@ -587,8 +587,6 @@ Wire Wire Line
 	3000 7600 3450 7600
 Wire Wire Line
 	3000 7500 3450 7500
-Wire Wire Line
-	3000 6900 3350 6900
 Text Label 3050 7100 0    50   ~ 0
 F010_A14
 $Comp
@@ -800,10 +798,10 @@ TCK
 Text Label 3150 7400 0    50   ~ 0
 TDO
 $Comp
-L NintendoGBCart_ExtSymbol:SW_Push SW2
+L NintendoGBCart_ExtSymbol:SW_Push #SW2
 U 1 1 64692872
 P 14000 7650
-F 0 "SW2" H 14000 7935 50  0000 C CNN
+F 0 "#SW2" H 14000 7935 50  0000 C CNN
 F 1 "SW_Push" H 14000 7844 50  0000 C CNN
 F 2 "Button_Switch_THT_JLCPCB:KEY-TH_K2-1109DE-CXXW-XX" H 14000 7850 50  0001 C CNN
 F 3 "https://atta.szlcsc.com//upload/public/pdf/source/20210810/329661682BA8B3C2B40574DEC7B97564.pdf" H 14000 7850 50  0001 C CNN
@@ -829,10 +827,10 @@ F 3 "" H 14650 7750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R_Small R2
+L Device:R_Small #R2
 U 1 1 646B0732
 P 13500 7400
-F 0 "R2" H 13559 7446 50  0000 L CNN
+F 0 "#R2" H 13559 7446 50  0000 L CNN
 F 1 "10K" H 13559 7355 50  0000 L CNN
 F 2 "Resistor_SMD:R_0805_2012Metric" H 13500 7400 50  0001 C CNN
 F 3 "~" H 13500 7400 50  0001 C CNN
@@ -1276,4 +1274,8 @@ Text Notes 5050 11100 0    50   ~ 0
 Memory Maps:\n\nIf switch is turned off, all I/O operations are pass-throughed to the game cartridge in the top cartridge slot.\n\nIf switch is turned on:\n\n[Memory]\n$0000-$3FFF:\n  If (MODE_GameCart==true) state, all I/O operation are pass-throughed to the game cartridge $0000-$3FFF.\n  Accessing AT29C010.\n\n$4000-$7FFF:\n  If (MODE_GameCart==true) state, all I/O operation are pass-throughed to the game cartridge $4000-$7FFF.\n  Else if (MODE_Flash010Only==fale) state, accessing the current bank of 28SF040.(See below for bank switch detail of the 28SF040)\n  Else accessing AT29C010.\n\n[Registers]\n$2000:\n  if (bit7 != 1) {\n    ignore;\n  } else if (bit6==1) {\n    MODE_GameCart=true;  [bit4..bit0] latched to 28SF040.[A18..A14];\n  } else {\n    if (bit5==0) {\n      MODE_Flash010Only=false;  [bit4..bit0] latched to 28SF040.[A18..A14];\n    } else  {\n      MODE_Flash010Only=true;  [bit0] latched to AT29C010.[A14];}\n  }\nExample:\n  [$2000] = b’0xxxxxxx; // ignored\n  [$2000] = b’110vwxyz; // 28SF040.[A18..A14] = vwxyz;  MODE_GameCart=true;\n  [$2000] = b’111vwxyz; // 28SF040.[A18..A14] = vwxyz;  MODE_GameCart=true;\n  [$2000] = b’100vwxyz; // 28SF040.[A18..A14] = vwxyz;  MODE_GameCart=false; MODE_Flash010Only=false;\n  [$2000] = b’101vwxyz; // AT29C010.[A14] = z;          MODE_GameCart=false; MODE_Flash010Only=true;\n
 Text Notes 4000 8000 0    50   ~ 0
 CPLD Equations:\n\n// Internal Nodes\nHC373_LE = !SW_1 & !AWR & !A15 & !A14 & A13 & ![A12..A7] & AD7;  // Switch is turned ON, and Write access to 0x2000, and AD7 is 1\nMODE_GameCart.ck = HC373_LE;\nMODE_GameCart.d = AD6;  // Switch to the GameCart mode, if the bit6 is set. Otherwise, switch to the MemoryBackup Mode.\nMODE_Flash010Only.ck = HC373_LE;\nMODE_Flash010Only.d = !AD6 & AD5;  // In MemoryBackup Mode, if AD5 is 1, indicates that 28SF040 is disabled.\n                                       // Then AD4..AD1 values are ignored and the AD0 value will be latched to F010_A14.\n\n// Output control signals\n!ARD_T = SW_1 & !ARD                 // Switch is turned off, and read\n        # !SW_1 & MODE_GameCart & !ARD & (AA15 # AA14)   // Switch is turned ON, and stays in GameCartridge Mode, and read over 0x4000\n!AWR_T = SW_1 & !AWR                 // Switch is turned off, and write\n        # !SW_1 & MODE_GameCart & !AWR   // Switch is turned ON, and stays in GameCartridge Mode, and write\nAA15_T = SW_1 &  AA15                 // Switch is turned off, and AA15=1\n        # !SW_1 & MODE_GameCart & AA15   // Switch is turned ON, and stays in GameCartridge Mode, and AA15=1\n!F_CE_040 = !SW_1 & !MODE_GameCart & !MODE_Flash010Only & !A15 &  A14;  // Switch is turned ON, and stays in MemoryBackUp Mode, and not in Flash010Only mode, and Read/Write accessing 0x4000-0x7FFF\n!F_CE_010 = !SW_1 & !MODE_GameCart & !A15 & !A14;  // Switch is turned ON, and stays in MemoryBackUp Mode, and Read/Write accessing 0x0000-0x3FFF\n           # !SW_1 & !MODE_GameCart & MODE_Flash010Only & !A15 &  A14;  // Switch is turned ON, and stays in MemoryBackUp Mode, and in Flash010Only mode, and Read/Write accessing 0x4000-0x7FFF\n\n// Output ROM 010 and 040 address signals\n[F040_A18..F040_A14].ck = HC373_LE & AD6;\n                          # HC373_LE & !AD5;\n[F040_A18..F040_A14].d = (AD4..AD0);\nF010_A14.ck = HC373_LE & !AD6 & AD5;\nF010_A14.d = AD0;\n
+Wire Wire Line
+	3000 6900 3650 6900
+Text Label 3400 6900 0    50   ~ 0
+~ARST
 $EndSCHEMATC
