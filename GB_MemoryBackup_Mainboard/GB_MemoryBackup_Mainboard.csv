@@ -1,6 +1,6 @@
 Comment,Designator,Footprint,LCSC
 "0.1uF","C1,C2,C3","Capacitor_SMD:C_0805_2012Metric","C49678"
-"GB_Cart_EdgeConn-1Row-32Pins","J1","NintendoGBCart_ExtFootprint:GB_Cart_1x32_P1.50mm_Edge_For_RawPCB",""
+"GB_Cart_EdgeConn-1Row-32Pins","J1","NintendoGBCart_ExtFootprint:GB_Cart_1x32_P1.50mm_Edge_For_CartShell",""
 "GB_Cart_Slot-1Row-32Pins","J2","NintendoGBCart_ExtFootprint:GB_GBA_Cartridge_Slot",""
 "JTAG-A","J3","Connector_PinHeader_Boxed_2.54mm:PinHeader_2x05_P2.54mm_Vertical",""
 "10K","R1,R2,R11,R12","Resistor_SMD:R_0805_2012Metric","C17414"

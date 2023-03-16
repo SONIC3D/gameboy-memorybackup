@@ -2,7 +2,7 @@
 <export version="D">
   <design>
     <source>/Users/luzongjing/Documents/KiCad_Projects/GB_Cart/S3D_Gameboy_MemoryBackup_Homebrew/GB_MemoryBackup_Mainboard/GB_MemoryBackup_Mainboard.sch</source>
-    <date>Wednesday, 15 March 2023 at 03:56:19</date>
+    <date>Friday, 17 March 2023 at 01:48:52</date>
     <tool>Eeschema (5.1.10-1-10_14)</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -21,7 +21,7 @@
   <components>
     <comp ref="J1">
       <value>GB_Cart_EdgeConn-1Row-32Pins</value>
-      <footprint>NintendoGBCart_ExtFootprint:GB_Cart_1x32_P1.50mm_Edge_For_RawPCB</footprint>
+      <footprint>NintendoGBCart_ExtFootprint:GB_Cart_1x32_P1.50mm_Edge_For_CartShell</footprint>
       <datasheet>https://fms.komkon.org/GameBoy/Tech/Hardware.html</datasheet>
       <libsource lib="NintendoGBCart_ExtSymbol" part="GB_Cart_EdgeConn-1Row-32Pins" description="GameBoy Cart Edge Connector"/>
       <sheetpath names="/" tstamps="/"/>
