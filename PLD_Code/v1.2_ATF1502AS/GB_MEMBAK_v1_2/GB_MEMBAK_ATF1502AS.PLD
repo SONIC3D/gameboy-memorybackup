@@ -1,0 +1,141 @@
+Name     GB_MEMBAK_V1_2_ATF1502AS ;
+PartNo   00 ;
+Date     2023/03/17 ;
+Revision 00 ;
+Designer SONIC3D ;
+Company  SONIC3D ;
+Assembly GB_MEMBAK_PCB_v1_2 ;
+Location U3 ;
+Device   f1502ispplcc44 ;
+
+/* ReadMe:                                                                      */
+/*                                                                              */
+/* This project contains logic equations to turn the cart into a Nintendo       */
+/* Gameboy memory storage cart. Compatibility depends on the boot ROM code      */
+/* inside this cart.                                                            */
+
+/* ATF15xx usable extention:                                                    */
+/*      D, T, S, R, L                                                           */
+/*      OE, OEMUX                                                               */
+/*      CK, CKMUX                                                               */
+/*      AR, AP                                                                  */
+/*      DQ, LQ, LE                                                              */
+/*      IO                                                                      */
+/* Notes:                                                                       */
+/*      L, AP, LE are missed in doc3303, but tested usable in 1504 fitter)      */
+/* Documents:                                                                   */
+/*      doc3303_AN_3303 - Converting ABEL Design Files to CUPL)                 */
+/*      doc0737_WinCUPL USER MANUAL                                             */
+/*      Atmel-3614-CPLD-ATF15-Overview                                          */
+
+/* *************** INPUT PINS *********************/
+PIN 1   = AWR_n                   ; /*                                 */
+PIN 2   = ARD_n                   ; /*                                 */
+PIN 8   = AA7                     ; /*                                 */
+PIN 9   = AA8                     ; /*                                 */
+PIN 11  = AA9                     ; /*                                 */
+PIN 12  = AA10                    ; /*                                 */
+PIN 14  = AA11                    ; /*                                 */
+PIN 16  = AA12                    ; /*                                 */
+PIN 17  = AA13                    ; /*                                 */
+PIN 18  = AA14                    ; /*                                 */
+PIN 19  = AA15                    ; /*                                 */
+PIN 20  = AD0                     ; /*                                 */
+PIN 21  = AD1                     ; /*                                 */
+PIN 24  = AD2                     ; /*                                 */
+PIN 25  = AD3                     ; /*                                 */
+PIN 26  = AD4                     ; /*                                 */
+PIN 27  = AD5                     ; /*                                 */
+PIN 28  = AD6                     ; /*                                 */
+PIN 29  = AD7                     ; /*                                 */
+PIN 43  = SW_1_n                  ; /*                                 */
+PIN 44  = ARST_n                  ; /*                                 */
+
+/* *************** OUTPUT PINS *********************/
+PIN 4   = AA15_T                  ; /*                                 */
+PIN 5   = AWR_T_n                 ; /*                                 */
+PIN 6   = ARD_T_n                 ; /*                                 */
+PIN 31  = F040_A14                ; /*                                 */
+PIN 33  = F040_A15                ; /*                                 */
+PIN 34  = F040_A16                ; /*                                 */
+PIN 36  = F040_A17                ; /*                                 */
+PIN 37  = F040_A18                ; /*                                 */
+PIN 39  = F_CE_040_n              ; /*                                 */
+PIN 40  = F_CE_010_n              ; /*                                 */
+PIN 41  = F010_A14                ; /*                                 */
+
+/* *********** INPUT/OUTPUT PINS *******************/
+
+/* ********** REGISTERED OUTPUT PINS ***************/
+
+/* ******************* NODEs ***********************/
+NODE HC373_LE                     ; /*                                 */
+/* ****************** PINNODES *********************/
+/* Check fitter documentation P.15 */
+/* for valid feedback node number. */
+PINNODE 612 = SW_1_OnPower_n      ; /* Latch the SW_1_n state on power-on                       */
+PINNODE 613 = MODE_GameCart       ; /* Switched to GameCart Mode(instead of MemoryBackup Mode)  */
+PINNODE 614 = MODE_F010_Only      ; /* Is only AT29C010 enabled on MemoryBackup Mode            */
+
+/* ****** Output and output enable equations *******/
+
+/* ----- [BEGIN] Pass-through cart implementation ----- */
+        /* AA15_T      = AA15;      */
+        /* AWR_T_n     = AWR_n;     */
+        /* ARD_T_n     = ARD_n;     */
+        /* F040_A14    = 'b'0;      */
+        /* F040_A15    = 'b'0;      */
+        /* F040_A16    = 'b'0;      */
+        /* F040_A17    = 'b'0;      */
+        /* F040_A18    = 'b'0;      */
+        /* !F_CE_040_n = 'b'0;      */
+        /* !F_CE_010_n = 'b'0;      */
+        /* F010_A14    = 'b'0;      */
+/* ----- [END] Pass-through cart implementation ----- */
+
+/* ----- [BEGIN] Buried nodes logic ----- */
+HC373_LE    = !SW_1_OnPower_n & !AWR_n & !AA15 & !AA14 &  AA13 & !AA12 & !AA11 & !AA10 & !AA9 & !AA8 & !AA7 & AD7; /* Switch is turned ON, and Write access to 0x2000, and AD7 is 1 */
+
+SW_1_OnPower_n.ck   = ARST_n;
+SW_1_OnPower_n.d    = SW_1_n;       /* Latch the SW_1_n state on power-on power-on(The /Reset signal goes from low to high on power-on.)*/
+
+MODE_GameCart.ck    = HC373_LE;
+MODE_GameCart.d     = AD6;          /* Switch to the GameCart mode, if the data bit6 is 1. Otherwise, switch to the MemoryBackup Mode. */
+
+MODE_F010_Only.ck   = HC373_LE;
+MODE_F010_Only.d    = !AD6 & AD5;   /* In MemoryBackup Mode, if the data bit5 is 1, indicates that 28SF040 is disabled, only AT29C010 is enabled. */
+                                    /* In this case, data bit[4..1] values are ignored and the data bit0 value will be latched to F010_A14. */
+/* ----- [END] Buried nodes logic ----- */
+
+!ARD_T_n    = SW_1_OnPower_n & !ARD_n                                   /* Switch is turned off, pass-through */
+            # !SW_1_OnPower_n & MODE_GameCart & !ARD_n & (AA15 # AA14); /* Switch is turned on, and stays in GameCart Mode and read */
+
+!AWR_T_n    = SW_1_OnPower_n & !AWR_n                   /* Switch is turned off, pass-through */
+            # !SW_1_OnPower_n & MODE_GameCart & !AWR_n; /* Switch is turned on, and stays in GameCart Mode and write */
+
+AA15_T      = SW_1_OnPower_n & AA15                     /* Switch is turned off, pass-through */
+            # !SW_1_OnPower_n & MODE_GameCart & AA15;   /* Switch is turned on, and stays in GameCart Mode and AA15=1 */
+
+!F_CE_040_n = !SW_1_OnPower_n & !MODE_GameCart & !MODE_F010_Only & !AA15 & AA14;  /* Switch is turned on, and stays in MemoryBackup Mode, and not in Flash010_Only mode, and R/W accessing 0x4000-0x7FFF. */
+
+!F_CE_010_n = !SW_1_OnPower_n & !MODE_GameCart &  MODE_F010_Only & !AA15 & AA14   /* Switch is turned on, and stays in MemoryBackup Mode, and in Flash010_Only mode, and R/W accessing 0x4000-0x7FFF. */
+            # !SW_1_OnPower_n & !MODE_GameCart & !AA15 & !AA14;                   /* Switch is turned on, and stays in MemoryBackup Mode, and R/W accessing 0x0000-0x3FFF. */
+
+/* ----- [BEGIN] Program ROM/Storage ROM banking address line latch ----- */
+F010_A14.ck     = HC373_LE & !AD6 & AD5;
+F010_A14.d      = AD0;
+
+F040_A14.ck     = HC373_LE & AD6;
+F040_A15.ck     = HC373_LE & AD6;
+F040_A16.ck     = HC373_LE & AD6;
+F040_A17.ck     = HC373_LE & AD6;
+F040_A18.ck     = HC373_LE & AD6;
+F040_A14.d      = AD0;
+F040_A15.d      = AD1;
+F040_A16.d      = AD2;
+F040_A17.d      = AD3;
+F040_A18.d      = AD4;
+/* ----- [END] Program ROM/Storage ROM banking address line latch ----- */
+
+
+/* End */
