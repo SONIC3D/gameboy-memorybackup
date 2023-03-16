@@ -69,9 +69,9 @@ PIN 41  = F010_A14                ; /*                                 */
 /* ********** REGISTERED OUTPUT PINS ***************/
 
 /* ***************** NODE PINS *********************/
-PINNODE 1 = HC373_LE              ; /*                                 */
-PINNODE 2 = MODE_GameCart         ; /*                                 */
-PINNODE 4 = MODE_F010_Only        ; /* PINNODE 3 is invalid            */
+NODE HC373_LE                     ; /*                                 */
+PINNODE 613 = MODE_GameCart       ; /*                                 */
+PINNODE 614 = MODE_F010_Only      ; /* PINNODE 3 is invalid            */
 
 /* ****** Output and output enable equations *******/
 

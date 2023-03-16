@@ -1,4 +1,4 @@
-Atmel ATF1502AS Fitter Version 1.8.7.8 ,running Wed Mar 15 23:28:39 2023
+Atmel ATF1502AS Fitter Version 1.8.7.8 ,running Fri Mar 17 00:24:21 2023
 
 
 fit1502 C:\WINCUPL\PROJECT\GB_MEMBAK_V1_1\GB_MEMBAK_ATF1502AS.tt2 -CUPL -dev P1502C44 -JTAG ON
@@ -54,11 +54,6 @@ Info: C:\WINCUPL\PROJECT\GB_MEMBAK_V1_1\GB_MEMBAK_ATF1502AS uses 95% of the pins
 ---------------------------------------------------------
  Fitter_Pass 1, Preassign = KEEP, LOGIC_DOUBLING : OFF 
  ... 
-## ERROR : Pin used more than once : 4
- ## ERROR : Bad user pin assignement 
----------------------------------------------------------
- Fitter_Pass 2, Preassign = KEEP, NODE ASSIGN : OFF 
- ... 
 
 Performing global Output Enable pin assignments ...
 
@@ -93,11 +88,11 @@ AA11 is placed at pin 14 (MC 10)
 AA12 is placed at pin 16 (MC 11)
 AA13 is placed at pin 17 (MC 12)
 AA14 is placed at pin 18 (MC 13)
+MODE_GameCart is placed at feedback node 613 (MC 13)
 AA15 is placed at pin 19 (MC 14)
+MODE_F010_Only is placed at feedback node 614 (MC 14)
 AD0 is placed at pin 20 (MC 15)
-MODE_GameCart is placed at feedback node 615 (MC 15)
 AD1 is placed at pin 21 (MC 16)
-MODE_F010_Only is placed at feedback node 616 (MC 16)
 F010_A14 is placed at pin 41 (MC 17)
 F_CE_010_n is placed at pin 40 (MC 18)
 F_CE_040_n is placed at pin 39 (MC 19)
@@ -168,10 +163,10 @@ SW_1_n,
 Multiplexer assignment for block A
 SW_1_n			(MC2	FB)  : MUX 0		Ref (GCLK)
 AA8			(MC13	P)   : MUX 1		Ref (A6p)
+MODE_GameCart		(MC1	FB)  : MUX 2		Ref (A13fb)
 AA9			(MC14	P)   : MUX 4		Ref (A7p)
 AA7			(MC12	P)   : MUX 5		Ref (A5p)
 AA10			(MC8	P)   : MUX 6		Ref (A8p)
-MODE_GameCart		(MC1	FB)  : MUX 8		Ref (A15fb)
 AWR_n			(MC5	FB)  : MUX 20		Ref (GCLR)
 AA15			(MC3	P)   : MUX 24		Ref (A14p)
 AD5			(MC6	P)   : MUX 26		Ref (B29p)
@@ -185,18 +180,18 @@ AA13			(MC11	P)   : MUX 38		Ref (A12p)
 
 FanIn assignment for block B [21]
 {
-AA8,AA7,AA10,AA9,AD0,AD5,AD3,AA15,AD2,AA14,AD4,AD1,AWR_n,AA12,AD6,AD7,AA11,AA13,
-MODE_F010_Only,MODE_GameCart,
+AA7,AA8,AA9,AA10,AD0,AD5,AD3,AA15,AD2,AA14,AD4,AD1,AWR_n,AA12,AD6,AD7,AA11,AA13,
+MODE_GameCart,MODE_F010_Only,
 SW_1_n,
 }
 Multiplexer assignment for block B
-MODE_F010_Only		(MC2	FB)  : MUX 0		Ref (A16fb)
-AA8			(MC14	P)   : MUX 1		Ref (A6p)
-AA7			(MC13	P)   : MUX 5		Ref (A5p)
+SW_1_n			(MC3	FB)  : MUX 0		Ref (GCLK)
+MODE_GameCart		(MC1	FB)  : MUX 1		Ref (A13fb)
+AA7			(MC13	P)   : MUX 2		Ref (A5p)
+AA8			(MC14	P)   : MUX 3		Ref (A6p)
+AA9			(MC15	P)   : MUX 4		Ref (A7p)
 AA10			(MC9	P)   : MUX 6		Ref (A8p)
-AA9			(MC15	P)   : MUX 7		Ref (A7p)
-MODE_GameCart		(MC1	FB)  : MUX 8		Ref (A15fb)
-SW_1_n			(MC3	FB)  : MUX 9		Ref (GCLK)
+MODE_F010_Only		(MC2	FB)  : MUX 9		Ref (A14fb)
 AD0			(MC17	P)   : MUX 20		Ref (A15p)
 AD5			(MC7	P)   : MUX 22		Ref (B29p)
 AD3			(MC20	P)   : MUX 23		Ref (B31p)
@@ -301,8 +296,8 @@ Pin 39 = F_CE_040_n; /* MC 19 */
 Pin 40 = F_CE_010_n; /* MC 18 */ 
 Pin 41 = F010_A14; /* MC 17 */ 
 Pin 43 = SW_1_n;
-PINNODE 615 = MODE_GameCart; /* MC 15 Feedback */
-PINNODE 616 = MODE_F010_Only; /* MC 16 Feedback */
+PINNODE 613 = MODE_GameCart; /* MC 13 Feedback */
+PINNODE 614 = MODE_F010_Only; /* MC 14 Feedback */
 
 ** Resource Usage **
 
@@ -334,10 +329,10 @@ MC9   13   --   TMS        INPUT  --                    --        --            
 MC10  14   --   AA11       INPUT  --                    --        --             0     slow
 MC11  16   --   AA12       INPUT  --                    --        --             0     slow
 MC12  17   --   AA13       INPUT  --                    --        --             0     slow
-MC13  18   --   AA14       INPUT  --                    --        --             0     slow
-MC14  19   --   AA15       INPUT  --                    --        --             0     slow
-MC15  20   --   AD0        INPUT  MODE_GameCart  Dc---  --        --             2     slow
-MC16  21   --   AD1        INPUT  MODE_F010_Only Dc---  --        --             2     slow
+MC13  18   --   AA14       INPUT  MODE_GameCart  Dc---  --        --             2     slow
+MC14  19   --   AA15       INPUT  MODE_F010_Only Dc---  --        --             2     slow
+MC15  20   --   AD0        INPUT  --                    --        --             0     slow
+MC16  21   --   AD1        INPUT  --                    --        --             0     slow
 MC17  41   on   F010_A14   Dc---  --                    --        --             2     slow
 MC18  40   on   F_CE_010_n C----  --                    --        --             2     slow
 MC19  39   on   F_CE_040_n C----  --                    --        --             1     slow

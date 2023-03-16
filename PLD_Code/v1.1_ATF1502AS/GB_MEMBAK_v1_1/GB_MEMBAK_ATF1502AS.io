@@ -15,11 +15,11 @@ BEGIN
     "AA12"                                    : INPUT_PIN = 16 ;
     "AA13"                                    : INPUT_PIN = 17 ;
     "AA14"                                    : INPUT_PIN = 18 ;
+    "MODE_GameCart"                           : NODE_NUM = 613 ;
     "AA15"                                    : INPUT_PIN = 19 ;
+    "MODE_F010_Only"                          : NODE_NUM = 614 ;
     "AD0"                                     : INPUT_PIN = 20 ;
-    "MODE_GameCart"                           : NODE_NUM = 615 ;
     "AD1"                                     : INPUT_PIN = 21 ;
-    "MODE_F010_Only"                          : NODE_NUM = 616 ;
     "F010_A14"                                : OUTPUT_PIN = 41 ;
     "F_CE_010_n"                              : OUTPUT_PIN = 40 ;
     "F_CE_040_n"                              : OUTPUT_PIN = 39 ;

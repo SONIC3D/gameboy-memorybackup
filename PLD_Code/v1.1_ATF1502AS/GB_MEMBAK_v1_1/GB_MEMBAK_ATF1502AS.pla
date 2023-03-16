@@ -1,7 +1,7 @@
 #$ TOOL CUPL
 # Berkeley PLA format generated using CUPL(WM) 5.0a
 # Serial#  60008009
-# Created  Wed Mar 15 23:28:39 2023
+# Created  Fri Mar 17 00:24:21 2023
 #
 #    Name        GB_MEMBAK_V1_1_ATF1502AS
 #    Partno      00
@@ -17,7 +17,7 @@
 #$ JEDECFILE  GB_MEMBA
 #$ DEVICE  f1502ispplcc44
 #$ PINS  32 AA10+:12 AA11+:14 AA12+:16 AA13+:17 AA14+:18 AA15+:19 AA15_T+:4 AA7+:8 AA8+:9 AA9+:11 AD0+:20 AD1+:21 AD2+:24 AD3+:25 AD4+:26 AD5+:27 AD6+:28 AD7+:29 ARD_T_n+:6 ARD_n+:2 AWR_T_n+:5 AWR_n+:1 F010_A14+:41 F040_A14+:31 F040_A15+:33 F040_A16+:34 F040_A17+:36 F040_A18+:37 F_CE_010_n+:40 F_CE_040_n+:39 SW_1_n+:43 SW_2_n+:44 
-#$ NODES  3 HC373_LE+:1 MODE_F010_Only+:4 MODE_GameCart+:2 
+#$ NODES  3 HC373_LE+:45 MODE_F010_Only+:614 MODE_GameCart+:613 
 .i 23
 .o 22
 .type f

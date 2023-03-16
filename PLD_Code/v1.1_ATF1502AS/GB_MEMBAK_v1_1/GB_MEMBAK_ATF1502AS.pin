@@ -12,11 +12,11 @@ AA11					: 14
 AA12					: 16
 AA13					: 17
 AA14					: 18
+MODE_GameCart					: 613
 AA15					: 19
+MODE_F010_Only					: 614
 AD0					: 20
-MODE_GameCart					: 615
 AD1					: 21
-MODE_F010_Only					: 616
 F010_A14					: 41
 F_CE_010_n					: 40
 F_CE_040_n					: 39

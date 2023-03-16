@@ -29,9 +29,9 @@ PIN  36 =  F040_A17
 PIN  37 =  F040_A18 
 PIN  40 =  F_CE_010_n 
 PIN  39 =  F_CE_040_n 
-PIN   1 =  HC373_LE 
-PIN   4 =  MODE_F010_Only 
-PIN   2 =  MODE_GameCart 
+PIN  45 =  HC373_LE 
+PIN 614 =  MODE_F010_Only 
+PIN 613 =  MODE_GameCart 
 PIN  43 =  SW_1_n 
 PIN  44 =  SW_2_n 
 %END
