@@ -171,10 +171,10 @@ F 3 "https://fms.komkon.org/GameBoy/Tech/Hardware.html" H 13500 3800 50  0001 C 
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_02x16_Odd_Even J4
+L Connector_Generic:Conn_02x16_Odd_Even J1
 U 1 1 66188DA4
 P 13450 1450
-F 0 "J4" H 13500 2367 50  0000 C CNN
+F 0 "J1" H 13500 2367 50  0000 C CNN
 F 1 "Conn_02x16_Odd_Even" H 13500 2276 50  0000 C CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_2x16_P2.54mm_Vertical" H 13450 1450 50  0001 C CNN
 F 3 "~" H 13450 1450 50  0001 C CNN
