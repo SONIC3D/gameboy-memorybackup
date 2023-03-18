@@ -380,10 +380,10 @@ Wire Wire Line
 Wire Wire Line
 	14100 4200 14700 4200
 $Comp
-L NintendoGBCart_ExtSymbol:GB_Cart_Slot-1Row-32Pins J2
+L NintendoGBCart_ExtSymbol:GB_Cart_Slot-1Row-32Pins #J2
 U 1 1 64EAD1D7
 P 13500 3850
-F 0 "J2" H 13968 5131 50  0000 C CNN
+F 0 "#J2" H 13968 5131 50  0000 C CNN
 F 1 "GB_Cart_Slot-1Row-32Pins" H 13968 5040 50  0000 C CNN
 F 2 "NintendoGBCart_ExtFootprint:GB_GBA_Cartridge_Slot" H 13500 3800 50  0001 C CNN
 F 3 "https://fms.komkon.org/GameBoy/Tech/Hardware.html" H 13500 3800 50  0001 C CNN
@@ -1863,4 +1863,161 @@ Wire Notes Line
 	6900 11100 4650 11100
 Text Notes 4700 9500 0    50   ~ 0
 SRAM battery power supply
+$Comp
+L Connector_Generic:Conn_02x16_Odd_Even J4
+U 1 1 66188DA4
+P 13450 1450
+F 0 "J4" H 13500 2367 50  0000 C CNN
+F 1 "Conn_02x16_Odd_Even" H 13500 2276 50  0000 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_2x16_P2.54mm_Vertical" H 13450 1450 50  0001 C CNN
+F 3 "~" H 13450 1450 50  0001 C CNN
+	1    13450 1450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0137
+U 1 1 66192461
+P 12750 750
+F 0 "#PWR0137" H 12750 600 50  0001 C CNN
+F 1 "+5V" V 12765 878 50  0000 L CNN
+F 2 "" H 12750 750 50  0001 C CNN
+F 3 "" H 12750 750 50  0001 C CNN
+	1    12750 750 
+	0    -1   -1   0   
+$EndComp
+Text Label 13850 1650 0    50   ~ 0
+AA14
+Text Label 13050 1650 0    50   ~ 0
+AA13
+Text Label 13850 1550 0    50   ~ 0
+AA12
+Text Label 13050 1550 0    50   ~ 0
+AA11
+Text Label 13050 1450 0    50   ~ 0
+AA9
+Text Label 13050 1350 0    50   ~ 0
+AA7
+Text Label 13850 1250 0    50   ~ 0
+AA6
+Text Label 13050 1250 0    50   ~ 0
+AA5
+Text Label 13850 1150 0    50   ~ 0
+AA4
+Text Label 13850 1050 0    50   ~ 0
+AA2
+Text Label 13050 1050 0    50   ~ 0
+AA1
+Wire Wire Line
+	13250 1550 12900 1550
+Wire Wire Line
+	14100 1550 13750 1550
+Wire Wire Line
+	13250 1650 12900 1650
+Wire Wire Line
+	14100 1650 13750 1650
+Wire Wire Line
+	13250 1450 12900 1450
+Wire Wire Line
+	13250 1150 12900 1150
+Wire Wire Line
+	14100 1150 13750 1150
+Wire Wire Line
+	13250 1250 12900 1250
+Wire Wire Line
+	14100 1250 13750 1250
+Wire Wire Line
+	13250 1350 12900 1350
+Wire Wire Line
+	14100 1050 13750 1050
+Wire Wire Line
+	13250 1050 12900 1050
+Text Label 13050 1150 0    50   ~ 0
+AA3
+Wire Wire Line
+	14100 950  13750 950 
+Text Label 13850 950  0    50   ~ 0
+AA0
+Text Label 12850 1750 0    50   ~ 0
+AA15_T
+Wire Wire Line
+	12800 1750 13250 1750
+Wire Wire Line
+	14100 1350 13750 1350
+Text Label 13850 1350 0    50   ~ 0
+AA8
+Wire Wire Line
+	14100 1450 13750 1450
+Text Label 13850 1450 0    50   ~ 0
+AA10
+Wire Wire Line
+	12750 750  13250 750 
+$Comp
+L power:GND #PWR0138
+U 1 1 66522CD5
+P 14100 2250
+F 0 "#PWR0138" H 14100 2000 50  0001 C CNN
+F 1 "GND" V 14105 2122 50  0000 R CNN
+F 2 "" H 14100 2250 50  0001 C CNN
+F 3 "" H 14100 2250 50  0001 C CNN
+	1    14100 2250
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	13750 2250 14100 2250
+Text Label 13850 1750 0    50   ~ 0
+AD0
+Wire Wire Line
+	12900 2150 13250 2150
+Wire Wire Line
+	13750 2050 14100 2050
+Wire Wire Line
+	12900 2050 13250 2050
+Wire Wire Line
+	13750 1950 14100 1950
+Wire Wire Line
+	12900 1950 13250 1950
+Wire Wire Line
+	13750 1850 14100 1850
+Wire Wire Line
+	12900 1850 13250 1850
+Wire Wire Line
+	13750 1750 14100 1750
+Text Label 13050 2150 0    50   ~ 0
+AD7
+Text Label 13850 2050 0    50   ~ 0
+AD6
+Text Label 13050 2050 0    50   ~ 0
+AD5
+Text Label 13850 1950 0    50   ~ 0
+AD4
+Text Label 13050 1950 0    50   ~ 0
+AD3
+Text Label 13850 1850 0    50   ~ 0
+AD2
+Text Label 13050 1850 0    50   ~ 0
+AD1
+Text Label 13850 2150 0    50   ~ 0
+~ARST
+Wire Wire Line
+	13750 2150 14100 2150
+Text Label 12900 2250 0    50   ~ 0
+AAudioIn
+Wire Wire Line
+	12850 2250 13250 2250
+Text Label 13850 750  0    50   ~ 0
+ACLK
+Wire Wire Line
+	13750 750  14100 750 
+Text Label 12950 850  0    50   ~ 0
+~AWR_T
+Wire Wire Line
+	14100 850  13750 850 
+Text Label 13850 850  0    50   ~ 0
+~ARD_T
+Text Label 12800 950  0    50   ~ 0
+~ASRAM_CS
+Wire Wire Line
+	12750 950  13250 950 
+Wire Wire Line
+	12750 850  13250 850 
 $EndSCHEMATC
