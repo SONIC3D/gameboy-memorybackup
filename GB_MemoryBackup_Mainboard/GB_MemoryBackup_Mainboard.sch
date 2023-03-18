@@ -6,7 +6,7 @@ encoding utf-8
 Sheet 1 1
 Title "GB MemoryBackup Mainboard"
 Date "2023-03-13"
-Rev "1.2"
+Rev "1.3"
 Comp "SONIC3D"
 Comment1 ""
 Comment2 ""
@@ -567,28 +567,16 @@ Text Label 3100 7000 0    50   ~ 0
 ~SW_1
 Wire Wire Line
 	3000 7000 3350 7000
-Text Label 3050 8000 0    50   ~ 0
-F040_A14
-Text Label 3050 7800 0    50   ~ 0
-F040_A15
-Text Label 3050 7700 0    50   ~ 0
-F040_A16
-Text Label 3050 7600 0    50   ~ 0
-F040_A17
-Text Label 3050 7500 0    50   ~ 0
-F040_A18
 Wire Wire Line
-	3000 8000 3450 8000
+	3000 8000 3650 8000
 Wire Wire Line
-	3000 7800 3450 7800
+	3000 7800 3650 7800
 Wire Wire Line
-	3000 7700 3450 7700
+	3000 7700 3650 7700
 Wire Wire Line
 	3000 7600 3450 7600
 Wire Wire Line
 	3000 7500 3450 7500
-Text Label 3050 7100 0    50   ~ 0
-F010_A14
 $Comp
 L Connector_Generic:Conn_02x05_Odd_Even J3
 U 1 1 638FDC56
@@ -865,384 +853,368 @@ Text Label 3100 6900 0    50   ~ 0
 $Comp
 L NintendoGBCart_ExtSymbol:AT29C040A-PLCC32 U1
 U 1 1 62148CFE
-P 6600 4000
-F 0 "U1" H 6600 5481 50  0000 C CNN
-F 1 "AT29C010A-PLCC32" H 6600 5390 50  0000 C CNN
-F 2 "Package_LCC_JLCPCB:PLCC-32_L14.0-W11.5-P1.27-T" H 6600 4000 50  0001 C CNN
-F 3 "https://media.digikey.com/pdf/Data%20Sheets/Atmel%20PDFs/AT29C040A.pdf" H 6600 4000 50  0001 C CNN
-F 4 "C72257" H 6600 4000 50  0001 C CNN "LCSC"
-	1    6600 4000
+P 5400 4000
+F 0 "U1" H 5400 5481 50  0000 C CNN
+F 1 "AT29C010A-PLCC32" H 5400 5390 50  0000 C CNN
+F 2 "Package_LCC_JLCPCB:PLCC-32_L14.0-W11.5-P1.27-T" H 5400 4000 50  0001 C CNN
+F 3 "https://media.digikey.com/pdf/Data%20Sheets/Atmel%20PDFs/AT29C040A.pdf" H 5400 4000 50  0001 C CNN
+F 4 "C72257" H 5400 4000 50  0001 C CNN "LCSC"
+	1    5400 4000
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7200 4000 7750 4000
+	6000 4000 6550 4000
 $Comp
 L power:+5V #PWR0112
 U 1 1 625869DA
-P 7200 2500
-F 0 "#PWR0112" H 7200 2350 50  0001 C CNN
-F 1 "+5V" H 7215 2673 50  0000 C CNN
-F 2 "" H 7200 2500 50  0001 C CNN
-F 3 "" H 7200 2500 50  0001 C CNN
-	1    7200 2500
+P 6000 2500
+F 0 "#PWR0112" H 6000 2350 50  0001 C CNN
+F 1 "+5V" H 6015 2673 50  0000 C CNN
+F 2 "" H 6000 2500 50  0001 C CNN
+F 3 "" H 6000 2500 50  0001 C CNN
+	1    6000 2500
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6650 2700 7200 2700
+	5450 2700 6000 2700
 $Comp
 L power:GND #PWR0113
 U 1 1 625A4656
-P 6650 5300
-F 0 "#PWR0113" H 6650 5050 50  0001 C CNN
-F 1 "GND" H 6655 5127 50  0000 C CNN
-F 2 "" H 6650 5300 50  0001 C CNN
-F 3 "" H 6650 5300 50  0001 C CNN
-	1    6650 5300
+P 5450 5300
+F 0 "#PWR0113" H 5450 5050 50  0001 C CNN
+F 1 "GND" H 5455 5127 50  0000 C CNN
+F 2 "" H 5450 5300 50  0001 C CNN
+F 3 "" H 5450 5300 50  0001 C CNN
+	1    5450 5300
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7200 4100 7750 4100
-Text Label 7250 4100 0    50   ~ 0
+	6000 4100 6550 4100
+Text Label 6050 4100 0    50   ~ 0
 ~ARD
-Text Label 7250 3100 0    50   ~ 0
+Text Label 6050 3100 0    50   ~ 0
 AD0
 Wire Wire Line
-	7200 3800 7450 3800
+	6000 3800 6250 3800
 Wire Wire Line
-	7200 3700 7450 3700
+	6000 3700 6250 3700
 Wire Wire Line
-	7200 3600 7450 3600
+	6000 3600 6250 3600
 Wire Wire Line
-	7200 3500 7450 3500
+	6000 3500 6250 3500
 Wire Wire Line
-	7200 3400 7450 3400
+	6000 3400 6250 3400
 Wire Wire Line
-	7200 3300 7450 3300
+	6000 3300 6250 3300
 Wire Wire Line
-	7200 3200 7450 3200
+	6000 3200 6250 3200
 Wire Wire Line
-	7200 3100 7450 3100
-Text Label 7250 3200 0    50   ~ 0
+	6000 3100 6250 3100
+Text Label 6050 3200 0    50   ~ 0
 AD1
-Text Label 7250 3400 0    50   ~ 0
+Text Label 6050 3400 0    50   ~ 0
 AD3
-Text Label 7250 3600 0    50   ~ 0
+Text Label 6050 3600 0    50   ~ 0
 AD5
-Text Label 7250 3700 0    50   ~ 0
+Text Label 6050 3700 0    50   ~ 0
 AD6
-Text Label 7250 3800 0    50   ~ 0
+Text Label 6050 3800 0    50   ~ 0
 AD7
-Text Label 7250 3500 0    50   ~ 0
+Text Label 6050 3500 0    50   ~ 0
 AD4
-Text Label 7250 3300 0    50   ~ 0
+Text Label 6050 3300 0    50   ~ 0
 AD2
 $Comp
 L Device:C_Small C1
 U 1 1 63ED779E
-P 7400 2550
-F 0 "C1" V 7537 2550 50  0000 C CNN
-F 1 "0.1uF" V 7628 2550 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric" H 7400 2550 50  0001 C CNN
-F 3 "~" H 7400 2550 50  0001 C CNN
-F 4 "C49678" H 7400 2550 50  0001 C CNN "LCSC"
-	1    7400 2550
+P 6200 2550
+F 0 "C1" V 6337 2550 50  0000 C CNN
+F 1 "0.1uF" V 6428 2550 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 6200 2550 50  0001 C CNN
+F 3 "~" H 6200 2550 50  0001 C CNN
+F 4 "C49678" H 6200 2550 50  0001 C CNN "LCSC"
+	1    6200 2550
 	0    1    1    0   
 $EndComp
 $Comp
 L power:GND #PWR0103
 U 1 1 63EF04C3
-P 7550 2550
-F 0 "#PWR0103" H 7550 2300 50  0001 C CNN
-F 1 "GND" V 7555 2422 50  0000 R CNN
-F 2 "" H 7550 2550 50  0001 C CNN
-F 3 "" H 7550 2550 50  0001 C CNN
-	1    7550 2550
+P 6350 2550
+F 0 "#PWR0103" H 6350 2300 50  0001 C CNN
+F 1 "GND" V 6355 2422 50  0000 R CNN
+F 2 "" H 6350 2550 50  0001 C CNN
+F 3 "" H 6350 2550 50  0001 C CNN
+	1    6350 2550
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	7500 2550 7550 2550
+	6300 2550 6350 2550
 Wire Wire Line
-	7200 4200 7750 4200
-Text Label 7250 4200 0    50   ~ 0
+	6000 4200 6550 4200
+Text Label 6050 4200 0    50   ~ 0
 ~AWR
-Text Label 5950 4200 2    50   ~ 0
+Text Label 4750 4200 2    50   ~ 0
 AA11
-Text Label 5950 4100 2    50   ~ 0
+Text Label 4750 4100 2    50   ~ 0
 AA10
-Text Label 5950 4000 2    50   ~ 0
+Text Label 4750 4000 2    50   ~ 0
 AA9
-Text Label 5950 3900 2    50   ~ 0
+Text Label 4750 3900 2    50   ~ 0
 AA8
-Text Label 5950 3800 2    50   ~ 0
+Text Label 4750 3800 2    50   ~ 0
 AA7
-Text Label 5950 3700 2    50   ~ 0
+Text Label 4750 3700 2    50   ~ 0
 AA6
-Text Label 5950 3600 2    50   ~ 0
+Text Label 4750 3600 2    50   ~ 0
 AA5
-Text Label 5950 3500 2    50   ~ 0
+Text Label 4750 3500 2    50   ~ 0
 AA4
-Text Label 5950 3300 2    50   ~ 0
+Text Label 4750 3300 2    50   ~ 0
 AA2
-Text Label 5950 3200 2    50   ~ 0
+Text Label 4750 3200 2    50   ~ 0
 AA1
 Wire Wire Line
-	6000 4100 5650 4100
+	4800 4100 4450 4100
 Wire Wire Line
-	6000 4200 5650 4200
+	4800 4200 4450 4200
 Wire Wire Line
-	6000 4000 5650 4000
+	4800 4000 4450 4000
 Wire Wire Line
-	6000 3900 5650 3900
+	4800 3900 4450 3900
 Wire Wire Line
-	6000 3400 5650 3400
+	4800 3400 4450 3400
 Wire Wire Line
-	6000 3500 5650 3500
+	4800 3500 4450 3500
 Wire Wire Line
-	6000 3600 5650 3600
+	4800 3600 4450 3600
 Wire Wire Line
-	6000 3700 5650 3700
+	4800 3700 4450 3700
 Wire Wire Line
-	6000 3800 5650 3800
+	4800 3800 4450 3800
 Wire Wire Line
-	6000 3300 5650 3300
+	4800 3300 4450 3300
 Wire Wire Line
-	6000 3200 5650 3200
-Text Label 5950 3400 2    50   ~ 0
+	4800 3200 4450 3200
+Text Label 4750 3400 2    50   ~ 0
 AA3
 Wire Wire Line
-	6000 3100 5650 3100
-Text Label 5950 3100 2    50   ~ 0
+	4800 3100 4450 3100
+Text Label 4750 3100 2    50   ~ 0
 AA0
 Wire Wire Line
-	6000 4300 5650 4300
-Text Label 5950 4300 2    50   ~ 0
+	4800 4300 4450 4300
+Text Label 4750 4300 2    50   ~ 0
 AA12
 Wire Wire Line
-	6000 4400 5650 4400
+	4800 4400 4450 4400
 Wire Wire Line
-	6000 4600 5550 4600
+	4800 4600 4350 4600
 Wire Wire Line
-	6000 4700 5550 4700
-Text Label 5950 4400 2    50   ~ 0
+	4800 4700 4350 4700
+Text Label 4750 4400 2    50   ~ 0
 AA13
 Wire Wire Line
-	5550 4600 5550 4700
-Connection ~ 5550 4700
-Wire Wire Line
-	5550 4700 5550 4800
-$Comp
-L power:GND #PWR0120
-U 1 1 64EAD1E3
-P 5550 5000
-F 0 "#PWR0120" H 5550 4750 50  0001 C CNN
-F 1 "GND" H 5555 4827 50  0000 C CNN
-F 2 "" H 5550 5000 50  0001 C CNN
-F 3 "" H 5550 5000 50  0001 C CNN
-	1    5550 5000
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	5550 4500 6000 4500
+	4350 4500 4800 4500
 $Comp
 L NintendoGBCart_ExtSymbol:28SF040-PLCC32 U2
 U 1 1 64EAD1E4
-P 9650 4000
-F 0 "U2" H 9650 5500 50  0000 C CNN
-F 1 "28SF040-120-4C-NH-PLCC32" H 9650 5400 50  0000 C CNN
-F 2 "Package_LCC_JLCPCB:PLCC-32_L14.0-W11.5-P1.27-T" H 9650 4000 50  0001 C CNN
-F 3 "https://www.ramos.it/public/schede/SST28SF040-120-4C-NH.pdf" H 9650 4000 50  0001 C CNN
-F 4 "C72257" H 9650 4000 50  0001 C CNN "LCSC"
-	1    9650 4000
+P 8150 4000
+F 0 "U2" H 8150 5500 50  0000 C CNN
+F 1 "28SF040-120-4C-NH-PLCC32" H 8150 5400 50  0000 C CNN
+F 2 "Package_LCC_JLCPCB:PLCC-32_L14.0-W11.5-P1.27-T" H 8150 4000 50  0001 C CNN
+F 3 "https://www.ramos.it/public/schede/SST28SF040-120-4C-NH.pdf" H 8150 4000 50  0001 C CNN
+F 4 "C72257" H 8150 4000 50  0001 C CNN "LCSC"
+	1    8150 4000
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	10250 4000 10800 4000
+	8750 4000 9300 4000
 $Comp
 L power:GND #PWR0121
 U 1 1 64EAD1E6
-P 9700 5300
-F 0 "#PWR0121" H 9700 5050 50  0001 C CNN
-F 1 "GND" H 9705 5127 50  0000 C CNN
-F 2 "" H 9700 5300 50  0001 C CNN
-F 3 "" H 9700 5300 50  0001 C CNN
-	1    9700 5300
+P 8200 5300
+F 0 "#PWR0121" H 8200 5050 50  0001 C CNN
+F 1 "GND" H 8205 5127 50  0000 C CNN
+F 2 "" H 8200 5300 50  0001 C CNN
+F 3 "" H 8200 5300 50  0001 C CNN
+	1    8200 5300
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	10250 4100 10800 4100
-Text Label 10300 4100 0    50   ~ 0
+	8750 4100 9300 4100
+Text Label 8800 4100 0    50   ~ 0
 ~ARD
-Text Label 10300 3100 0    50   ~ 0
+Text Label 8800 3100 0    50   ~ 0
 AD0
 Wire Wire Line
-	10250 3800 10500 3800
+	8750 3800 9000 3800
 Wire Wire Line
-	10250 3700 10500 3700
+	8750 3700 9000 3700
 Wire Wire Line
-	10250 3600 10500 3600
+	8750 3600 9000 3600
 Wire Wire Line
-	10250 3500 10500 3500
+	8750 3500 9000 3500
 Wire Wire Line
-	10250 3400 10500 3400
+	8750 3400 9000 3400
 Wire Wire Line
-	10250 3300 10500 3300
+	8750 3300 9000 3300
 Wire Wire Line
-	10250 3200 10500 3200
+	8750 3200 9000 3200
 Wire Wire Line
-	10250 3100 10500 3100
-Text Label 10300 3200 0    50   ~ 0
+	8750 3100 9000 3100
+Text Label 8800 3200 0    50   ~ 0
 AD1
-Text Label 10300 3400 0    50   ~ 0
+Text Label 8800 3400 0    50   ~ 0
 AD3
-Text Label 10300 3600 0    50   ~ 0
+Text Label 8800 3600 0    50   ~ 0
 AD5
-Text Label 10300 3700 0    50   ~ 0
+Text Label 8800 3700 0    50   ~ 0
 AD6
-Text Label 10300 3800 0    50   ~ 0
+Text Label 8800 3800 0    50   ~ 0
 AD7
-Text Label 10300 3500 0    50   ~ 0
+Text Label 8800 3500 0    50   ~ 0
 AD4
-Text Label 10300 3300 0    50   ~ 0
+Text Label 8800 3300 0    50   ~ 0
 AD2
 Wire Wire Line
-	10250 4200 10800 4200
-Text Label 10300 4200 0    50   ~ 0
+	8750 4200 9300 4200
+Text Label 8800 4200 0    50   ~ 0
 ~AWR
-Text Label 9000 4200 2    50   ~ 0
+Text Label 7500 4200 2    50   ~ 0
 AA11
-Text Label 9000 4100 2    50   ~ 0
+Text Label 7500 4100 2    50   ~ 0
 AA10
-Text Label 9000 4000 2    50   ~ 0
+Text Label 7500 4000 2    50   ~ 0
 AA9
-Text Label 9000 3900 2    50   ~ 0
+Text Label 7500 3900 2    50   ~ 0
 AA8
-Text Label 9000 3800 2    50   ~ 0
+Text Label 7500 3800 2    50   ~ 0
 AA7
-Text Label 9000 3700 2    50   ~ 0
+Text Label 7500 3700 2    50   ~ 0
 AA6
-Text Label 9000 3600 2    50   ~ 0
+Text Label 7500 3600 2    50   ~ 0
 AA5
-Text Label 9000 3500 2    50   ~ 0
+Text Label 7500 3500 2    50   ~ 0
 AA4
-Text Label 9000 3300 2    50   ~ 0
+Text Label 7500 3300 2    50   ~ 0
 AA2
-Text Label 9000 3200 2    50   ~ 0
+Text Label 7500 3200 2    50   ~ 0
 AA1
 Wire Wire Line
-	9050 4100 8700 4100
+	7550 4100 7200 4100
 Wire Wire Line
-	9050 4200 8700 4200
+	7550 4200 7200 4200
 Wire Wire Line
-	9050 4000 8700 4000
+	7550 4000 7200 4000
 Wire Wire Line
-	9050 3900 8700 3900
+	7550 3900 7200 3900
 Wire Wire Line
-	9050 3400 8700 3400
+	7550 3400 7200 3400
 Wire Wire Line
-	9050 3500 8700 3500
+	7550 3500 7200 3500
 Wire Wire Line
-	9050 3600 8700 3600
+	7550 3600 7200 3600
 Wire Wire Line
-	9050 3700 8700 3700
+	7550 3700 7200 3700
 Wire Wire Line
-	9050 3800 8700 3800
+	7550 3800 7200 3800
 Wire Wire Line
-	9050 3300 8700 3300
+	7550 3300 7200 3300
 Wire Wire Line
-	9050 3200 8700 3200
-Text Label 9000 3400 2    50   ~ 0
+	7550 3200 7200 3200
+Text Label 7500 3400 2    50   ~ 0
 AA3
 Wire Wire Line
-	9050 3100 8700 3100
-Text Label 9000 3100 2    50   ~ 0
+	7550 3100 7200 3100
+Text Label 7500 3100 2    50   ~ 0
 AA0
 Wire Wire Line
-	9050 4300 8700 4300
-Text Label 9000 4300 2    50   ~ 0
+	7550 4300 7200 4300
+Text Label 7500 4300 2    50   ~ 0
 AA12
 Wire Wire Line
-	9050 4400 8700 4400
-Text Label 9000 4400 2    50   ~ 0
+	7550 4400 7200 4400
+Text Label 7500 4400 2    50   ~ 0
 AA13
 $Comp
 L power:+5V #PWR0122
 U 1 1 6475DD38
-P 10300 2500
-F 0 "#PWR0122" H 10300 2350 50  0001 C CNN
-F 1 "+5V" H 10315 2673 50  0000 C CNN
-F 2 "" H 10300 2500 50  0001 C CNN
-F 3 "" H 10300 2500 50  0001 C CNN
-	1    10300 2500
+P 8800 2500
+F 0 "#PWR0122" H 8800 2350 50  0001 C CNN
+F 1 "+5V" H 8815 2673 50  0000 C CNN
+F 2 "" H 8800 2500 50  0001 C CNN
+F 3 "" H 8800 2500 50  0001 C CNN
+	1    8800 2500
 	1    0    0    -1  
 $EndComp
-Text Label 10300 4000 0    50   ~ 0
+Text Label 8800 4000 0    50   ~ 0
 ~F_CE_040
-Text Label 7250 4000 0    50   ~ 0
+Text Label 6050 4000 0    50   ~ 0
 ~F_CE_010
 Wire Wire Line
-	8600 4500 9050 4500
+	7100 4500 7550 4500
 Wire Wire Line
-	8600 4600 9050 4600
+	7100 4600 7550 4600
 Wire Wire Line
-	8600 4700 9050 4700
+	7100 4700 7550 4700
 Wire Wire Line
-	8600 4800 9050 4800
+	7100 4800 7550 4800
 Wire Wire Line
-	8600 4900 9050 4900
+	7100 4900 7550 4900
 Wire Wire Line
-	10300 2500 10300 2550
+	8800 2500 8800 2550
 Wire Wire Line
-	10300 2700 9700 2700
+	8800 2700 8200 2700
 Wire Wire Line
-	7200 2700 7200 2550
+	6000 2700 6000 2550
 Wire Wire Line
-	7300 2550 7200 2550
+	6100 2550 6000 2550
 $Comp
 L Device:C_Small C2
 U 1 1 648B0694
-P 10500 2550
-F 0 "C2" V 10637 2550 50  0000 C CNN
-F 1 "0.1uF" V 10728 2550 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric" H 10500 2550 50  0001 C CNN
-F 3 "~" H 10500 2550 50  0001 C CNN
-F 4 "C49678" H 10500 2550 50  0001 C CNN "LCSC"
-	1    10500 2550
+P 9000 2550
+F 0 "C2" V 9137 2550 50  0000 C CNN
+F 1 "0.1uF" V 9228 2550 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 9000 2550 50  0001 C CNN
+F 3 "~" H 9000 2550 50  0001 C CNN
+F 4 "C49678" H 9000 2550 50  0001 C CNN "LCSC"
+	1    9000 2550
 	0    1    1    0   
 $EndComp
 $Comp
 L power:GND #PWR0140
 U 1 1 648B069E
-P 10650 2550
-F 0 "#PWR0140" H 10650 2300 50  0001 C CNN
-F 1 "GND" V 10655 2422 50  0000 R CNN
-F 2 "" H 10650 2550 50  0001 C CNN
-F 3 "" H 10650 2550 50  0001 C CNN
-	1    10650 2550
+P 9150 2550
+F 0 "#PWR0140" H 9150 2300 50  0001 C CNN
+F 1 "GND" V 9155 2422 50  0000 R CNN
+F 2 "" H 9150 2550 50  0001 C CNN
+F 3 "" H 9150 2550 50  0001 C CNN
+	1    9150 2550
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	10600 2550 10650 2550
+	9100 2550 9150 2550
 Wire Wire Line
-	10400 2550 10300 2550
-Connection ~ 10300 2550
+	8900 2550 8800 2550
+Connection ~ 8800 2550
 Wire Wire Line
-	10300 2550 10300 2700
-Connection ~ 7200 2550
+	8800 2550 8800 2700
+Connection ~ 6000 2550
 Wire Wire Line
-	7200 2550 7200 2500
+	6000 2550 6000 2500
 Text Notes 13100 6900 0    50   ~ 0
 SW1(SWITCH):\nPin 1: "On" (U3.~SW_1~=0) Turn this cart on.\nPin 3: "Off" (U3.~SW_1~=1) Turn this cart off.\n        (Pass-through cart, running the game software only)
-Text Label 8700 4900 0    50   ~ 0
+Text Label 7200 4900 0    50   ~ 0
 F040_A18
-Text Label 8700 4800 0    50   ~ 0
+Text Label 7200 4800 0    50   ~ 0
 F040_A17
-Text Label 8700 4700 0    50   ~ 0
+Text Label 7200 4700 0    50   ~ 0
 F040_A16
-Text Label 8700 4600 0    50   ~ 0
+Text Label 7200 4600 0    50   ~ 0
 F040_A15
-Text Label 8700 4500 0    50   ~ 0
+Text Label 7200 4500 0    50   ~ 0
 F040_A14
-Text Label 5650 4500 0    50   ~ 0
+Text Label 4450 4500 0    50   ~ 0
 F010_A14
 $Comp
 L Device:R_Small R13
@@ -1257,25 +1229,634 @@ F 4 "C17513" H 1550 10550 50  0001 C CNN "LCSC"
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	6000 4800 5550 4800
-Connection ~ 5550 4800
+	4800 4800 4350 4800
 Wire Wire Line
-	5550 4800 5550 4900
-Wire Wire Line
-	6000 4900 5550 4900
-Connection ~ 5550 4900
-Wire Wire Line
-	5550 4900 5550 5000
+	4800 4900 4350 4900
 Text Notes -3200 13250 0    50   ~ 0
 https://problemkaputt.de/pandocs.htm#interrupts\n\nOriginal Interrupt Vector placed on:\n0040h-0060h in ROM.\n\nJump Vectors in First ROM Bank\n  0000,0008,0010,0018,0020,0028,0030,0038   // for RST commands\n  0040,0048,0050,0058,0060                    // for Interrupts\n\n\n=========\nRST instruction:\n  rst  n         xx          16 —— call to 00,08,10,18,20,28,30,38\n\nTrigger V-Blank(INT 40h):\nI/O port $FF0F:\nBit 0: V-Blank  Interrupt Request (INT 40h)  (1=Request)\n=========\n
 Text Notes 600  12900 0    50   ~ 0
 https://gbdev.gg8.se/forums/viewtopic.php?id=618\nhttps://gekkio.fi/files/gb-docs/gbctr.pdf  (p.62-p.63)\nhttp://www.psxdev.net/forum/viewtopic.php?t=652&start=20\n\nThe Game Boy pulls #CS(Pin5) low when the CPU is accessing $A000-$FDFF.\n\n\nWhen accessing $0000-7FFF the correct chip select signal is actually A15, because A15 is low when accessing that memory area and high at all other times.\n\nSo A15 fulfills the role of #ROM_CS at the same time, and you must use A15 as the chip select if you intend to respond to reads/writes in $0000-$7FFF.\n\n\nBut for SRAM usage, the emulator need to access 0xA000-0xBFFF on cartridge.\nThat mean A15=1 and A14=0 and #CS(pin5)=0
-Text Notes 5050 11100 0    50   ~ 0
+Text Notes 7550 17350 0    50   ~ 0
 Memory Maps:\n\nIf switch is turned off, all I/O operations are pass-throughed to the game cartridge in the top cartridge slot.\n\nIf switch is turned on:\n\n[Memory]\n$0000-$3FFF:\n  If (MODE_GameCart==true) state, all I/O operation are pass-throughed to the game cartridge $0000-$3FFF.\n  Accessing AT29C010.\n\n$4000-$7FFF:\n  If (MODE_GameCart==true) state, all I/O operation are pass-throughed to the game cartridge $4000-$7FFF.\n  Else if (MODE_Flash010Only==fale) state, accessing the current bank of 28SF040.(See below for bank switch detail of the 28SF040)\n  Else accessing AT29C010.\n\n[Registers]\n$2000:\n  if (bit7 != 1) {\n    ignore;\n  } else if (bit6==1) {\n    MODE_GameCart=true;  [bit4..bit0] latched to 28SF040.[A18..A14];\n  } else {\n    if (bit5==0) {\n      MODE_Flash010Only=false;  [bit4..bit0] latched to 28SF040.[A18..A14];\n    } else  {\n      MODE_Flash010Only=true;  [bit0] latched to AT29C010.[A14];}\n  }\nExample:\n  [$2000] = b’0xxxxxxx; // ignored\n  [$2000] = b’110vwxyz; // 28SF040.[A18..A14] = vwxyz;  MODE_GameCart=true;\n  [$2000] = b’111vwxyz; // 28SF040.[A18..A14] = vwxyz;  MODE_GameCart=true;\n  [$2000] = b’100vwxyz; // 28SF040.[A18..A14] = vwxyz;  MODE_GameCart=false; MODE_Flash010Only=false;\n  [$2000] = b’101vwxyz; // AT29C010.[A14] = z;          MODE_GameCart=false; MODE_Flash010Only=true;\n
-Text Notes 4000 8000 0    50   ~ 0
+Text Notes 7550 14350 0    50   ~ 0
 CPLD Equations:\n\n// Internal Nodes\nHC373_LE = !SW_1 & !AWR & !A15 & !A14 & A13 & ![A12..A7] & AD7;  // Switch is turned ON, and Write access to 0x2000, and AD7 is 1\nMODE_GameCart.ck = HC373_LE;\nMODE_GameCart.d = AD6;  // Switch to the GameCart mode, if the bit6 is set. Otherwise, switch to the MemoryBackup Mode.\nMODE_Flash010Only.ck = HC373_LE;\nMODE_Flash010Only.d = !AD6 & AD5;  // In MemoryBackup Mode, if AD5 is 1, indicates that 28SF040 is disabled.\n                                       // Then AD4..AD1 values are ignored and the AD0 value will be latched to F010_A14.\n\n// Output control signals\n!ARD_T = SW_1 & !ARD                 // Switch is turned off, and read\n        # !SW_1 & MODE_GameCart & !ARD & (AA15 # AA14)   // Switch is turned ON, and stays in GameCartridge Mode, and read over 0x4000\n!AWR_T = SW_1 & !AWR                 // Switch is turned off, and write\n        # !SW_1 & MODE_GameCart & !AWR   // Switch is turned ON, and stays in GameCartridge Mode, and write\nAA15_T = SW_1 &  AA15                 // Switch is turned off, and AA15=1\n        # !SW_1 & MODE_GameCart & AA15   // Switch is turned ON, and stays in GameCartridge Mode, and AA15=1\n!F_CE_040 = !SW_1 & !MODE_GameCart & !MODE_Flash010Only & !A15 &  A14;  // Switch is turned ON, and stays in MemoryBackUp Mode, and not in Flash010Only mode, and Read/Write accessing 0x4000-0x7FFF\n!F_CE_010 = !SW_1 & !MODE_GameCart & !A15 & !A14;  // Switch is turned ON, and stays in MemoryBackUp Mode, and Read/Write accessing 0x0000-0x3FFF\n           # !SW_1 & !MODE_GameCart & MODE_Flash010Only & !A15 &  A14;  // Switch is turned ON, and stays in MemoryBackUp Mode, and in Flash010Only mode, and Read/Write accessing 0x4000-0x7FFF\n\n// Output ROM 010 and 040 address signals\n[F040_A18..F040_A14].ck = HC373_LE & AD6;\n                          # HC373_LE & !AD5;\n[F040_A18..F040_A14].d = (AD4..AD0);\nF010_A14.ck = HC373_LE & !AD6 & AD5;\nF010_A14.d = AD0;\n
 Wire Wire Line
 	3000 6900 3650 6900
 Text Label 3400 6900 0    50   ~ 0
 ~ARST
+$Comp
+L 74xx:74HC373 U6
+U 1 1 65668947
+P 5750 6900
+F 0 "U6" H 5750 7881 50  0000 C CNN
+F 1 "74HC373" H 5750 7790 50  0000 C CNN
+F 2 "Package_DIP:DIP-20_W7.62mm_Socket" H 5750 6900 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/symlink/cd54hc373.pdf" H 5750 6900 50  0001 C CNN
+	1    5750 6900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5250 6700 4850 6700
+Wire Wire Line
+	5250 6800 4850 6800
+Wire Wire Line
+	5250 6900 4850 6900
+Wire Wire Line
+	5250 7000 4850 7000
+Wire Wire Line
+	5250 6600 4850 6600
+Wire Wire Line
+	5250 6500 4850 6500
+Wire Wire Line
+	5250 6400 4850 6400
+Text Label 5000 6400 0    50   ~ 0
+AD0
+Text Label 5000 6500 0    50   ~ 0
+AD1
+Text Label 5000 6600 0    50   ~ 0
+AD2
+Text Label 5000 6700 0    50   ~ 0
+AD3
+Text Label 5000 6800 0    50   ~ 0
+AD4
+Wire Wire Line
+	5250 7100 4850 7100
+Wire Wire Line
+	5250 7300 4650 7300
+$Comp
+L power:GND #PWR0106
+U 1 1 656DB9A5
+P 5750 7700
+F 0 "#PWR0106" H 5750 7450 50  0001 C CNN
+F 1 "GND" H 5755 7527 50  0000 C CNN
+F 2 "" H 5750 7700 50  0001 C CNN
+F 3 "" H 5750 7700 50  0001 C CNN
+	1    5750 7700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C6
+U 1 1 656DC299
+P 6250 6000
+F 0 "C6" V 6021 6000 50  0000 C CNN
+F 1 "0.1uF" V 6112 6000 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 6250 6000 50  0001 C CNN
+F 3 "~" H 6250 6000 50  0001 C CNN
+F 4 "C49678" V 6250 6000 50  0001 C CNN "LCSC"
+	1    6250 6000
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0107
+U 1 1 656DC2B1
+P 6350 6000
+F 0 "#PWR0107" H 6350 5750 50  0001 C CNN
+F 1 "GND" H 6355 5827 50  0000 C CNN
+F 2 "" H 6350 6000 50  0001 C CNN
+F 3 "" H 6350 6000 50  0001 C CNN
+	1    6350 6000
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6150 6000 6050 6000
+Wire Wire Line
+	5750 6100 6050 6100
+Wire Wire Line
+	6050 6100 6050 6000
+Connection ~ 6050 6000
+Wire Wire Line
+	6050 6000 6050 5900
+$Comp
+L power:+5V #PWR0108
+U 1 1 6570A587
+P 6050 5900
+F 0 "#PWR0108" H 6050 5750 50  0001 C CNN
+F 1 "+5V" H 6065 6073 50  0000 C CNN
+F 2 "" H 6050 5900 50  0001 C CNN
+F 3 "" H 6050 5900 50  0001 C CNN
+	1    6050 5900
+	1    0    0    -1  
+$EndComp
+Text Label 4450 4600 0    50   ~ 0
+F010_A15
+Text Label 4450 4700 0    50   ~ 0
+F010_A16
+Text Label 4450 4800 0    50   ~ 0
+F010_A17
+Text Label 4450 4900 0    50   ~ 0
+F010_A18
+Wire Wire Line
+	6700 6500 6250 6500
+Wire Wire Line
+	6700 6600 6250 6600
+Wire Wire Line
+	6250 6400 6700 6400
+Text Label 6300 6400 0    50   ~ 0
+F010_A14
+Wire Wire Line
+	6700 6700 6250 6700
+Wire Wire Line
+	6700 6800 6250 6800
+Text Label 6300 6500 0    50   ~ 0
+F010_A15
+Text Label 6300 6600 0    50   ~ 0
+F010_A16
+Text Label 6300 6700 0    50   ~ 0
+F010_A17
+Text Label 6300 6800 0    50   ~ 0
+F010_A18
+Wire Wire Line
+	5250 7400 4850 7400
+$Comp
+L power:GND #PWR0109
+U 1 1 657959DF
+P 4850 7400
+F 0 "#PWR0109" H 4850 7150 50  0001 C CNN
+F 1 "GND" H 4855 7227 50  0000 C CNN
+F 2 "" H 4850 7400 50  0001 C CNN
+F 3 "" H 4850 7400 50  0001 C CNN
+	1    4850 7400
+	1    0    0    -1  
+$EndComp
+NoConn ~ 6250 6900
+NoConn ~ 6250 7000
+NoConn ~ 6250 7100
+$Comp
+L 74xx:74HC373 U7
+U 1 1 657DD9A7
+P 8800 6900
+F 0 "U7" H 8800 7881 50  0000 C CNN
+F 1 "74HC373" H 8800 7790 50  0000 C CNN
+F 2 "Package_DIP:DIP-20_W7.62mm_Socket" H 8800 6900 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/symlink/cd54hc373.pdf" H 8800 6900 50  0001 C CNN
+	1    8800 6900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8300 6700 7900 6700
+Wire Wire Line
+	8300 6800 7900 6800
+Wire Wire Line
+	8300 6900 7900 6900
+Wire Wire Line
+	8300 7000 7900 7000
+Wire Wire Line
+	8300 6600 7900 6600
+Wire Wire Line
+	8300 6500 7900 6500
+Wire Wire Line
+	8300 6400 7900 6400
+Text Label 8050 6400 0    50   ~ 0
+AD0
+Text Label 8050 6500 0    50   ~ 0
+AD1
+Text Label 8050 6600 0    50   ~ 0
+AD2
+Text Label 8050 6700 0    50   ~ 0
+AD3
+Text Label 8050 6800 0    50   ~ 0
+AD4
+Wire Wire Line
+	8300 7100 7900 7100
+Wire Wire Line
+	8300 7300 7700 7300
+$Comp
+L power:GND #PWR0110
+U 1 1 657DD9C2
+P 8800 7700
+F 0 "#PWR0110" H 8800 7450 50  0001 C CNN
+F 1 "GND" H 8805 7527 50  0000 C CNN
+F 2 "" H 8800 7700 50  0001 C CNN
+F 3 "" H 8800 7700 50  0001 C CNN
+	1    8800 7700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C7
+U 1 1 657DD9CD
+P 9300 6000
+F 0 "C7" V 9071 6000 50  0000 C CNN
+F 1 "0.1uF" V 9162 6000 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 9300 6000 50  0001 C CNN
+F 3 "~" H 9300 6000 50  0001 C CNN
+F 4 "C49678" V 9300 6000 50  0001 C CNN "LCSC"
+	1    9300 6000
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0111
+U 1 1 657DD9D7
+P 9400 6000
+F 0 "#PWR0111" H 9400 5750 50  0001 C CNN
+F 1 "GND" H 9405 5827 50  0000 C CNN
+F 2 "" H 9400 6000 50  0001 C CNN
+F 3 "" H 9400 6000 50  0001 C CNN
+	1    9400 6000
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	9200 6000 9100 6000
+Wire Wire Line
+	8800 6100 9100 6100
+Wire Wire Line
+	9100 6100 9100 6000
+Connection ~ 9100 6000
+Wire Wire Line
+	9100 6000 9100 5900
+$Comp
+L power:+5V #PWR0114
+U 1 1 657DD9E6
+P 9100 5900
+F 0 "#PWR0114" H 9100 5750 50  0001 C CNN
+F 1 "+5V" H 9115 6073 50  0000 C CNN
+F 2 "" H 9100 5900 50  0001 C CNN
+F 3 "" H 9100 5900 50  0001 C CNN
+	1    9100 5900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9750 6500 9300 6500
+Wire Wire Line
+	9750 6600 9300 6600
+Wire Wire Line
+	9300 6400 9750 6400
+Text Label 9350 6400 0    50   ~ 0
+F040_A14
+Wire Wire Line
+	9750 6700 9300 6700
+Wire Wire Line
+	9750 6800 9300 6800
+Text Label 9350 6500 0    50   ~ 0
+F040_A15
+Text Label 9350 6600 0    50   ~ 0
+F040_A16
+Text Label 9350 6700 0    50   ~ 0
+F040_A17
+Text Label 9350 6800 0    50   ~ 0
+F040_A18
+Wire Wire Line
+	8300 7400 7900 7400
+$Comp
+L power:GND #PWR0120
+U 1 1 657DD9FB
+P 7900 7400
+F 0 "#PWR0120" H 7900 7150 50  0001 C CNN
+F 1 "GND" H 7905 7227 50  0000 C CNN
+F 2 "" H 7900 7400 50  0001 C CNN
+F 3 "" H 7900 7400 50  0001 C CNN
+	1    7900 7400
+	1    0    0    -1  
+$EndComp
+NoConn ~ 9300 6900
+NoConn ~ 9300 7000
+NoConn ~ 9300 7100
+Text Label 4700 7300 0    50   ~ 0
+HC373_010_LE
+Text Label 7750 7300 0    50   ~ 0
+HC373_040_LE
+Text Label 3050 8000 0    50   ~ 0
+HC373_010_LE
+Text Label 3050 7800 0    50   ~ 0
+HC373_040_LE
+Text Label 3050 7100 0    50   ~ 0
+~RAM_CE
+$Comp
+L NintendoGBCart_ExtSymbol:TC551001BPL_DIP32 U4
+U 1 1 659833B6
+P 10950 3900
+F 0 "U4" H 10950 5081 50  0000 C CNN
+F 1 "TC551001BPL_DIP32" H 10950 4990 50  0000 C CNN
+F 2 "Package_DIP:DIP-32_W15.24mm_Socket" H 10950 3900 50  0001 C CNN
+F 3 "" H 10950 3900 50  0001 C CNN
+	1    10950 3900
+	1    0    0    -1  
+$EndComp
+Text Label 10400 4200 2    50   ~ 0
+AA11
+Text Label 10400 4100 2    50   ~ 0
+AA10
+Text Label 10400 4000 2    50   ~ 0
+AA9
+Text Label 10400 3900 2    50   ~ 0
+AA8
+Text Label 10400 3800 2    50   ~ 0
+AA7
+Text Label 10400 3700 2    50   ~ 0
+AA6
+Text Label 10400 3600 2    50   ~ 0
+AA5
+Text Label 10400 3500 2    50   ~ 0
+AA4
+Text Label 10400 3300 2    50   ~ 0
+AA2
+Text Label 10400 3200 2    50   ~ 0
+AA1
+Wire Wire Line
+	10450 4100 10100 4100
+Wire Wire Line
+	10450 4200 10100 4200
+Wire Wire Line
+	10450 4000 10100 4000
+Wire Wire Line
+	10450 3900 10100 3900
+Wire Wire Line
+	10450 3400 10100 3400
+Wire Wire Line
+	10450 3500 10100 3500
+Wire Wire Line
+	10450 3600 10100 3600
+Wire Wire Line
+	10450 3700 10100 3700
+Wire Wire Line
+	10450 3800 10100 3800
+Wire Wire Line
+	10450 3300 10100 3300
+Wire Wire Line
+	10450 3200 10100 3200
+Text Label 10400 3400 2    50   ~ 0
+AA3
+Wire Wire Line
+	10450 3100 10100 3100
+Text Label 10400 3100 2    50   ~ 0
+AA0
+Wire Wire Line
+	10450 4300 10100 4300
+Text Label 10400 4300 2    50   ~ 0
+AA12
+Wire Wire Line
+	10450 4400 10100 4400
+Text Label 10400 4400 2    50   ~ 0
+AA13
+Wire Wire Line
+	10000 4500 10450 4500
+Wire Wire Line
+	10000 4600 10450 4600
+Wire Wire Line
+	10000 4700 10450 4700
+Text Label 10100 4700 0    50   ~ 0
+RAM_A16
+Text Label 10100 4600 0    50   ~ 0
+RAM_A15
+Text Label 10100 4500 0    50   ~ 0
+RAM_A14
+Text Label 11500 3100 0    50   ~ 0
+AD0
+Wire Wire Line
+	11450 3800 11700 3800
+Wire Wire Line
+	11450 3700 11700 3700
+Wire Wire Line
+	11450 3600 11700 3600
+Wire Wire Line
+	11450 3500 11700 3500
+Wire Wire Line
+	11450 3400 11700 3400
+Wire Wire Line
+	11450 3300 11700 3300
+Wire Wire Line
+	11450 3200 11700 3200
+Wire Wire Line
+	11450 3100 11700 3100
+Text Label 11500 3200 0    50   ~ 0
+AD1
+Text Label 11500 3400 0    50   ~ 0
+AD3
+Text Label 11500 3600 0    50   ~ 0
+AD5
+Text Label 11500 3700 0    50   ~ 0
+AD6
+Text Label 11500 3800 0    50   ~ 0
+AD7
+Text Label 11500 3500 0    50   ~ 0
+AD4
+Text Label 11500 3300 0    50   ~ 0
+AD2
+Wire Wire Line
+	11450 4200 12000 4200
+Text Label 11500 4200 0    50   ~ 0
+~ARD
+Wire Wire Line
+	11450 4300 12000 4300
+Text Label 11500 4300 0    50   ~ 0
+~AWR
+Wire Wire Line
+	11450 4000 12000 4000
+Text Label 11500 4000 0    50   ~ 0
+~RAM_CE
+Wire Wire Line
+	11450 4100 12000 4100
+$Comp
+L power:GND #PWR0128
+U 1 1 65A4985A
+P 10950 4900
+F 0 "#PWR0128" H 10950 4650 50  0001 C CNN
+F 1 "GND" H 10955 4727 50  0000 C CNN
+F 2 "" H 10950 4900 50  0001 C CNN
+F 3 "" H 10950 4900 50  0001 C CNN
+	1    10950 4900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C4
+U 1 1 65A4A4EA
+P 11650 2800
+F 0 "C4" V 11421 2800 50  0000 C CNN
+F 1 "0.1uF" V 11512 2800 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 11650 2800 50  0001 C CNN
+F 3 "~" H 11650 2800 50  0001 C CNN
+F 4 "C49678" V 11650 2800 50  0001 C CNN "LCSC"
+	1    11650 2800
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0129
+U 1 1 65A4A4F4
+P 11750 2800
+F 0 "#PWR0129" H 11750 2550 50  0001 C CNN
+F 1 "GND" V 11755 2672 50  0000 R CNN
+F 2 "" H 11750 2800 50  0001 C CNN
+F 3 "" H 11750 2800 50  0001 C CNN
+	1    11750 2800
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	11550 2800 11450 2800
+Wire Wire Line
+	11450 2900 11450 2800
+Connection ~ 11450 2800
+Wire Wire Line
+	11450 2800 11450 2700
+Wire Wire Line
+	11450 2900 10950 2900
+Text Label 3050 7500 0    50   ~ 0
+RAM_A14
+Text Label 3050 7600 0    50   ~ 0
+RAM_A15
+Text Label 3050 7700 0    50   ~ 0
+RAM_A16
+Wire Wire Line
+	4850 6900 4850 7000
+Connection ~ 4850 7000
+Wire Wire Line
+	4850 7000 4850 7100
+$Comp
+L power:GND #PWR0130
+U 1 1 65B17E0F
+P 4850 7000
+F 0 "#PWR0130" H 4850 6750 50  0001 C CNN
+F 1 "GND" V 4855 6872 50  0000 R CNN
+F 2 "" H 4850 7000 50  0001 C CNN
+F 3 "" H 4850 7000 50  0001 C CNN
+	1    4850 7000
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7900 6900 7900 7000
+Connection ~ 7900 7000
+Wire Wire Line
+	7900 7000 7900 7100
+$Comp
+L power:GND #PWR0131
+U 1 1 65B9FC65
+P 7900 7000
+F 0 "#PWR0131" H 7900 6750 50  0001 C CNN
+F 1 "GND" V 7905 6872 50  0000 R CNN
+F 2 "" H 7900 7000 50  0001 C CNN
+F 3 "" H 7900 7000 50  0001 C CNN
+	1    7900 7000
+	0    1    1    0   
+$EndComp
+$Comp
+L NintendoGBCart_ExtSymbol:BA6162F U5
+U 1 1 65BEB579
+P 5750 10200
+F 0 "U5" H 5750 10681 50  0000 C CNN
+F 1 "BA6162F" H 5750 10590 50  0000 C CNN
+F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 5750 9700 50  0001 C CNN
+F 3 "https://www.digchip.com/datasheets/parts/datasheet/406/BA6162F-pdf.php" H 5850 9800 50  0001 C CNN
+	1    5750 10200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6150 10300 6600 10300
+Text Label 6200 10300 0    50   ~ 0
+RAM_CE2
+Text Label 11500 4100 0    50   ~ 0
+RAM_CE2
+Wire Wire Line
+	5750 9900 6050 9900
+Wire Wire Line
+	6050 9900 6050 9800
+$Comp
+L power:+5V #PWR0132
+U 1 1 65C540C1
+P 6050 9700
+F 0 "#PWR0132" H 6050 9550 50  0001 C CNN
+F 1 "+5V" H 6065 9873 50  0000 C CNN
+F 2 "" H 6050 9700 50  0001 C CNN
+F 3 "" H 6050 9700 50  0001 C CNN
+	1    6050 9700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0133
+U 1 1 65C5465A
+P 5750 10850
+F 0 "#PWR0133" H 5750 10600 50  0001 C CNN
+F 1 "GND" H 5755 10677 50  0000 C CNN
+F 2 "" H 5750 10850 50  0001 C CNN
+F 3 "" H 5750 10850 50  0001 C CNN
+	1    5750 10850
+	1    0    0    -1  
+$EndComp
+$Comp
+L NintendoGBCart_ExtSymbol:Battery_Cell BT1
+U 1 1 65C55535
+P 5150 10650
+F 0 "BT1" H 5032 10654 50  0000 R CNN
+F 1 "3V" H 5032 10745 50  0000 R CNN
+F 2 "" V 5150 10710 50  0001 C CNN
+F 3 "~" V 5150 10710 50  0001 C CNN
+	1    5150 10650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5150 10400 5350 10400
+Wire Wire Line
+	5150 10450 5150 10400
+Wire Wire Line
+	5150 10750 5150 10800
+Wire Wire Line
+	5150 10800 5750 10800
+Wire Wire Line
+	5750 10600 5750 10800
+Wire Wire Line
+	5750 10800 5750 10850
+Connection ~ 5750 10800
+Wire Wire Line
+	5350 10200 5150 10200
+Wire Wire Line
+	5150 10200 5150 10100
+$Comp
+L power:VMEM #PWR0134
+U 1 1 65DDE79B
+P 5150 10100
+F 0 "#PWR0134" H 5150 9950 50  0001 C CNN
+F 1 "VMEM" H 5165 10273 50  0000 C CNN
+F 2 "" H 5150 10100 50  0001 C CNN
+F 3 "" H 5150 10100 50  0001 C CNN
+	1    5150 10100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VMEM #PWR0135
+U 1 1 65DDEE39
+P 11450 2700
+F 0 "#PWR0135" H 11450 2550 50  0001 C CNN
+F 1 "VMEM" H 11465 2873 50  0000 C CNN
+F 2 "" H 11450 2700 50  0001 C CNN
+F 3 "" H 11450 2700 50  0001 C CNN
+	1    11450 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C5
+U 1 1 65E049D3
+P 6250 9800
+F 0 "C5" V 6021 9800 50  0000 C CNN
+F 1 "0.1uF" V 6112 9800 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 6250 9800 50  0001 C CNN
+F 3 "~" H 6250 9800 50  0001 C CNN
+F 4 "C49678" V 6250 9800 50  0001 C CNN "LCSC"
+	1    6250 9800
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0136
+U 1 1 65E049DD
+P 6350 9800
+F 0 "#PWR0136" H 6350 9550 50  0001 C CNN
+F 1 "GND" V 6355 9672 50  0000 R CNN
+F 2 "" H 6350 9800 50  0001 C CNN
+F 3 "" H 6350 9800 50  0001 C CNN
+	1    6350 9800
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6150 9800 6050 9800
+Connection ~ 6050 9800
+Wire Wire Line
+	6050 9800 6050 9700
+NoConn ~ 6150 10100
+NoConn ~ 6150 10400
+Wire Notes Line
+	4650 11100 4650 9350
+Wire Notes Line
+	4650 9350 6900 9350
+Wire Notes Line
+	6900 9350 6900 11100
+Wire Notes Line
+	6900 11100 4650 11100
+Text Notes 4700 9500 0    50   ~ 0
+SRAM battery power supply
 $EndSCHEMATC
