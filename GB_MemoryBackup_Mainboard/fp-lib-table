@@ -3,5 +3,6 @@
   (lib (name Package_LCC_JLCPCB)(type KiCad)(uri ${KIPRJMOD}/../GB_CommonLib/fplibs/Package_LCC_JLCPCB.pretty)(options "")(descr ""))
   (lib (name Connector_PinHeader_Boxed_2.54mm)(type KiCad)(uri ${KIPRJMOD}/../GB_CommonLib/fplibs/Connector_PinHeader_Boxed_2.54mm.pretty)(options "")(descr ""))
   (lib (name Button_Switch_THT_JLCPCB)(type KiCad)(uri ${KIPRJMOD}/../GB_CommonLib/fplibs/Button_Switch_THT_JLCPCB.pretty)(options "")(descr ""))
+  (lib (name Battery_JLCPCB)(type KiCad)(uri ${KIPRJMOD}/../GB_CommonLib/fplibs/Battery_JLCPCB.pretty)(options "")(descr ""))
   (lib (name LogoGraphics)(type KiCad)(uri ${KIPRJMOD}/../GB_CommonLib/fplibs/LogoGraphics.pretty)(options "")(descr ""))
 )
