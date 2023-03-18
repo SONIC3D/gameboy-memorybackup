@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name NintendoGBCart_ExtFootprint)(type KiCad)(uri ${KIPRJMOD}/../GB_CommonLib/fplibs/NintendoGBCart_ExtFootprint.pretty)(options "")(descr ""))
+  (lib (name LogoGraphics)(type KiCad)(uri ${KIPRJMOD}/../GB_CommonLib/fplibs/LogoGraphics.pretty)(options "")(descr ""))
+)
