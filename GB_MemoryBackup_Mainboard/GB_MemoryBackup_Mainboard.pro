@@ -1,4 +1,4 @@
-update=Wednesday, 15 March 2023 at 05:50:36
+update=Monday, 20 March 2023 at 04:38:53
 version=1
 last_client=kicad
 [general]
@@ -249,7 +249,7 @@ dPairViaGap=0.25
 [pcbnew/Netclasses/1]
 Name=AudioLine
 Clearance=0.32
-TrackWidth=0.4
+TrackWidth=0.25
 ViaDiameter=0.8
 ViaDrill=0.4
 uViaDiameter=0.3
