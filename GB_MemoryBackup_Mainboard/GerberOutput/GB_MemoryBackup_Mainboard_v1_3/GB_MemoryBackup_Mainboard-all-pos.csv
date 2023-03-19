@@ -1,4 +1,4 @@
-Ref,Val,Package,PosX,PosY,Rot,Side
+Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
 "BT1","3V","BAT-SMD_CR1616",74.295000,-109.855000,90.000000,top
 "C1","0.1uF","C_0805_2012Metric",93.345000,-14.605000,90.000000,top
 "C2","0.1uF","C_0805_2012Metric",67.945000,-14.605000,90.000000,top
