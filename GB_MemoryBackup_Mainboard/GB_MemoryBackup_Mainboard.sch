@@ -1586,17 +1586,15 @@ Wire Wire Line
 Text Label 10400 4300 2    50   ~ 0
 AA12
 Wire Wire Line
-	10450 4400 10100 4400
-Text Label 10400 4400 2    50   ~ 0
-AA13
+	10450 4400 10000 4400
 Wire Wire Line
 	10000 4500 10450 4500
 Wire Wire Line
 	10000 4600 10450 4600
 Wire Wire Line
-	10000 4700 10450 4700
-Text Label 10100 4700 0    50   ~ 0
-RAM_A16
+	9850 4700 10450 4700
+Text Label 10100 4400 0    50   ~ 0
+RAM_A13
 Text Label 10100 4600 0    50   ~ 0
 RAM_A15
 Text Label 10100 4500 0    50   ~ 0
@@ -1691,11 +1689,11 @@ Wire Wire Line
 Wire Wire Line
 	11450 2900 10950 2900
 Text Label 3050 7500 0    50   ~ 0
-RAM_A14
-Text Label 3050 7600 0    50   ~ 0
 RAM_A15
+Text Label 3050 7600 0    50   ~ 0
+RAM_A14
 Text Label 3050 7700 0    50   ~ 0
-RAM_A16
+RAM_A13
 Wire Wire Line
 	4850 6900 4850 7000
 Connection ~ 4850 7000
@@ -2020,4 +2018,15 @@ Wire Wire Line
 	12750 950  13250 950 
 Wire Wire Line
 	12750 850  13250 850 
+$Comp
+L power:VMEM #PWR?
+U 1 1 644F67E4
+P 9850 4700
+F 0 "#PWR?" H 9850 4550 50  0001 C CNN
+F 1 "VMEM" H 9865 4873 50  0000 C CNN
+F 2 "" H 9850 4700 50  0001 C CNN
+F 3 "" H 9850 4700 50  0001 C CNN
+	1    9850 4700
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
