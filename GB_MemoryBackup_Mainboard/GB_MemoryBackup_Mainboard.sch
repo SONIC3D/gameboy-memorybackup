@@ -564,9 +564,9 @@ Wire Wire Line
 Text Label 3050 6400 0    50   ~ 0
 ~ARD_T
 Text Label 3100 7000 0    50   ~ 0
-~SW_1
+~SW_2
 Wire Wire Line
-	3000 7000 3350 7000
+	3000 7000 3650 7000
 Wire Wire Line
 	3000 8000 3650 8000
 Wire Wire Line
@@ -849,7 +849,7 @@ Text Label 13150 7650 0    50   ~ 0
 Text Notes 13100 8250 0    50   ~ 0
 SW2(Push):\nPushed: "On" (U3.~SW_2~=0) Triggered the specific signal.
 Text Label 3100 6900 0    50   ~ 0
-~SW_2
+~SW_1
 $Comp
 L NintendoGBCart_ExtSymbol:AT29C040A-PLCC32 U1
 U 1 1 62148CFE
@@ -1241,8 +1241,8 @@ Memory Maps:\n\nIf switch is turned off, all I/O operations are pass-throughed t
 Text Notes 7550 14350 0    50   ~ 0
 CPLD Equations:\n\n// Internal Nodes\nHC373_LE = !SW_1 & !AWR & !A15 & !A14 & A13 & ![A12..A7] & AD7;  // Switch is turned ON, and Write access to 0x2000, and AD7 is 1\nMODE_GameCart.ck = HC373_LE;\nMODE_GameCart.d = AD6;  // Switch to the GameCart mode, if the bit6 is set. Otherwise, switch to the MemoryBackup Mode.\nMODE_Flash010Only.ck = HC373_LE;\nMODE_Flash010Only.d = !AD6 & AD5;  // In MemoryBackup Mode, if AD5 is 1, indicates that 28SF040 is disabled.\n                                       // Then AD4..AD1 values are ignored and the AD0 value will be latched to F010_A14.\n\n// Output control signals\n!ARD_T = SW_1 & !ARD                 // Switch is turned off, and read\n        # !SW_1 & MODE_GameCart & !ARD & (AA15 # AA14)   // Switch is turned ON, and stays in GameCartridge Mode, and read over 0x4000\n!AWR_T = SW_1 & !AWR                 // Switch is turned off, and write\n        # !SW_1 & MODE_GameCart & !AWR   // Switch is turned ON, and stays in GameCartridge Mode, and write\nAA15_T = SW_1 &  AA15                 // Switch is turned off, and AA15=1\n        # !SW_1 & MODE_GameCart & AA15   // Switch is turned ON, and stays in GameCartridge Mode, and AA15=1\n!F_CE_040 = !SW_1 & !MODE_GameCart & !MODE_Flash010Only & !A15 &  A14;  // Switch is turned ON, and stays in MemoryBackUp Mode, and not in Flash010Only mode, and Read/Write accessing 0x4000-0x7FFF\n!F_CE_010 = !SW_1 & !MODE_GameCart & !A15 & !A14;  // Switch is turned ON, and stays in MemoryBackUp Mode, and Read/Write accessing 0x0000-0x3FFF\n           # !SW_1 & !MODE_GameCart & MODE_Flash010Only & !A15 &  A14;  // Switch is turned ON, and stays in MemoryBackUp Mode, and in Flash010Only mode, and Read/Write accessing 0x4000-0x7FFF\n\n// Output ROM 010 and 040 address signals\n[F040_A18..F040_A14].ck = HC373_LE & AD6;\n                          # HC373_LE & !AD5;\n[F040_A18..F040_A14].d = (AD4..AD0);\nF010_A14.ck = HC373_LE & !AD6 & AD5;\nF010_A14.d = AD0;\n
 Wire Wire Line
-	3000 6900 3650 6900
-Text Label 3400 6900 0    50   ~ 0
+	3000 6900 3350 6900
+Text Label 3400 7000 0    50   ~ 0
 ~ARST
 $Comp
 L 74xx:74HC373 U6
