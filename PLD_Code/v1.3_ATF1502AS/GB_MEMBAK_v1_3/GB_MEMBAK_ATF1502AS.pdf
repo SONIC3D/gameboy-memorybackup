@@ -1,0 +1,279 @@
+{COMPONENT C:\WINCUPL\PROJECT\GB_MEMBAK_V1_1\GB_MEMBAK_ATF1502AS.SYM
+
+ {ENVIRONMENT
+  {PDIFvrev 3.00}
+  {Program "CUPL(WM) Version 5.0a"}
+  {DBtype "Schematic"}
+  {DBvrev 1.01}
+  {DBtime "Sat Mar 25 20:31:07 2023 "}
+  {DBunit "MIL"}
+  {DBgrid 10}
+  {Lyrstr "WIRES" 1 "BUS" 1 "GATE" 2 "IEEE" 2 "PINFUN" 3 "PINNUM" 1 
+          "PINNAM" 6 "PINCON" 4 "REFDES" 2 "ATTR" 6 "SDOT" 1 
+          "DEVICE" 5 "OUTLIN" 5 "ATTR2" 6 "NOTES" 6 "NETNAM" 4 
+          "CMPNAM" 5 "BORDER" 5}
+ }
+
+ {USER
+  {VIEW
+   {Mode SYMB}
+   {Nlst OPEN}
+   {Vw 0 0 2}
+   {Lv 12 2 2 2 0 0 2 2 2 2 0 0 2 1 2 0 0 0 0}
+   {Gs 10 10}
+  }
+ }
+
+ {DISPLAY
+  [Ly "PINNUM"]
+  [Ls "SOLID"][Wd 0]
+  [Ts 15][Tj "LC"][Tr 0][Tm "N"]
+ }
+
+ {SYMBOL
+  {PIN_DEF
+   [Ly "PINCON"]
+   {P ARST_N {Pt "INPUT"}{Lq 0}{Ploc 100 440}}
+   {P AWR_N {Pt "INPUT"}{Lq 0}{Ploc 100 400}}
+   {P ARD_N {Pt "INPUT"}{Lq 0}{Ploc 100 380}}
+   {P AA7 {Pt "INPUT"}{Lq 0}{Ploc 100 360}}
+   {P AA8 {Pt "INPUT"}{Lq 0}{Ploc 100 340}}
+   {P AA9 {Pt "INPUT"}{Lq 0}{Ploc 100 320}}
+   {P AA10 {Pt "INPUT"}{Lq 0}{Ploc 100 300}}
+   {P AA11 {Pt "INPUT"}{Lq 0}{Ploc 100 280}}
+   {P AA12 {Pt "INPUT"}{Lq 0}{Ploc 100 260}}
+   {P AA13 {Pt "INPUT"}{Lq 0}{Ploc 100 240}}
+   {P AA14 {Pt "INPUT"}{Lq 0}{Ploc 100 220}}
+   {P AA15 {Pt "INPUT"}{Lq 0}{Ploc 100 200}}
+   {P AD0 {Pt "INPUT"}{Lq 0}{Ploc 100 180}}
+   {P AD1 {Pt "INPUT"}{Lq 0}{Ploc 100 160}}
+   {P AD2 {Pt "INPUT"}{Lq 0}{Ploc 100 140}}
+   {P AD3 {Pt "INPUT"}{Lq 0}{Ploc 100 120}}
+   {P AD4 {Pt "INPUT"}{Lq 0}{Ploc 100 100}}
+   {P AD5 {Pt "INPUT"}{Lq 0}{Ploc 100 80}}
+   {P AD6 {Pt "INPUT"}{Lq 0}{Ploc 100 60}}
+   {P AD7 {Pt "INPUT"}{Lq 0}{Ploc 100 40}}
+   {P SW_1_N {Pt "INPUT"}{Lq 0}{Ploc 100 20}}
+   {P AA15_T {Pt "I/O"}{Lq 0}{Ploc 340 20}}
+   {P AWR_T_N {Pt "I/O"}{Lq 0}{Ploc 340 40}}
+   {P ARD_T_N {Pt "I/O"}{Lq 0}{Ploc 340 60}}
+   {P HC373_01 {Pt "I/O"}{Lq 0}{Ploc 340 80}}
+   {P HC373_04 {Pt "I/O"}{Lq 0}{Ploc 340 100}}
+   {P RAM_A16 {Pt "I/O"}{Lq 0}{Ploc 340 120}}
+   {P RAM_A15 {Pt "I/O"}{Lq 0}{Ploc 340 140}}
+   {P RAM_A14 {Pt "I/O"}{Lq 0}{Ploc 340 160}}
+   {P F_CE_040 {Pt "I/O"}{Lq 0}{Ploc 340 180}}
+   {P F_CE_010 {Pt "I/O"}{Lq 0}{Ploc 340 200}}
+   {P RAM_CE_N {Pt "I/O"}{Lq 0}{Ploc 340 220}}
+  }
+
+  {PKG
+   [Ly "REFDES"]
+   [Ts 25][Tj "CB"][Tr 0][Tm "N"]
+   {Rdl 220 470}
+
+   [Ly "PINNUM"]
+   [Ts 15][Tj "RC"]
+   {Pnl 120 450}
+   [Ts 15][Tj "RC"]
+   {Pnl 120 410}
+   {Pnl 120 390}
+   {Pnl 120 370}
+   {Pnl 120 350}
+   {Pnl 120 330}
+   {Pnl 120 310}
+   {Pnl 120 290}
+   {Pnl 120 270}
+   {Pnl 120 250}
+   {Pnl 120 230}
+   {Pnl 120 210}
+   {Pnl 120 190}
+   {Pnl 120 170}
+   {Pnl 120 150}
+   {Pnl 120 130}
+   {Pnl 120 110}
+   {Pnl 120 90}
+   {Pnl 120 70}
+   {Pnl 120 50}
+   {Pnl 120 30}
+   [Ts 15][Tj "LC"]
+   {Pnl 320 30}
+   {Pnl 320 50}
+   {Pnl 320 70}
+   {Pnl 320 90}
+   {Pnl 320 110}
+   {Pnl 320 130}
+   {Pnl 320 150}
+   {Pnl 320 170}
+   {Pnl 320 190}
+   {Pnl 320 210}
+   {Pnl 320 230}
+
+   {Sd A 43 1 2 8 9 11 12 14 16 17 18 19 20 21 24 25 26 27 28 29 44 4 5 6 31 33 34 36 37 39 40 41}
+  }
+
+  {PIC
+   [Ly "GATE"]
+   [Ts 15][Tj "LC"][Tr 0][Tm "N"]
+   {R 130 460 310 0}
+   {L 130 440 100 440}
+   {L 130 450 140 440 130 430}
+   {L 130 400 100 400}
+   {L 130 380 100 380}
+   {L 130 360 100 360}
+   {L 130 340 100 340}
+   {L 130 320 100 320}
+   {L 130 300 100 300}
+   {L 130 280 100 280}
+   {L 130 260 100 260}
+   {L 130 240 100 240}
+   {L 130 220 100 220}
+   {L 130 200 100 200}
+   {L 130 180 100 180}
+   {L 130 160 100 160}
+   {L 130 140 100 140}
+   {L 130 120 100 120}
+   {L 130 100 100 100}
+   {L 130 80 100 80}
+   {L 130 60 100 60}
+   {L 130 40 100 40}
+   {L 130 20 100 20}
+   {L 310 20 340 20}
+   {L 310 40 340 40}
+   {L 310 60 340 60}
+   {L 310 80 340 80}
+   {L 310 100 340 100}
+   {L 310 120 340 120}
+   {L 310 140 340 140}
+   {L 310 160 340 160}
+   {L 310 180 340 180}
+   {L 310 200 340 200}
+   {L 310 220 340 220}
+   [Ly "PINNAM"]
+   [Tj "LC"]
+   {T "ARST_N" 140 440}
+   {T "AWR_N" 140 400}
+   {T "ARD_N" 140 380}
+   {T "AA7" 140 360}
+   {T "AA8" 140 340}
+   {T "AA9" 140 320}
+   {T "AA10" 140 300}
+   {T "AA11" 140 280}
+   {T "AA12" 140 260}
+   {T "AA13" 140 240}
+   {T "AA14" 140 220}
+   {T "AA15" 140 200}
+   {T "AD0" 140 180}
+   {T "AD1" 140 160}
+   {T "AD2" 140 140}
+   {T "AD3" 140 120}
+   {T "AD4" 140 100}
+   {T "AD5" 140 80}
+   {T "AD6" 140 60}
+   {T "AD7" 140 40}
+   {T "SW_1_N" 140 20}
+   [Tj "RC"]
+   {T "AA15_T" 300 20}
+   {T "AWR_T_N" 300 40}
+   {T "ARD_T_N" 300 60}
+   {T "HC373_01" 300 80}
+   {T "HC373_04" 300 100}
+   {T "RAM_A16" 300 120}
+   {T "RAM_A15" 300 140}
+   {T "RAM_A14" 300 160}
+   {T "F_CE_040" 300 180}
+   {T "F_CE_010" 300 200}
+   {T "RAM_CE_N" 300 220}
+   [Ly "DEVICE"]
+   [Tj "CT"]
+   {T "F1502ISPPLCC44" 220 -10}
+  }
+
+  {ATR
+   {IN
+    {Org 100 20}
+    {Ty 255}
+   }
+   {EX
+    [Ly "ATTR2"]
+    [Ts 12][Tj "CT"][Tr 0][Tm "N"]
+    {At PLD C:\WINCUPL\PROJECT\GB_MEMBAK_V1_1\GB_MEMBAK_ATF1502AS 220 460}
+   }
+  }
+ }
+
+ {DETAIL
+  {ANNOTATE
+  }
+
+  {NET_DEF
+   {N ARST_N
+   }
+   {N AWR_N
+   }
+   {N ARD_N
+   }
+   {N AA7
+   }
+   {N AA8
+   }
+   {N AA9
+   }
+   {N AA10
+   }
+   {N AA11
+   }
+   {N AA12
+   }
+   {N AA13
+   }
+   {N AA14
+   }
+   {N AA15
+   }
+   {N AD0
+   }
+   {N AD1
+   }
+   {N AD2
+   }
+   {N AD3
+   }
+   {N AD4
+   }
+   {N AD5
+   }
+   {N AD6
+   }
+   {N AD7
+   }
+   {N SW_1_N
+   }
+   {N AA15_T
+   }
+   {N AWR_T_N
+   }
+   {N ARD_T_N
+   }
+   {N HC373_01
+   }
+   {N HC373_04
+   }
+   {N RAM_A16
+   }
+   {N RAM_A15
+   }
+   {N RAM_A14
+   }
+   {N F_CE_040
+   }
+   {N F_CE_010
+   }
+   {N RAM_CE_N
+   }
+  }
+
+  {SUBCOMP
+  }
+ }
+}

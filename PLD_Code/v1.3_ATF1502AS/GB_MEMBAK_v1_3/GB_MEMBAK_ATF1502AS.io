@@ -1,0 +1,43 @@
+CHIP "C:\WINCUPL\PROJECT\GB_MEMBAK_V1_1\GB_MEMBAK_ATF1502AS"
+BEGIN
+
+    DEVICE = "PLCC44";
+    "AA15_T"                                  : OUTPUT_PIN = 4 ;
+    "AWR_T_n"                                 : OUTPUT_PIN = 5 ;
+    "ARD_T_n"                                 : OUTPUT_PIN = 6 ;
+    "TDI"                                     : INPUT_PIN = 7 ;
+    "SecondaryMode"                           : NODE_NUM = 604 ;
+    "TMS"                                     : INPUT_PIN = 13 ;
+    "MBC1_0x6000_MODE"                        : NODE_NUM = 609 ;
+    "SW_1_OnPower_n"                          : NODE_NUM = 610 ;
+    "PrimaryMode_B1"                          : NODE_NUM = 611 ;
+    "AA13"                                    : INPUT_PIN = 17 ;
+    "PrimaryMode_B0"                          : NODE_NUM = 612 ;
+    "AA14"                                    : INPUT_PIN = 18 ;
+    "RAM_A16_INNER_REG"                       : NODE_NUM = 613 ;
+    "AA15"                                    : INPUT_PIN = 19 ;
+    "RAM_A15_INNER_REG"                       : NODE_NUM = 614 ;
+    "AD0"                                     : INPUT_PIN = 20 ;
+    "PrimaryMode_B2"                          : NODE_NUM = 615 ;
+    "AD1"                                     : INPUT_PIN = 21 ;
+    "RAM_A14_INNER_REG"                       : NODE_NUM = 616 ;
+    "RAM_CE_n"                                : OUTPUT_PIN = 41 ;
+    "F_CE_010_n"                              : OUTPUT_PIN = 40 ;
+    "F_CE_040_n"                              : OUTPUT_PIN = 39 ;
+    "TDO"                                     : INPUT_PIN = 38 ;
+    "RAM_A14"                                 : OUTPUT_PIN = 37 ;
+    "RAM_A15"                                 : OUTPUT_PIN = 36 ;
+    "RAM_A16"                                 : OUTPUT_PIN = 34 ;
+    "HC373_040_LE"                            : OUTPUT_PIN = 33 ;
+    "TCK"                                     : INPUT_PIN = 32 ;
+    "HC373_010_LE"                            : OUTPUT_PIN = 31 ;
+    "AD7"                                     : INPUT_PIN = 29 ;
+    "AD6"                                     : INPUT_PIN = 28 ;
+    "AD5"                                     : INPUT_PIN = 27 ;
+    "AD3"                                     : INPUT_PIN = 25 ;
+    "AD2"                                     : INPUT_PIN = 24 ;
+    "ARD_n"                                   : INPUT_PIN = 2 ;
+    "ARST_n"                                  : INPUT_PIN = 43 ;
+    "AWR_n"                                   : INPUT_PIN = 1 ;
+    "SW_1_n"                                  : INPUT_PIN = 44 ;
+END;

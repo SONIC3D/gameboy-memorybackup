@@ -1,0 +1,212 @@
+%SIGNAL
+PIN   4 =  AA15_T 
+PIN   8 =  AA7 
+PIN   9 =  AA8 
+PIN  11 =  AA9 
+PIN  12 =  AA10 
+PIN  14 =  AA11 
+PIN  16 =  AA12 
+PIN  17 =  AA13 
+PIN  18 =  AA14 
+PIN  19 =  AA15 
+PIN  20 =  AD0 
+PIN  21 =  AD1 
+PIN  24 =  AD2 
+PIN  25 =  AD3 
+PIN  26 =  AD4 
+PIN  27 =  AD5 
+PIN  28 =  AD6 
+PIN  29 =  AD7 
+PIN  49 =  ADDR_0xA000_0xBFFF 
+PIN   6 =  ARD_T_n 
+PIN   2 =  ARD_n 
+PIN  43 =  ARST_n 
+PIN   5 =  AWR_T_n 
+PIN   1 =  AWR_n 
+PIN  50 =  DATA_L4BITS_IS_0x4 
+PIN  51 =  DATA_L4BITS_IS_0xA 
+PIN  40 =  F_CE_010_n 
+PIN  39 =  F_CE_040_n 
+PIN  31 =  HC373_010_LE 
+PIN  33 =  HC373_040_LE 
+PIN  45 =  IO_0x0000_0x1FFF_WR 
+PIN  46 =  IO_0x2000_0x3FFF_WR 
+PIN  47 =  IO_0x4000_0x5FFF_WR 
+PIN  48 =  IO_0x6000_0x7FFF_WR 
+PIN 620 =  MBC1_0x6000_MODE 
+PIN  52 =  MODE_ID_0_PassThru 
+PIN  53 =  MODE_ID_1_MBC1_Emu 
+PIN  54 =  MODE_ID_2_GameCart 
+PIN  55 =  MODE_ID_3_PrgROMMap 
+PIN  56 =  MODE_ID_4_StoROMMap 
+PIN  57 =  MODE_ID_5_RAMMap 
+PIN 611 =  PrimaryMode_B0 
+PIN 612 =  PrimaryMode_B1 
+PIN 613 =  PrimaryMode_B2 
+PIN  37 =  RAM_A14 
+PIN 621 =  RAM_A14_INNER_REG 
+PIN  36 =  RAM_A15 
+PIN 622 =  RAM_A15_INNER_REG 
+PIN  34 =  RAM_A16 
+PIN 623 =  RAM_A16_INNER_REG 
+PIN  41 =  RAM_CE_n 
+PIN 610 =  SW_1_OnPower_n 
+PIN  44 =  SW_1_n 
+PIN 614 =  SecondaryMode 
+%END
+
+%FIELD
+%END
+
+%EQUATION
+AA15_T =>
+    AA15 & SW_1_OnPower_n
+  # AA15 & MODE_ID_2_GameCart
+
+ADDR_0xA000_0xBFFF =>
+    AA13 & !AA14 & AA15
+
+!ARD_T_n =>
+    !ARD_n & SW_1_OnPower_n
+  # AA14 & !ARD_n & MODE_ID_2_GameCart
+  # AA15 & !ARD_n & MODE_ID_2_GameCart
+
+!AWR_T_n =>
+    !AWR_n & SW_1_OnPower_n
+  # !AWR_n & MODE_ID_2_GameCart
+
+DATA_L4BITS_IS_0x4 =>
+    !AD0 & !AD1 & AD2 & !AD3
+
+DATA_L4BITS_IS_0xA =>
+    AD0 & AD1 & !AD2 & AD3
+
+!F_CE_010_n =>
+    AA14 & !AA15 & MODE_ID_3_PrgROMMap
+  # !AA14 & !AA15 & !ARD_n & !SW_1_OnPower_n
+
+!F_CE_040_n =>
+    AA14 & !AA15 & MODE_ID_4_StoROMMap
+
+HC373_010_LE =>
+    AD5 & !AD6 & AD7 & IO_0x2000_0x3FFF_WR
+  # !AD7 & IO_0x2000_0x3FFF_WR
+
+HC373_040_LE =>
+    !AD5 & !AD6 & AD7 & IO_0x2000_0x3FFF_WR
+
+IO_0x0000_0x1FFF_WR =>
+    !AA13 & !AA14 & !AA15 & !AWR_n
+
+IO_0x2000_0x3FFF_WR =>
+    AA13 & !AA14 & !AA15 & !AWR_n
+
+IO_0x4000_0x5FFF_WR =>
+    !AA13 & AA14 & !AA15 & !AWR_n
+
+IO_0x6000_0x7FFF_WR =>
+    AA13 & AA14 & !AA15 & !AWR_n
+
+MBC1_0x6000_MODE.d  =>
+    AD0
+
+MBC1_0x6000_MODE.ck  =>
+    IO_0x6000_0x7FFF_WR & !PrimaryMode_B0 & !PrimaryMode_B1 & !PrimaryMode_B2
+
+MODE_ID_0_PassThru =>
+    SW_1_OnPower_n
+
+MODE_ID_1_MBC1_Emu =>
+    !PrimaryMode_B0 & !PrimaryMode_B1 & !PrimaryMode_B2 & !SW_1_OnPower_n
+
+MODE_ID_2_GameCart =>
+    PrimaryMode_B0 & !PrimaryMode_B1 & !PrimaryMode_B2 & !SW_1_OnPower_n
+
+MODE_ID_3_PrgROMMap =>
+    !PrimaryMode_B0 & PrimaryMode_B1 & !PrimaryMode_B2 & !SW_1_OnPower_n
+
+MODE_ID_4_StoROMMap =>
+    PrimaryMode_B0 & PrimaryMode_B1 & !PrimaryMode_B2 & !SW_1_OnPower_n
+
+MODE_ID_5_RAMMap =>
+    PrimaryMode_B2 & !SW_1_OnPower_n
+
+PrimaryMode_B0.d  =>
+    AD6 & AD7
+  # !AD5 & !AD6 & AD7
+
+PrimaryMode_B0.ck  =>
+    IO_0x2000_0x3FFF_WR
+
+PrimaryMode_B1.d  =>
+    !AD6 & AD7
+
+PrimaryMode_B1.ck  =>
+    IO_0x2000_0x3FFF_WR
+
+PrimaryMode_B2.d  =>
+    DATA_L4BITS_IS_0x4
+  # PrimaryMode_B2
+
+PrimaryMode_B2.ar  =>
+    IO_0x2000_0x3FFF_WR
+
+PrimaryMode_B2.ck  =>
+    IO_0x0000_0x1FFF_WR
+
+RAM_A14 =>
+    MBC1_0x6000_MODE & RAM_A14_INNER_REG
+
+RAM_A14_INNER_REG.d  =>
+    AD0
+
+RAM_A14_INNER_REG.ar  =>
+    !ARST_n
+
+RAM_A14_INNER_REG.ck  =>
+    IO_0x4000_0x5FFF_WR & !PrimaryMode_B0 & !PrimaryMode_B1 & !PrimaryMode_B2
+
+RAM_A15 =>
+    MBC1_0x6000_MODE & RAM_A15_INNER_REG
+
+RAM_A15_INNER_REG.d  =>
+    AD1
+
+RAM_A15_INNER_REG.ar  =>
+    !ARST_n
+
+RAM_A15_INNER_REG.ck  =>
+    IO_0x4000_0x5FFF_WR & !PrimaryMode_B0 & !PrimaryMode_B1 & !PrimaryMode_B2
+
+RAM_A16 =>
+    MBC1_0x6000_MODE & RAM_A16_INNER_REG
+
+RAM_A16_INNER_REG.d  =>
+    AD2
+
+RAM_A16_INNER_REG.ar  =>
+    !ARST_n
+
+RAM_A16_INNER_REG.ck  =>
+    IO_0x4000_0x5FFF_WR & !PrimaryMode_B0 & !PrimaryMode_B1 & !PrimaryMode_B2
+
+!RAM_CE_n =>
+    AA14 & !AA15 & MODE_ID_5_RAMMap
+  # ADDR_0xA000_0xBFFF & MODE_ID_1_MBC1_Emu & SecondaryMode
+  # ADDR_0xA000_0xBFFF & MODE_ID_3_PrgROMMap & SecondaryMode
+  # ADDR_0xA000_0xBFFF & MODE_ID_4_StoROMMap & SecondaryMode
+  # ADDR_0xA000_0xBFFF & MODE_ID_5_RAMMap & SecondaryMode
+
+SW_1_OnPower_n.d  =>
+    SW_1_n
+
+SW_1_OnPower_n.ck  =>
+    ARST_n
+
+SecondaryMode.d  =>
+    DATA_L4BITS_IS_0xA
+
+SecondaryMode.ck  =>
+    IO_0x0000_0x1FFF_WR
+
+%END
