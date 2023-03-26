@@ -1,0 +1,200 @@
+Mapper Logic Documentation
+
+The following content apply to v1.3 schematic/PCB/CPLD implementation only.
+
+
+The initial purpose of this mapper is to implement the MemoryBackup cartridge,
+which is a cartridge that can be used to backup the game Save RAM content.
+The primary feature of the MemoryBackup cartridge mapper is that it can map
+the on-cart 28SF040 Flash ROM to 0x4000-0x7FFF, and it can also map the the game
+cartridge plugged on top of it to 0x4000-0x7FFF, and 0xA000-0xBFFF.
+So the program code in its ROM, mapped at 0x0000-0x3FFF, can copy data between
+the game cartridge SRAM and the on-cart storage flash ROM.
+
+To make it be more powerful, I have added additional feature to make it
+support original MBC1 feature and also support mapping the on-cart RAM to
+0x4000-0x7FFF. So it can be used to play MBC1 games(smaller than 512KB) and
+develop homebrew programs that benifit from the on-cart RAM.
+
+
+Introduction
+    There are 2 internal mode switches affect the address mapping logic:
+        The Primary Mode is used to switch between different working mode.
+        The Secondary Mode is almost same as the original MBC1 RAM Enable Mode.
+
+Primary Mode
+    0. Transparent Mode
+        Pass-through all I/O to the game cartridge plugged on top of it.
+    1. MBC1 Equivalent Mode
+        Acts as an official MBC1 cartridge support max 512KB ROM and 32KB RAM.
+    2. Map to top cartridge(MemoryBackup cartridge GameCart mode)
+        Map the following access to the game cartridge plugged on top of it:
+            * 0x0000-0x1FFF: Write access only
+            * 0x4000-0x7FFF: Read/Write access
+            * 0xA000-0xBFFF: Read/Write access
+    3. PRG ROM Sub Mode(MemoryBackup cartridge ROM mapping mode 1)
+        Map read/write access of 0x4000-0x7FFF to the selected bank of the PRG
+        ROM.
+    4. Storage ROM Sub Mode(MemoryBackup cartridge ROM mapping mode 2)
+        Map read/write access of 0x4000-0x7FFF to the selected bank of the
+        storage ROM.
+    5. RAM Sub Mode(MemoryBackup cartridge RAM mapping mode)
+        Map read/write access of 0x4000-0x7FFF to the selected bank of the
+        on-cart RAM.
+
+Secondary Mode(Save RAM Enable Mode)
+    * Disabled Mode
+        Do not map current selected Bank of RAM to 0xA000-0xBFFF
+    * Enabled Mode
+        Map current selected Bank of RAM to 0xA000-0xBFFF
+
+Switch I/O register of the Primary Mode
+    0. Transparent Mode
+        On power-on the GameBoy, place the on-cart switch to the off.
+    1. MBC1 Equivalent Mode
+        Write 'b'0xxxxxxx (that's $00 | BankID) to 0x2000-0x3FFF.
+        Bit 6 and bit 5 are ignored.
+        This is the default mode if the on-cart switch is placed to the on when
+        you power-on the GameBoy.
+    2. Map to top cartridge(MemoryBackup cartridge GameCart mode)
+        Write 'b'11xxxxxx (that's $C0 | BankID) to 0x2000-0x3FFF.
+        Bit 5 is ignored.
+    3. PRG ROM Sub Mode(MemoryBackup cartridge ROM mapping mode 1)
+        Write 'b'101xxxxx (that's $A0 | BankID) to 0x2000-0x3FFF.
+    4. Storage ROM Sub Mode(MemoryBackup cartridge ROM mapping mode 2)
+        Write 'b'100xxxxx (that's $80 | BankID) to 0x2000-0x3FFF.
+    5. RAM Sub Mode(MemoryBackup cartridge RAM mapping mode)
+        Write 'b'00000100 (that's $04) to 0x0000-0x1FFF.
+    * Notes:
+        1. For switching between Mode ID 1-4, it also write the corresponding
+           ROM Bank ID to the corresponding ROM Bank ID register, because it
+           is a write-only register, the application program itself is
+           responsible for recording the last set Bank ID.
+        2. For Mode ID 5, RAM Sub Mode, has the following notes:
+            2.1 Because it does not contain the RAM Bank ID setting, it needs
+                to call 0x4000-0x5FFF and 0x6000-0x7FFF to set the RAM Bank ID.
+            2.2 Because switch to any Mode ID of 2-5, it will cause the
+                write to 0x4000-0x5FFF and 0x6000-0x7FFF to be disabled, so each
+                time you need to set the RAM Bank ID in RAM Sub Mode, you should
+                follow the following steps:
+                * Enable 0x4000-0x5FFF and 0x6000-0x7FFF registers by switching
+                  the Primary Mode to Mode ID 1 MBC1 Equivalent Mode
+                  (Write 'b'0xxxxxxx to 0x2000-0x3FFF).
+                * Write $01 to 0x6000-0x7FFF to enable 0x4000-0x5FFF function.
+                * Write needed RAM Bank ID to 0x4000-0x5FFF.
+                * Switch to RAM Sub Mode (write $x4 to 0x0000-0x1FFF)
+        3. Notes about the 0x0000 register
+            3.1 Although Primary Mode ID 5, RAM Sub Mode, is switched to by
+                writing $x4 to 0x0000-0x1FFF, but writing $0A or other value to
+                0x0000-0x1FFF again, will not turn off this mapping, it will
+                only change whether 0xA000-0xBFFF is mapped to RAM.
+                To switch out of the Primary Mode ID 5, the only way is switch
+                to the Primary Mode to Mode ID 1-4.
+            3.2 Similiar rules in Primary Mode ID 1, the MBC1 Equivalent Mode:
+                Writing $0A or value other than $x4 to 0x0000-0x1FFF only
+                changes whether 0xA000-0xBFFF is mapped to RAM, and does not
+                change the Primary Mode.
+                Only writing $x4 to 0x0000-0x1FFF changes the Primary Mode to
+                Mode ID 5 RAM Sub Mode.
+
+Switch I/O register of the Secondary Mode
+    * Disabled Mode
+        Write any value other than $xA to 0x0000(usually write $x0).
+    * Enabled Mode
+        Write $xA to 0x0000.
+    * Notes
+        1. The high 4-bits of the write value data is ignored.
+        2. Because the write to 0x0000 of value $x4 also has the function of
+           switching the Primary Mode to Mode ID 5 RAM Sub Mode, the Secondary
+           Mode will be switched to Disabled Mode in this case.
+           So if you want to map the same Bank of RAM to 0x4000-0x7FFF and
+           0xA000-0xBFFF at the same time, you need to do the following steps:
+                * Enable 0x4000-0x5FFF and 0x6000-0x7FFF registers by switching
+                  the Primary Mode to Mode ID 1 MBC1 Equivalent Mode
+                  (Write 'b'0xxxxxxx to 0x2000-0x3FFF).
+                * Write $01 to 0x6000-0x7FFF to enable 0x4000-0x5FFF function.
+                * Write needed RAM Bank ID to 0x4000-0x5FFF.
+                * Switch to RAM Sub Mode (write $04 to 0x0000).
+                * Switch the Secondary Mode to Enabled(write $0A to 0x0000).
+
+Addressing diagrams
+    0000–3FFF
+        * Always mapped to the PRG ROM
+            Bits:   18 17 16 15 14 13 12 .. 01 00
+                    \____________/ \____________/
+                            |            \-----------   From Game Boy address
+                            \------------------------   Should always be 0, but in v1.3 logic, it will be affected by write 'b'0zzxxxxx or 'b'101xxxxx to 0x2000–0x3FFF, this is a bug.
+    4000–7FFF
+        * Primary Mode ID 1 or 3, mapped to the PRG ROM
+            Bits:   18 17 16 15 14 13 12 .. 01 00
+                    \____________/ \____________/
+                            |            \-----------   From Game Boy address
+                            \------------------------   As 2000–3FFF bank register
+                                                        (Write 'b'0zzxxxxx or 'b'101xxxxx to 0x2000-0x3FFF. zz are ignored.)
+        * Primary Mode ID 4, mapped to the Storage ROM
+            Bits:   18 17 16 15 14 13 12 .. 01 00
+                    \____________/ \____________/
+                            |            \-----------   From Game Boy address
+                            \------------------------   As 2000–3FFF bank register
+                                                        (Write 'b'100xxxxx to 0x2000-0x3FFF.)
+        * Primary Mode ID 5, mapped to the on-cart RAM
+            Bits:   16 15 14 13 12 .. 01 00
+                    \______/ \____________/
+                        |            \---------------   From Game Boy address
+                        \----------------------------   As 2000–3FFF bank register
+    A000–BFFF
+        * If 0x6000-0x7FFF is set to 0:
+            Bits:   16 15 14 13 12 .. 01 00
+                    \______/  | \_________/
+                        |     |     \----------------   From Game Boy address
+                        |     \----------------------   Always 1(From Game Boy address)
+                        \----------------------------   Always 0
+        * If 0x6000-0x7FFF is set to 1:
+            Bits:   16 15 14 13 12 .. 01 00
+                    \______/  | \_________/
+                        |     |     \----------------   From Game Boy address
+                        |     \----------------------   Always 1(From Game Boy address)
+                        \----------------------------   As 4000–5FFF bank register
+
+Diffences between this mapper and MBC1
+    * Does not support ROMs larger than 512KB.
+        PRG ROMs are currently support to max 512KB.
+        The banking logic of 0x4000-0x5FFF register is only targeting on the on-cart RAM.
+    * RAM's high address line is increased.
+        The original MBC1 only has 2bit output, this mapper has 3bit.
+    * Specific registers are no longer unconditionally writable
+        * The 0x4000-0x5FFF I/O register, in Primary Mode ID other than 1, is not writable.
+            Writing to this address range is applied to the ROM or RAM mapped to the corresponding mode.
+        * The 0x6000-0x7FFF I/O register, in Primary Mode ID other than 1, is not writable.
+            Writing to this address range is applied to the ROM or RAM mapped to the corresponding mode.
+    * The 0x0000-0x1FFF register feature is expanded.
+        Used unused value $x4 in original MBC1, implemented the function of mapping RAM to 0x4000-0x7FFF.
+    * Differences in the 0x2000-0x3FFF register
+        * Feature expansion, used the unused high 3bit in original MBC1, implemented the function of 4 modes.
+        * When writing the specific value $00, the original MBC1 maps PRG ROM Bank 1 to 0x4000-0x7FFF, but this mapper maps the PRG ROM Bank 0 to 0x4000-0x7FFF.
+
+Known issues
+    * v1.3 version wiring and corresponding PCB design issues
+        * Because the high address line of the PRG ROM is locked by an external
+            74HC373, it is impossible to switch the PRG ROM Bank on accessing
+            0x4000-0x7FFF without affecting the mapping on 0x0000-0x3FFF.
+        * So you must ensure that the PRG ROM banking switching code is executed
+            in the GameBoy working memory. Which is very inconvenient.
+        * And it will cause the commercial MBC1 games larger than 16KB to fail
+            to run on Primary Mode 1 MBC1 Equivalent Mode of this mapper.
+        * To solve this problem, ensure 0x0000-0x3FFF being not affacted, There
+            are 2 ways:
+            1. Integrate the PRG ROM banking logic into the CPLD.
+                * Pro side:
+                    * Save an external 74HC373 and the decoupling capacitor.
+                    * It's able to implement the same 0x4000-0x5FFF register
+                        logic as the original MBC1. Treat value $00 as $01.
+                * Con side:
+                    * CPLD need additional 5 pins to store PRG ROM [A18..14].
+            2. Put pull-down resistors on PRG ROM [A18..14], then add logic on
+                the /OE pin of the 74HC373. When accessing 0x0000-0x3FFF, set
+                the /OE to High.
+                * Pro side: Only need 1 pin on CPLD to control the 74HC373.
+                * Con side: Need additional 5 pull-down resistors.
+
+End of the document
