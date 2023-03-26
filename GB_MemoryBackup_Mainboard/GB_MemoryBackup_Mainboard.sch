@@ -6,7 +6,7 @@ encoding utf-8
 Sheet 1 1
 Title "GB MemoryBackup Mainboard"
 Date "2023-03-13"
-Rev "1.3"
+Rev "1.4"
 Comp "SONIC3D"
 Comment1 ""
 Comment2 ""
@@ -468,19 +468,19 @@ $EndComp
 Wire Wire Line
 	1800 6500 1450 6500
 Wire Wire Line
-	1800 7400 1450 7400
+	1800 7400 1400 7400
 Wire Wire Line
-	1800 7300 1450 7300
+	1800 7300 1400 7300
 Wire Wire Line
 	1800 6700 1450 6700
 Wire Wire Line
-	1800 6800 1450 6800
+	1800 6800 1400 6800
 Wire Wire Line
-	1800 7000 1450 7000
+	1800 7000 1400 7000
 Wire Wire Line
-	1800 7100 1450 7100
+	1800 7100 1400 7100
 Wire Wire Line
-	1800 7200 1450 7200
+	1800 7200 1400 7200
 Wire Wire Line
 	1800 6600 1450 6600
 Wire Wire Line
@@ -491,92 +491,76 @@ Text Label 3100 6700 0    50   ~ 0
 ~ARD
 Text Label 3100 6800 0    50   ~ 0
 ~AWR
-Text Label 1500 7300 0    50   ~ 0
-AA14
 Text Label 1500 6600 0    50   ~ 0
-AA8
-Text Label 1500 6700 0    50   ~ 0
-AA9
-Text Label 1500 6800 0    50   ~ 0
-AA10
-Text Label 1500 7000 0    50   ~ 0
-AA11
-Text Label 1500 7100 0    50   ~ 0
-AA12
-Text Label 1500 7200 0    50   ~ 0
-AA13
-Text Label 1500 7400 0    50   ~ 0
-AA15
+AA14
 Text Label 1500 6500 0    50   ~ 0
-AA7
+AA13
+Text Label 1500 6700 0    50   ~ 0
+AA15
+Text Label 3050 6400 0    50   ~ 0
+AA0
 Wire Wire Line
-	1800 7800 1400 7800
+	1800 7800 1350 7800
 Wire Wire Line
-	1800 7900 1400 7900
+	1800 7900 1350 7900
 Wire Wire Line
-	1800 8000 1400 8000
+	1800 8000 1350 8000
 Wire Wire Line
-	1800 8100 1400 8100
+	3650 8100 3000 8100
 Wire Wire Line
-	3400 8100 3000 8100
-Wire Wire Line
-	1800 7700 1400 7700
+	1800 7700 1350 7700
 Wire Wire Line
 	1800 7600 1400 7600
 Wire Wire Line
 	1800 7500 1400 7500
-Text Label 1550 7500 0    50   ~ 0
-AD0
-Text Label 1550 7600 0    50   ~ 0
-AD1
-Text Label 1550 7700 0    50   ~ 0
+Text Label 1550 7100 0    50   ~ 0
 AD2
-Text Label 1550 7800 0    50   ~ 0
+Text Label 1550 7200 0    50   ~ 0
 AD3
-Text Label 1550 7900 0    50   ~ 0
+Text Label 1550 7300 0    50   ~ 0
 AD4
-Text Label 1550 8000 0    50   ~ 0
+Text Label 1550 7400 0    50   ~ 0
 AD5
-Text Label 1550 8100 0    50   ~ 0
+Text Label 1550 7500 0    50   ~ 0
 AD6
-Text Label 3100 8100 0    50   ~ 0
+Text Label 1550 7600 0    50   ~ 0
 AD7
 Wire Wire Line
 	3450 7100 3000 7100
 Wire Wire Line
-	3450 7200 3000 7200
+	3650 7200 3000 7200
 Wire Wire Line
-	3450 7300 3000 7300
-Text Label 3050 7200 0    50   ~ 0
+	3600 7300 3000 7300
+Text Label 3050 8000 0    50   ~ 0
 ~F_CE_010
-Text Label 3050 7300 0    50   ~ 0
+Text Label 3050 7200 0    50   ~ 0
 ~F_CE_040
 Wire Wire Line
 	3450 6600 3000 6600
 Wire Wire Line
 	3450 6500 3000 6500
-Text Label 3050 6600 0    50   ~ 0
+Text Label 3050 7100 0    50   ~ 0
 AA15_T
-Text Label 3050 6500 0    50   ~ 0
+Text Label 3050 6600 0    50   ~ 0
 ~AWR_T
 Wire Wire Line
 	3450 6400 3000 6400
-Text Label 3050 6400 0    50   ~ 0
+Text Label 3050 6500 0    50   ~ 0
 ~ARD_T
 Text Label 3100 7000 0    50   ~ 0
 ~SW_2
 Wire Wire Line
 	3000 7000 3650 7000
 Wire Wire Line
-	3000 8000 3650 8000
+	3000 8000 3600 8000
 Wire Wire Line
-	3000 7800 3650 7800
+	3000 7800 3600 7800
 Wire Wire Line
-	3000 7700 3650 7700
+	3000 7700 3600 7700
 Wire Wire Line
-	3000 7600 3450 7600
+	3000 7600 3600 7600
 Wire Wire Line
-	3000 7500 3450 7500
+	3000 7500 3600 7500
 $Comp
 L Connector_Generic:Conn_02x05_Odd_Even J3
 U 1 1 638FDC56
@@ -1245,10 +1229,10 @@ Wire Wire Line
 Text Label 3400 7000 0    50   ~ 0
 ~ARST
 $Comp
-L 74xx:74HC373 U6
+L 74xx:74HC373 #U6
 U 1 1 65668947
 P 5750 6900
-F 0 "U6" H 5750 7881 50  0000 C CNN
+F 0 "#U6" H 5750 7881 50  0000 C CNN
 F 1 "74HC373" H 5750 7790 50  0000 C CNN
 F 2 "Package_DIP:DIP-20_W7.62mm_Socket" H 5750 6900 50  0001 C CNN
 F 3 "https://www.ti.com/lit/ds/symlink/cd54hc373.pdf" H 5750 6900 50  0001 C CNN
@@ -1296,10 +1280,10 @@ F 3 "" H 5750 7700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C_Small C6
+L Device:C_Small #C6
 U 1 1 656DC299
 P 6250 6000
-F 0 "C6" V 6021 6000 50  0000 C CNN
+F 0 "#C6" V 6021 6000 50  0000 C CNN
 F 1 "0.1uF" V 6112 6000 50  0000 C CNN
 F 2 "Capacitor_SMD:C_0805_2012Metric" H 6250 6000 50  0001 C CNN
 F 3 "~" H 6250 6000 50  0001 C CNN
@@ -1512,15 +1496,15 @@ $EndComp
 NoConn ~ 9300 6900
 NoConn ~ 9300 7000
 NoConn ~ 9300 7100
-Text Label 4700 7300 0    50   ~ 0
+Text Label 4050 7300 0    50   ~ 0
 HC373_010_LE
 Text Label 7750 7300 0    50   ~ 0
 HC373_040_LE
-Text Label 3050 8000 0    50   ~ 0
+Text Label 3750 8100 0    50   ~ 0
 HC373_010_LE
-Text Label 3050 7800 0    50   ~ 0
+Text Label 1200 8100 0    50   ~ 0
 HC373_040_LE
-Text Label 3050 7100 0    50   ~ 0
+Text Label 1450 7700 0    50   ~ 0
 ~RAM_CE
 $Comp
 L NintendoGBCart_ExtSymbol:TC551001BPL_DIP32 U4
@@ -1690,11 +1674,11 @@ Wire Wire Line
 	11450 2800 11450 2700
 Wire Wire Line
 	11450 2900 10950 2900
-Text Label 3050 7500 0    50   ~ 0
+Text Label 1450 7800 0    50   ~ 0
 RAM_A14
-Text Label 3050 7600 0    50   ~ 0
+Text Label 1450 7900 0    50   ~ 0
 RAM_A15
-Text Label 3050 7700 0    50   ~ 0
+Text Label 1450 8000 0    50   ~ 0
 RAM_A16
 Wire Wire Line
 	4850 6900 4850 7000
@@ -2020,4 +2004,30 @@ Wire Wire Line
 	12750 950  13250 950 
 Wire Wire Line
 	12750 850  13250 850 
+Text Label 1550 7000 0    50   ~ 0
+AD1
+Text Label 1550 6800 0    50   ~ 0
+AD0
+Wire Wire Line
+	1150 8100 1800 8100
+Text Label 3050 7800 0    50   ~ 0
+F010_A14
+Text Label 3050 7700 0    50   ~ 0
+F010_A15
+Text Label 3050 7600 0    50   ~ 0
+F010_A16
+Text Label 3050 7500 0    50   ~ 0
+F010_A17
+Text Label 3050 7300 0    50   ~ 0
+F010_A18
+NoConn ~ 3650 8100
+NoConn ~ 4650 7300
+Wire Notes Line
+	4150 7350 4150 8000
+Text Notes 3750 8300 0    50   ~ 0
+Leave the net HC373_010 for future version.
+Wire Notes Line
+	4150 7750 4550 7750
+Wire Notes Line
+	4550 7750 4550 8200
 $EndSCHEMATC
