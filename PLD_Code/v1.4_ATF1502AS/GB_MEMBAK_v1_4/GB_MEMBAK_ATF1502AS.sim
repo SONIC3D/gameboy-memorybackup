@@ -223,6 +223,7 @@ RAM_INNER_BANK_REG_A16.ck  =>
 
 RPGROM_INNER_BANK_REG_A14.d  =>
     AD0
+  # !AD0 & !AD1 & !AD2 & !AD3 & !AD4 & !AD7
 
 RPGROM_INNER_BANK_REG_A14.ar  =>
     !ARST_n

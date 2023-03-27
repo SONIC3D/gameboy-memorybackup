@@ -1,7 +1,7 @@
 Name     GB_MEMBAK_V1_4_ATF1502AS ;
 PartNo   00 ;
 Date     2023/03/27 ;
-Revision 00 ;
+Revision 01 ;
 Designer SONIC3D ;
 Company  SONIC3D ;
 Assembly GB_MEMBAK_PCB_v1_4 ;
@@ -203,7 +203,8 @@ RPGROM_INNER_BANK_REG_A15.ar    = !ARST_n;
 RPGROM_INNER_BANK_REG_A16.ar    = !ARST_n;
 RPGROM_INNER_BANK_REG_A17.ar    = !ARST_n;
 RPGROM_INNER_BANK_REG_A18.ar    = !ARST_n;
-RPGROM_INNER_BANK_REG_A14.d     = AD0;
+RPGROM_INNER_BANK_REG_A14.d     = AD0
+                                # !AD7 & (!AD4 & !AD3 & !AD2 & !AD1 & !AD0);    /* Original MBC 1 specific logic: If target bank id is $00, then set it to $01 */
 RPGROM_INNER_BANK_REG_A15.d     = AD1;
 RPGROM_INNER_BANK_REG_A16.d     = AD2;
 RPGROM_INNER_BANK_REG_A17.d     = AD3;
