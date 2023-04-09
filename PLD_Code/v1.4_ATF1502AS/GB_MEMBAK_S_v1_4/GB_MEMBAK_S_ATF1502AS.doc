@@ -5,7 +5,7 @@
 
 CUPL(WM)        5.0a Serial# MW-10400000
 Device          f1502ispplcc44  Library DLIB-h-40-1
-Created         Sun Apr 09 22:26:40 2023
+Created         Sun Apr 09 22:38:01 2023
 Name            GB_MEMBAK_S_V1_4_ATF1502AS 
 Partno          00 
 Revision        01 
@@ -40,24 +40,6 @@ AddrLatched_0x2000_Valid.d  =>
 AddrLatched_0x2000_Valid.ck  =>
     !AddrLatched_0x2000_Valid & IO_0x2000_0x3FFF_WR
   # AWR_n & AddrLatched_0x2000_Valid
-
-AddrLatched_A13.d  =>
-    AA13
-
-AddrLatched_A13.ck  =>
-    IO_0x2000_0x3FFF_WR
-
-AddrLatched_A14.d  =>
-    AA14
-
-AddrLatched_A14.ck  =>
-    IO_0x2000_0x3FFF_WR
-
-AddrLatched_A15.d  =>
-    AA15
-
-AddrLatched_A15.ck  =>
-    IO_0x2000_0x3FFF_WR
 
 F010_A14 =>
     0 
@@ -149,15 +131,6 @@ Pol   Name              Ext     Pin     Type     Used   Pterms  Level
     AddrLatched_0x2000_Valid        620      N        -       -       -     
     AddrLatched_0x2000_Validd       620      M        1       0       1     
     AddrLatched_0x2000_Validck      620      M        2       0       1     
-    AddrLatched_A13             611      N        -       -       -     
-    AddrLatched_A13     d       611      M        1       0       1     
-    AddrLatched_A13     ck      611      M        1       0       1     
-    AddrLatched_A14             612      N        -       -       -     
-    AddrLatched_A14     d       612      M        1       0       1     
-    AddrLatched_A14     ck      612      M        1       0       1     
-    AddrLatched_A15             613      N        -       -       -     
-    AddrLatched_A15     d       613      M        1       0       1     
-    AddrLatched_A15     ck      613      M        1       0       1     
     F010_A14                    33       V        1       0       1     
     F010_A15                    34       V        1       0       1     
     F010_A16                    36       V        1       0       1     

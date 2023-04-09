@@ -10,9 +10,6 @@ BEGIN
     "AA15"                                    : INPUT_PIN = 11 ;
     "TMS"                                     : INPUT_PIN = 13 ;
     "SW_1_OnPower_n"                          : NODE_NUM = 610 ;
-    "AddrLatched_A13"                         : NODE_NUM = 611 ;
-    "AddrLatched_A14"                         : NODE_NUM = 612 ;
-    "AddrLatched_A15"                         : NODE_NUM = 613 ;
     "PrimaryMode_G0"                          : NODE_NUM = 614 ;
     "AD6"                                     : INPUT_PIN = 20 ;
     "AddrLatched_0x2000_Valid_C"              : NODE_NUM = 615 ;

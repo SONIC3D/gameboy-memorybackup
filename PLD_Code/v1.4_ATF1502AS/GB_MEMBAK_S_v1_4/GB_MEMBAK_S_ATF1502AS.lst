@@ -3,7 +3,7 @@ LISTING FOR LOGIC DESCRIPTION FILE: GB_MEMBAK_S_ATF1502AS.pld        Page 1
 CUPL(WM): Universal Compiler for Programmable Logic
 Version 5.0a Serial# MW-10400000
 Copyright (c) 1983, 1998 Logical Devices, Inc.
-Created Sun Apr 09 22:26:40 2023
+Created Sun Apr 09 22:38:01 2023
 
   1:Name     GB_MEMBAK_S_V1_4_ATF1502AS ;
   2:PartNo   00 ;
@@ -64,7 +64,7 @@ LISTING FOR LOGIC DESCRIPTION FILE: GB_MEMBAK_S_ATF1502AS.pld        Page 2
 CUPL(WM): Universal Compiler for Programmable Logic
 Version 5.0a Serial# MW-10400000
 Copyright (c) 1983, 1998 Logical Devices, Inc.
-Created Sun Apr 09 22:26:40 2023
+Created Sun Apr 09 22:38:01 2023
 
  54:PIN 4   = AWR_T_n                 ; /*                                 */
  55:PIN 5   = ARD_T_n                 ; /*                                 */
@@ -100,103 +100,85 @@ Created Sun Apr 09 22:26:40 2023
  85:
  86:
  87:
- 88:PINNODE 611 = AddrLatched_A13      ;
- 89:PINNODE 612 = AddrLatched_A14      ;
- 90:PINNODE 613 = AddrLatched_A15      ;
- 91:PINNODE 614 = PrimaryMode_G0      ;
- 92:PINNODE 620 = AddrLatched_0x2000_Valid;
- 93:
- 94:/* ****** Output and output enable equations *******/
- 95:
- 96:IO_0x2000_0x3FFF_WR = !AWR_n & !AA15 & !AA14 &  AA13;   /* Write access to 0x2000-0x3FFF */
- 97:
- 98:/* ----- [BEGIN] Buried nodes logic ----- */
- 99:SW_1_OnPower_n.ck   = ARST_n;
-100:SW_1_OnPower_n.d    = SW_1_n;               /* Latch the SW_1_n state on power-on power-on(The /Reset signal goes from low to high on power-on.)    */
-101:
-102:AddrLatched_A13.ck   = IO_0x2000_0x3FFF_WR;
-103:AddrLatched_A14.ck   = IO_0x2000_0x3FFF_WR;
-104:AddrLatched_A15.ck   = IO_0x2000_0x3FFF_WR;
-105:AddrLatched_A13.d    = AA13;
-106:AddrLatched_A14.d    = AA14;
-107:AddrLatched_A15.d    = AA15;
+ 88:PINNODE 614 = PrimaryMode_G0      ;
+ 89:PINNODE 620 = AddrLatched_0x2000_Valid;
+ 90:
+ 91:/* ****** Output and output enable equations *******/
+ 92:
+ 93:IO_0x2000_0x3FFF_WR = !AWR_n & !AA15 & !AA14 &  AA13;   /* Write access to 0x2000-0x3FFF */
+ 94:
+ 95:/* ----- [BEGIN] Buried nodes logic ----- */
+ 96:SW_1_OnPower_n.ck   = ARST_n;
+ 97:SW_1_OnPower_n.d    = SW_1_n;               /* Latch the SW_1_n state on power-on power-on(The /Reset signal goes from low to high on power-on.)    */
+ 98:
+ 99:AddrLatched_0x2000_Valid.ck = !AddrLatched_0x2000_Valid & IO_0x2000_0x3FFF_WR   /* If flag is not set, set it to valid on falling edge of writing to 0x2000-0x3FFF, latch the address. */
+100:                            #  AddrLatched_0x2000_Valid & AWR_n;                /* If flag is already set, keep it valid until the rising edge of AWR_n. */
+101:AddrLatched_0x2000_Valid.d  = !AddrLatched_0x2000_Valid;
+102:
+103:PrimaryMode_G0.ck   = AddrLatched_0x2000_Valid & AWR_n;     /* If the 0x2000-0x3FFF address is latched, and on the rising edge of AWR_n, latch the data bus value. */
+104:PrimaryMode_G0.d    = AD6;
+105:/* ----- [END] Buried nodes logic ----- */
+106:
+107:/* ----- [BEGIN] Simplified expression ----- */
 
 LISTING FOR LOGIC DESCRIPTION FILE: GB_MEMBAK_S_ATF1502AS.pld        Page 3
 
 CUPL(WM): Universal Compiler for Programmable Logic
 Version 5.0a Serial# MW-10400000
 Copyright (c) 1983, 1998 Logical Devices, Inc.
-Created Sun Apr 09 22:26:40 2023
+Created Sun Apr 09 22:38:01 2023
 
-108:
-109:AddrLatched_0x2000_Valid.ck = !AddrLatched_0x2000_Valid & IO_0x2000_0x3FFF_WR   /* If flag is not set, set it to valid on falling edge of writing to 0x2000-0x3FFF, latch the address. */
-110:                            #  AddrLatched_0x2000_Valid & AWR_n;                /* If flag is already set, keep it valid until the rising edge of AWR_n. */
-111:AddrLatched_0x2000_Valid.d  = !AddrLatched_0x2000_Valid;
+108:MODE_ID_0_PassThru  =  SW_1_OnPower_n;  /* PrimaryMode 0, Pass-Through mode. */
+109:MODE_ID_2_GameCart  = !SW_1_OnPower_n &  PrimaryMode_G0;    /* PrimaryMode 2, MemoryBackup - GameCart mode. */
+110:MODE_ID_4_StoROMMap = !SW_1_OnPower_n & !PrimaryMode_G0;    /* PrimaryMode 4, MemoryBackup - Storage ROM mapping mode. */
+111:/* ----- [END] Simplified expression ----- */
 112:
-113:PrimaryMode_G0.ck   = AddrLatched_0x2000_Valid & AWR_n;     /* If the 0x2000-0x3FFF address is latched, and on the rising edge of AWR_n, latch the data bus value. */
-114:PrimaryMode_G0.d    = AD6;
-115:/* ----- [END] Buried nodes logic ----- */
+113:/* ----- [BEGIN] Control signal expression ----- */
+114:!ARD_T_n    = SW_1_OnPower_n & !ARD_n                       /* Switch is turned off, pass-through */
+115:            # MODE_ID_2_GameCart & !ARD_n & (AA15 # AA14);  /* Switch is turned on, and stays in GameCart Mode and read 0x4000-0xFFFF(pass-through partial read) */
 116:
-117:/* ----- [BEGIN] Simplified expression ----- */
-118:MODE_ID_0_PassThru  =  SW_1_OnPower_n;  /* PrimaryMode 0, Pass-Through mode. */
-119:MODE_ID_2_GameCart  = !SW_1_OnPower_n &  PrimaryMode_G0;    /* PrimaryMode 2, MemoryBackup - GameCart mode. */
-120:MODE_ID_4_StoROMMap = !SW_1_OnPower_n & !PrimaryMode_G0;    /* PrimaryMode 4, MemoryBackup - Storage ROM mapping mode. */
-121:/* ----- [END] Simplified expression ----- */
+117:!AWR_T_n    = SW_1_OnPower_n & !AWR_n       /* Switch is turned off, pass-through */
+118:            # MODE_ID_2_GameCart & !AWR_n &  AA15                   /* 8000-FFFF */
+119:            # MODE_ID_2_GameCart & !AWR_n & !AA15 &  AA14           /* 4000-7FFF */
+120:            # MODE_ID_2_GameCart & !AWR_n & !AA15 & !AA14 & !AA13;  /* 0000-1FFF */
+121:            /* # MODE_ID_2_GameCart & !AWR_n */  /* Switch is turned on, and stays in GameCart Mode and write 0x0000-0xFFFF(pass-through all write) */
 122:
-123:/* ----- [BEGIN] Control signal expression ----- */
-124:!ARD_T_n    = SW_1_OnPower_n & !ARD_n                       /* Switch is turned off, pass-through */
-125:            # MODE_ID_2_GameCart & !ARD_n & (AA15 # AA14);  /* Switch is turned on, and stays in GameCart Mode and read 0x4000-0xFFFF(pass-through partial read) */
-126:
-127:!AWR_T_n    = SW_1_OnPower_n & !AWR_n       /* Switch is turned off, pass-through */
-128:            # MODE_ID_2_GameCart & !AWR_n &  AA15                   /* 8000-FFFF */
-129:            # MODE_ID_2_GameCart & !AWR_n & !AA15 &  AA14           /* 4000-7FFF */
-130:            # MODE_ID_2_GameCart & !AWR_n & !AA15 & !AA14 & !AA13;  /* 0000-1FFF */
-131:            /* # MODE_ID_2_GameCart & !AWR_n */  /* Switch is turned on, and stays in GameCart Mode and write 0x0000-0xFFFF(pass-through all write) */
+123:AA15_T      = SW_1_OnPower_n & AA15         /* Switch is turned off, pass-through */
+124:            # MODE_ID_2_GameCart & AA15;    /* Switch is turned on, and stays in GameCart Mode and AA15=1 */
+125:
+126:!F_CE_040_n = MODE_ID_4_StoROMMap & !AA15 & AA14;  /* Switch is turned on, and stays in MemoryBackup Mode, and not in Flash010_Only mode, and R/W accessing 0x4000-0x7FFF. */
+127:
+128:!F_CE_010_n = !SW_1_OnPower_n & !ARD_n & !AA15 & !AA14; /* Switch is turned on, and stays in MemoryBackup Mode, and Read accessing 0x0000-0x3FFF(write access goes to the mapper register). */
+129:
+130:!RAM_CE_n   = 'b'0;     /* Always disabled */
+131:/* ----- [END] Control signal expression ----- */
 132:
-133:AA15_T      = SW_1_OnPower_n & AA15         /* Switch is turned off, pass-through */
-134:            # MODE_ID_2_GameCart & AA15;    /* Switch is turned on, and stays in GameCart Mode and AA15=1 */
-135:
-136:!F_CE_040_n = MODE_ID_4_StoROMMap & !AA15 & AA14;  /* Switch is turned on, and stays in MemoryBackup Mode, and not in Flash010_Only mode, and R/W accessing 0x4000-0x7FFF. */
-137:
-138:!F_CE_010_n = !SW_1_OnPower_n & !ARD_n & !AA15 & !AA14; /* Switch is turned on, and stays in MemoryBackup Mode, and Read accessing 0x0000-0x3FFF(write access goes to the mapper register). */
+133:
+134:/* ----- [BEGIN] Storage ROM banking address line latch ----- */
+135:/* Write to 0x2000 with value: 'b'100xxxxx, switch the storage ROM 28SF040 bank with D[4..0] */
+136:HC373_040_LE    = IO_0x2000_0x3FFF_WR;
+137:/* ----- [END]   Storage ROM banking address line latch ----- */
+138:
 139:
-140:!RAM_CE_n   = 'b'0;     /* Always disabled */
-141:/* ----- [END] Control signal expression ----- */
-142:
-143:
-144:/* ----- [BEGIN] Storage ROM banking address line latch ----- */
-145:/* Write to 0x2000 with value: 'b'100xxxxx, switch the storage ROM 28SF040 bank with D[4..0] */
-146:HC373_040_LE    = IO_0x2000_0x3FFF_WR;
-147:/* ----- [END]   Storage ROM banking address line latch ----- */
+140:/* ----- [BEGIN] Program ROM banking address line latch ----- */
+141:F010_A14    = 'b'0;
+142:F010_A15    = 'b'0;
+143:F010_A16    = 'b'0;
+144:F010_A17    = 'b'0;
+145:F010_A18    = 'b'0;
+146:/* ----- [END]   Program ROM banking address line latch ----- */
+147:
 148:
-149:
-150:/* ----- [BEGIN] Program ROM banking address line latch ----- */
-151:F010_A14    = 'b'0;
-152:F010_A15    = 'b'0;
-153:F010_A16    = 'b'0;
-154:F010_A17    = 'b'0;
-155:F010_A18    = 'b'0;
-156:/* ----- [END]   Program ROM banking address line latch ----- */
+149:/* ----- [BEGIN] RAM banking address line latch ----- */
+150:RAM_A16 = 'b'0;
+151:RAM_A15 = 'b'0;
+152:RAM_A14 = 'b'0;
+153:/* ----- [END] RAM banking address line latch ----- */
+154:
+155:
+156:/* End */
 157:
 158:
-159:/* ----- [BEGIN] RAM banking address line latch ----- */
-160:RAM_A16 = 'b'0;
-161:RAM_A15 = 'b'0;
-
-LISTING FOR LOGIC DESCRIPTION FILE: GB_MEMBAK_S_ATF1502AS.pld        Page 4
-
-CUPL(WM): Universal Compiler for Programmable Logic
-Version 5.0a Serial# MW-10400000
-Copyright (c) 1983, 1998 Logical Devices, Inc.
-Created Sun Apr 09 22:26:40 2023
-
-162:RAM_A14 = 'b'0;
-163:/* ----- [END] RAM banking address line latch ----- */
-164:
-165:
-166:/* End */
-167:
-168:
 
 
 

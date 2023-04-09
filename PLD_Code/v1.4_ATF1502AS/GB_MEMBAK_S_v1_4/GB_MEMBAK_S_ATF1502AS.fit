@@ -1,4 +1,4 @@
-Atmel ATF1502AS Fitter Version 1.8.7.8 ,running Sun Apr 09 22:26:40 2023
+Atmel ATF1502AS Fitter Version 1.8.7.8 ,running Sun Apr 09 22:38:02 2023
 
 
 fit1502 C:\Wincupl\project\GB_MEMBAK_S\GB_MEMBAK_S_ATF1502AS.tt2 -CUPL -dev P1502C44 -JTAG ON
@@ -84,9 +84,6 @@ AA14 is placed at pin 9 (MC 6)
 AA15 is placed at pin 11 (MC 7)
 TMS is placed at pin 13 (MC 9)
 SW_1_OnPower_n is placed at feedback node 610 (MC 10)
-AddrLatched_A13 is placed at feedback node 611 (MC 11)
-AddrLatched_A14 is placed at feedback node 612 (MC 12)
-AddrLatched_A15 is placed at feedback node 613 (MC 13)
 PrimaryMode_G0 is placed at feedback node 614 (MC 14)
 AD6 is placed at pin 20 (MC 15)
 AddrLatched_0x2000_Valid.C is placed at feedback node 615 (MC 15)
@@ -160,23 +157,25 @@ NC = Unused I/O pins which must be unconnected on the board
 
 Universal-Interconnect-Multiplexer assignments
 ------------------------------------------------
-FanIn assignment for block A [10]
+FanIn assignment for block A [11]
 {
 AA13,AA14,AA15,AD6,AWR_n,ARD_n,AddrLatched_0x2000_Valid,
+HC373_040_LE,
 PrimaryMode_G0,
 SW_1_OnPower_n,SW_1_n,
 }
 Multiplexer assignment for block A
-AA13			(MC7	P)   : MUX 2		Ref (A5p)
-AA14			(MC4	P)   : MUX 3		Ref (A6p)
-AA15			(MC5	P)   : MUX 4		Ref (A7p)
+AA13			(MC8	P)   : MUX 2		Ref (A5p)
+AA14			(MC5	P)   : MUX 3		Ref (A6p)
+AA15			(MC6	P)   : MUX 4		Ref (A7p)
 PrimaryMode_G0		(MC2	FB)  : MUX 9		Ref (A14fb)
 SW_1_OnPower_n		(MC1	FB)  : MUX 13		Ref (A10fb)
-SW_1_n			(MC10	FB)  : MUX 19		Ref (OE1)
-AD6			(MC9	P)   : MUX 20		Ref (A15p)
-AWR_n			(MC8	FB)  : MUX 28		Ref (GCLR)
-ARD_n			(MC6	FB)  : MUX 30		Ref (OE2)
+SW_1_n			(MC11	FB)  : MUX 19		Ref (OE1)
+AD6			(MC10	P)   : MUX 20		Ref (A15p)
+AWR_n			(MC9	FB)  : MUX 28		Ref (GCLR)
+ARD_n			(MC7	FB)  : MUX 30		Ref (OE2)
 AddrLatched_0x2000_Valid		(MC3	FB)  : MUX 31		Ref (B20fb)
+HC373_040_LE		(MC4	P)   : MUX 32		Ref (B28p)
 
 FanIn assignment for block B [9]
 {
@@ -199,63 +198,51 @@ Creating JEDEC file C:\Wincupl\project\GB_MEMBAK_S\GB_MEMBAK_S_ATF1502AS.jed ...
 
 PLCC44 programmed logic:
 -----------------------------------
+F010_A14 = 0;
+
 AddrLatched_0x2000_Valid.D = !AddrLatched_0x2000_Valid.Q;
-
-AddrLatched_A14.D = AA14;
-
-AddrLatched_A13.D = AA13;
-
-AddrLatched_A15.D = AA15;
 
 F010_A15 = 0;
 
-F010_A14 = 0;
+F010_A18 = 0;
 
 F010_A16 = 0;
 
 F010_A17 = 0;
 
-F010_A18 = 0;
-
 !F_CE_010_n = (!AA14 & !AA15 & !ARD_n & !SW_1_OnPower_n.Q);
 
 !MODE_ID_2_GameCart = (PrimaryMode_G0.Q & !SW_1_OnPower_n.Q);
-
-RAM_A14 = 0;
 
 PrimaryMode_G0.D = AD6;
 
 RAM_A15 = 0;
 
-RAM_A16 = 0;
-
 RAM_CE_n = 1;
+
+RAM_A14 = 0;
+
+RAM_A16 = 0;
 
 SW_1_OnPower_n.D = SW_1_n;
 
+HC373_040_LE = (AA13 & !AA14 & !AA15 & !AWR_n);
+
 AA15_T = ((AA15 & SW_1_OnPower_n.Q)
 	# (AA15 & PrimaryMode_G0.Q));
-
-AWR_T_n = ((!SW_1_OnPower_n.Q & AA13 & !AA14 & !AA15)
-	# AWR_n
-	# (!SW_1_OnPower_n.Q & MODE_ID_2_GameCart));
 
 ARD_T_n = ((!SW_1_OnPower_n.Q & !AA14 & !AA15)
 	# (!SW_1_OnPower_n.Q & MODE_ID_2_GameCart)
 	# ARD_n);
 
-HC373_040_LE = (AA13 & !AA14 & !AA15 & !AWR_n);
+AWR_T_n = ((!SW_1_OnPower_n.Q & AA13 & !AA14 & !AA15)
+	# AWR_n
+	# (!SW_1_OnPower_n.Q & MODE_ID_2_GameCart));
 
 !F_CE_040_n = (AA14 & !AA15 & !PrimaryMode_G0.Q & !SW_1_OnPower_n.Q);
 
 AddrLatched_0x2000_Valid.C = ((AddrLatched_0x2000_Valid.Q & AWR_n)
-	# (!AddrLatched_0x2000_Valid.Q & AA13 & !AA14 & !AA15 & !AWR_n));
-
-AddrLatched_A14.C = (AA13 & !AA14 & !AA15 & !AWR_n);
-
-AddrLatched_A13.C = (AA13 & !AA14 & !AA15 & !AWR_n);
-
-AddrLatched_A15.C = (AA13 & !AA14 & !AA15 & !AWR_n);
+	# (!AddrLatched_0x2000_Valid.Q & HC373_040_LE));
 
 PrimaryMode_G0.C = (AWR_n & AddrLatched_0x2000_Valid.Q);
 
@@ -293,9 +280,6 @@ Pin 43 = ARST_n;
 Pin 44 = SW_1_n;
 PINNODE 316 = MODE_ID_2_GameCart; /* MC 16 Foldback */
 PINNODE 610 = SW_1_OnPower_n; /* MC 10 Feedback */
-PINNODE 611 = AddrLatched_A13; /* MC 11 Feedback */
-PINNODE 612 = AddrLatched_A14; /* MC 12 Feedback */
-PINNODE 613 = AddrLatched_A15; /* MC 13 Feedback */
 PINNODE 614 = PrimaryMode_G0; /* MC 14 Feedback */
 PINNODE 615 = AddrLatched_0x2000_Valid.C; /* MC 15 Feedback */
 PINNODE 620 = AddrLatched_0x2000_Valid; /* MC 20 Feedback */
@@ -328,9 +312,9 @@ MC7   11   --   AA15         INPUT  --                                --        
 MC8   12        --                  --                                --                 --             0     slow
 MC9   13   --   TMS          INPUT  --                                --                 --             0     slow
 MC10  14        --                  SW_1_OnPower_n             Dg---  --                 --             1     slow
-MC11  16        --                  AddrLatched_A13            Dc---  --                 --             2     slow
-MC12  17        --                  AddrLatched_A14            Dc---  --                 --             2     slow
-MC13  18        --                  AddrLatched_A15            Dc---  --                 --             2     slow
+MC11  16        --                  --                                --                 --             0     slow
+MC12  17        --                  --                                --                 --             0     slow
+MC13  18        --                  --                                --                 --             0     slow
 MC14  19        --                  PrimaryMode_G0             Dc---  --                 --             2     slow
 MC15  20   --   AD6          INPUT  AddrLatched_0x2000_Valid.C C----  --                 --             2     slow
 MC16  21        --                  --                                MODE_ID_2_GameCart --             1     slow
@@ -356,19 +340,19 @@ MC0   44        SW_1_n       INPUT  --                                --        
 MC0   43        ARST_n       INPUT  --                                --                 --             0     slow
 
 Logic Array Block	Logic Cells	I/O Pins	Foldbacks	TotalPT		FanIN	Cascades
-A: LC1	- LC16		8/16(50%)	8/16(50%)	1/16(6%)	18/80(22%)	(10)	0
+A: LC1	- LC16		5/16(31%)	8/16(50%)	1/16(6%)	12/80(15%)	(11)	0
 B: LC17	- LC32		14/16(87%)	15/16(93%)	0/16(0%)	7/80(8%)	(9)	0
 
 Total dedicated input used:	4/4 	(100%)
 Total I/O pins used		23/32 	(71%)
-Total Logic cells used 		22/32 	(68%)
-Total Flip-Flop used 		6/32 	(18%)
+Total Logic cells used 		19/32 	(59%)
+Total Flip-Flop used 		3/32 	(9%)
 Total Foldback logic used 	1/32 	(3%)
-Total Nodes+FB/MCells 		23/32 	(71%)
+Total Nodes+FB/MCells 		20/32 	(62%)
 Total cascade used 		0
 Total input pins 		12
 Total output pins 		15
-Total Pts 			25
+Total Pts 			19
 Creating pla file C:\Wincupl\project\GB_MEMBAK_S\GB_MEMBAK_S_ATF1502AS.tt3 with 0 inputs 0 outputs, 0 pins 0 nodes and 0 pterms...
 
 ----------------  End fitter, Design FITS

@@ -85,9 +85,6 @@ PINNODE 610 = SW_1_OnPower_n      ; /* Latch the SW_1_n state on power-on       
 
 
 
-PINNODE 611 = AddrLatched_A13      ;
-PINNODE 612 = AddrLatched_A14      ;
-PINNODE 613 = AddrLatched_A15      ;
 PINNODE 614 = PrimaryMode_G0      ;
 PINNODE 620 = AddrLatched_0x2000_Valid;
 
@@ -98,13 +95,6 @@ IO_0x2000_0x3FFF_WR = !AWR_n & !AA15 & !AA14 &  AA13;   /* Write access to 0x200
 /* ----- [BEGIN] Buried nodes logic ----- */
 SW_1_OnPower_n.ck   = ARST_n;
 SW_1_OnPower_n.d    = SW_1_n;               /* Latch the SW_1_n state on power-on power-on(The /Reset signal goes from low to high on power-on.)    */
-
-AddrLatched_A13.ck   = IO_0x2000_0x3FFF_WR;
-AddrLatched_A14.ck   = IO_0x2000_0x3FFF_WR;
-AddrLatched_A15.ck   = IO_0x2000_0x3FFF_WR;
-AddrLatched_A13.d    = AA13;
-AddrLatched_A14.d    = AA14;
-AddrLatched_A15.d    = AA15;
 
 AddrLatched_0x2000_Valid.ck = !AddrLatched_0x2000_Valid & IO_0x2000_0x3FFF_WR   /* If flag is not set, set it to valid on falling edge of writing to 0x2000-0x3FFF, latch the address. */
                             #  AddrLatched_0x2000_Valid & AWR_n;                /* If flag is already set, keep it valid until the rising edge of AWR_n. */
