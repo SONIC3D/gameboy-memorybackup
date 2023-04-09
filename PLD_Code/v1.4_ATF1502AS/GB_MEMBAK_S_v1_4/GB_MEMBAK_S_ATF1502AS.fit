@@ -1,4 +1,4 @@
-Atmel ATF1502AS Fitter Version 1.8.7.8 ,running Sun Apr 09 06:45:42 2023
+Atmel ATF1502AS Fitter Version 1.8.7.8 ,running Sun Apr 09 22:26:40 2023
 
 
 fit1502 C:\Wincupl\project\GB_MEMBAK_S\GB_MEMBAK_S_ATF1502AS.tt2 -CUPL -dev P1502C44 -JTAG ON
@@ -87,7 +87,7 @@ SW_1_OnPower_n is placed at feedback node 610 (MC 10)
 AddrLatched_A13 is placed at feedback node 611 (MC 11)
 AddrLatched_A14 is placed at feedback node 612 (MC 12)
 AddrLatched_A15 is placed at feedback node 613 (MC 13)
-Neo_PrimaryMode_G0 is placed at feedback node 614 (MC 14)
+PrimaryMode_G0 is placed at feedback node 614 (MC 14)
 AD6 is placed at pin 20 (MC 15)
 AddrLatched_0x2000_Valid.C is placed at feedback node 615 (MC 15)
 MODE_ID_2_GameCart is placed at foldback expander node 316 (MC 16)
@@ -163,14 +163,14 @@ Universal-Interconnect-Multiplexer assignments
 FanIn assignment for block A [10]
 {
 AA13,AA14,AA15,AD6,AWR_n,ARD_n,AddrLatched_0x2000_Valid,
-Neo_PrimaryMode_G0,
+PrimaryMode_G0,
 SW_1_OnPower_n,SW_1_n,
 }
 Multiplexer assignment for block A
 AA13			(MC7	P)   : MUX 2		Ref (A5p)
 AA14			(MC4	P)   : MUX 3		Ref (A6p)
 AA15			(MC5	P)   : MUX 4		Ref (A7p)
-Neo_PrimaryMode_G0		(MC2	FB)  : MUX 9		Ref (A14fb)
+PrimaryMode_G0		(MC2	FB)  : MUX 9		Ref (A14fb)
 SW_1_OnPower_n		(MC1	FB)  : MUX 13		Ref (A10fb)
 SW_1_n			(MC10	FB)  : MUX 19		Ref (OE1)
 AD6			(MC9	P)   : MUX 20		Ref (A15p)
@@ -181,7 +181,7 @@ AddrLatched_0x2000_Valid		(MC3	FB)  : MUX 31		Ref (B20fb)
 FanIn assignment for block B [9]
 {
 AA14,AA15,AA13,AddrLatched_0x2000_Valid.C,AWR_n,ARD_n,AddrLatched_0x2000_Valid,
-Neo_PrimaryMode_G0,
+PrimaryMode_G0,
 SW_1_OnPower_n,
 }
 Multiplexer assignment for block B
@@ -189,7 +189,7 @@ AA14			(MC5	P)   : MUX 3		Ref (A6p)
 AA15			(MC6	P)   : MUX 4		Ref (A7p)
 AA13			(MC8	P)   : MUX 5		Ref (A5p)
 AddrLatched_0x2000_Valid.C		(MC3	FB)  : MUX 6		Ref (A15fb)
-Neo_PrimaryMode_G0		(MC2	FB)  : MUX 9		Ref (A14fb)
+PrimaryMode_G0		(MC2	FB)  : MUX 9		Ref (A14fb)
 SW_1_OnPower_n		(MC1	FB)  : MUX 13		Ref (A10fb)
 AWR_n			(MC9	FB)  : MUX 20		Ref (GCLR)
 ARD_n			(MC7	FB)  : MUX 30		Ref (OE2)
@@ -219,11 +219,11 @@ F010_A18 = 0;
 
 !F_CE_010_n = (!AA14 & !AA15 & !ARD_n & !SW_1_OnPower_n.Q);
 
-!MODE_ID_2_GameCart = (Neo_PrimaryMode_G0.Q & !SW_1_OnPower_n.Q);
+!MODE_ID_2_GameCart = (PrimaryMode_G0.Q & !SW_1_OnPower_n.Q);
 
 RAM_A14 = 0;
 
-Neo_PrimaryMode_G0.D = AD6;
+PrimaryMode_G0.D = AD6;
 
 RAM_A15 = 0;
 
@@ -234,7 +234,7 @@ RAM_CE_n = 1;
 SW_1_OnPower_n.D = SW_1_n;
 
 AA15_T = ((AA15 & SW_1_OnPower_n.Q)
-	# (AA15 & Neo_PrimaryMode_G0.Q));
+	# (AA15 & PrimaryMode_G0.Q));
 
 AWR_T_n = ((!SW_1_OnPower_n.Q & AA13 & !AA14 & !AA15)
 	# AWR_n
@@ -246,7 +246,7 @@ ARD_T_n = ((!SW_1_OnPower_n.Q & !AA14 & !AA15)
 
 HC373_040_LE = (AA13 & !AA14 & !AA15 & !AWR_n);
 
-!F_CE_040_n = (AA14 & !AA15 & !Neo_PrimaryMode_G0.Q & !SW_1_OnPower_n.Q);
+!F_CE_040_n = (AA14 & !AA15 & !PrimaryMode_G0.Q & !SW_1_OnPower_n.Q);
 
 AddrLatched_0x2000_Valid.C = ((AddrLatched_0x2000_Valid.Q & AWR_n)
 	# (!AddrLatched_0x2000_Valid.Q & AA13 & !AA14 & !AA15 & !AWR_n));
@@ -257,7 +257,7 @@ AddrLatched_A13.C = (AA13 & !AA14 & !AA15 & !AWR_n);
 
 AddrLatched_A15.C = (AA13 & !AA14 & !AA15 & !AWR_n);
 
-Neo_PrimaryMode_G0.C = (AWR_n & AddrLatched_0x2000_Valid.Q);
+PrimaryMode_G0.C = (AWR_n & AddrLatched_0x2000_Valid.Q);
 
 SW_1_OnPower_n.C = ARST_n;
 
@@ -296,7 +296,7 @@ PINNODE 610 = SW_1_OnPower_n; /* MC 10 Feedback */
 PINNODE 611 = AddrLatched_A13; /* MC 11 Feedback */
 PINNODE 612 = AddrLatched_A14; /* MC 12 Feedback */
 PINNODE 613 = AddrLatched_A15; /* MC 13 Feedback */
-PINNODE 614 = Neo_PrimaryMode_G0; /* MC 14 Feedback */
+PINNODE 614 = PrimaryMode_G0; /* MC 14 Feedback */
 PINNODE 615 = AddrLatched_0x2000_Valid.C; /* MC 15 Feedback */
 PINNODE 620 = AddrLatched_0x2000_Valid; /* MC 20 Feedback */
 
@@ -331,7 +331,7 @@ MC10  14        --                  SW_1_OnPower_n             Dg---  --        
 MC11  16        --                  AddrLatched_A13            Dc---  --                 --             2     slow
 MC12  17        --                  AddrLatched_A14            Dc---  --                 --             2     slow
 MC13  18        --                  AddrLatched_A15            Dc---  --                 --             2     slow
-MC14  19        --                  Neo_PrimaryMode_G0         Dc---  --                 --             2     slow
+MC14  19        --                  PrimaryMode_G0             Dc---  --                 --             2     slow
 MC15  20   --   AD6          INPUT  AddrLatched_0x2000_Valid.C C----  --                 --             2     slow
 MC16  21        --                  --                                MODE_ID_2_GameCart --             1     slow
 MC17  41   on   AA15_T       C----  --                                --                 --             2     slow

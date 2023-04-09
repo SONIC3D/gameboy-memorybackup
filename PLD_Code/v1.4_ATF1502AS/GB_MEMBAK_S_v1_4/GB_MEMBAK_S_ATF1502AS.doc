@@ -5,7 +5,7 @@
 
 CUPL(WM)        5.0a Serial# MW-10400000
 Device          f1502ispplcc44  Library DLIB-h-40-1
-Created         Sun Apr 09 06:45:42 2023
+Created         Sun Apr 09 22:26:40 2023
 Name            GB_MEMBAK_S_V1_4_ATF1502AS 
 Partno          00 
 Revision        01 
@@ -90,15 +90,15 @@ MODE_ID_0_PassThru =>
     SW_1_OnPower_n
 
 MODE_ID_2_GameCart =>
-    Neo_PrimaryMode_G0 & !SW_1_OnPower_n
+    PrimaryMode_G0 & !SW_1_OnPower_n
 
 MODE_ID_4_StoROMMap =>
-    !Neo_PrimaryMode_G0 & !SW_1_OnPower_n
+    !PrimaryMode_G0 & !SW_1_OnPower_n
 
-Neo_PrimaryMode_G0.d  =>
+PrimaryMode_G0.d  =>
     AD6
 
-Neo_PrimaryMode_G0.ck  =>
+PrimaryMode_G0.ck  =>
     AWR_n & AddrLatched_0x2000_Valid
 
 RAM_A14 =>
@@ -170,9 +170,9 @@ Pol   Name              Ext     Pin     Type     Used   Pterms  Level
     MODE_ID_0_PassThru          46       N        1       0       1     
     MODE_ID_2_GameCart          47       N        1       0       1     
     MODE_ID_4_StoROMMap         48       N        1       0       1     
-    Neo_PrimaryMode_G0          614      N        -       -       -     
-    Neo_PrimaryMode_G0  d       614      M        1       0       1     
-    Neo_PrimaryMode_G0  ck      614      M        1       0       1     
+    PrimaryMode_G0              614      N        -       -       -     
+    PrimaryMode_G0      d       614      M        1       0       1     
+    PrimaryMode_G0      ck      614      M        1       0       1     
     RAM_A14                     25       V        1       0       1     
     RAM_A15                     26       V        1       0       1     
     RAM_A16                     27       V        1       0       1     

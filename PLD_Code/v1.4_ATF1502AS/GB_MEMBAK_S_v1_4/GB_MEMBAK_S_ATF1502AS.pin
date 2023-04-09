@@ -10,7 +10,7 @@ SW_1_OnPower_n					: 610
 AddrLatched_A13					: 611
 AddrLatched_A14					: 612
 AddrLatched_A15					: 613
-Neo_PrimaryMode_G0					: 614
+PrimaryMode_G0					: 614
 AD6					: 20
 AddrLatched_0x2000_Valid_C					: 615
 AA15_T					: 41

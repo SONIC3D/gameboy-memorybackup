@@ -33,7 +33,7 @@ PIN  45 =  IO_0x2000_0x3FFF_WR
 PIN  46 =  MODE_ID_0_PassThru 
 PIN  47 =  MODE_ID_2_GameCart 
 PIN  48 =  MODE_ID_4_StoROMMap 
-PIN 614 =  Neo_PrimaryMode_G0 
+PIN 614 =  PrimaryMode_G0 
 PIN  25 =  RAM_A14 
 PIN  26 =  RAM_A15 
 PIN  27 =  RAM_A16 
@@ -117,15 +117,15 @@ MODE_ID_0_PassThru =>
     SW_1_OnPower_n
 
 MODE_ID_2_GameCart =>
-    Neo_PrimaryMode_G0 & !SW_1_OnPower_n
+    PrimaryMode_G0 & !SW_1_OnPower_n
 
 MODE_ID_4_StoROMMap =>
-    !Neo_PrimaryMode_G0 & !SW_1_OnPower_n
+    !PrimaryMode_G0 & !SW_1_OnPower_n
 
-Neo_PrimaryMode_G0.d  =>
+PrimaryMode_G0.d  =>
     AD6
 
-Neo_PrimaryMode_G0.ck  =>
+PrimaryMode_G0.ck  =>
     AWR_n & AddrLatched_0x2000_Valid
 
 RAM_A14 =>

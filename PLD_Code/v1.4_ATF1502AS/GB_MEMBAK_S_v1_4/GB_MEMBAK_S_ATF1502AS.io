@@ -13,7 +13,7 @@ BEGIN
     "AddrLatched_A13"                         : NODE_NUM = 611 ;
     "AddrLatched_A14"                         : NODE_NUM = 612 ;
     "AddrLatched_A15"                         : NODE_NUM = 613 ;
-    "Neo_PrimaryMode_G0"                      : NODE_NUM = 614 ;
+    "PrimaryMode_G0"                          : NODE_NUM = 614 ;
     "AD6"                                     : INPUT_PIN = 20 ;
     "AddrLatched_0x2000_Valid_C"              : NODE_NUM = 615 ;
     "AA15_T"                                  : OUTPUT_PIN = 41 ;
