@@ -1,0 +1,120 @@
+%SIGNAL
+PIN   6 =  AA0 
+PIN   8 =  AA13 
+PIN   9 =  AA14 
+PIN  11 =  AA15 
+PIN  41 =  AA15_T 
+PIN  12 =  AD0 
+PIN  14 =  AD1 
+PIN  16 =  AD2 
+PIN  17 =  AD3 
+PIN  18 =  AD4 
+PIN  19 =  AD5 
+PIN  20 =  AD6 
+PIN  21 =  AD7 
+PIN   5 =  ARD_T_n 
+PIN   2 =  ARD_n 
+PIN  43 =  ARST_n 
+PIN   4 =  AWR_T_n 
+PIN   1 =  AWR_n 
+PIN  33 =  F010_A14 
+PIN  34 =  F010_A15 
+PIN  36 =  F010_A16 
+PIN  37 =  F010_A17 
+PIN  39 =  F010_A18 
+PIN  31 =  F_CE_010_n 
+PIN  40 =  F_CE_040_n 
+PIN  28 =  HC373_040_LE 
+PIN  45 =  IO_0x2000_0x3FFF_WR 
+PIN  46 =  MODE_ID_0_PassThru 
+PIN  47 =  MODE_ID_2_GameCart 
+PIN  48 =  MODE_ID_4_StoROMMap 
+PIN 614 =  PrimaryMode_G0 
+PIN  25 =  RAM_A14 
+PIN  26 =  RAM_A15 
+PIN  27 =  RAM_A16 
+PIN  24 =  RAM_CE_n 
+PIN 610 =  SW_1_OnPower_n 
+PIN  44 =  SW_1_n 
+%END
+
+%FIELD
+%END
+
+%EQUATION
+AA15_T =>
+    AA15 & SW_1_OnPower_n
+  # AA15 & MODE_ID_2_GameCart
+
+!ARD_T_n =>
+    !ARD_n & SW_1_OnPower_n
+  # AA14 & !ARD_n & MODE_ID_2_GameCart
+  # AA15 & !ARD_n & MODE_ID_2_GameCart
+
+!AWR_T_n =>
+    !AWR_n & SW_1_OnPower_n
+  # AA15 & !AWR_n & MODE_ID_2_GameCart
+  # AA14 & !AA15 & !AWR_n & MODE_ID_2_GameCart
+  # !AA13 & !AA14 & !AA15 & !AWR_n & MODE_ID_2_GameCart
+
+F010_A14 =>
+    0 
+
+F010_A15 =>
+    0 
+
+F010_A16 =>
+    0 
+
+F010_A17 =>
+    0 
+
+F010_A18 =>
+    0 
+
+!F_CE_010_n =>
+    !AA14 & !AA15 & !ARD_n & !SW_1_OnPower_n
+
+!F_CE_040_n =>
+    AA14 & !AA15 & MODE_ID_4_StoROMMap
+
+HC373_040_LE =>
+    IO_0x2000_0x3FFF_WR
+
+IO_0x2000_0x3FFF_WR =>
+    AA13 & !AA14 & !AA15 & !AWR_n
+
+MODE_ID_0_PassThru =>
+    SW_1_OnPower_n
+
+MODE_ID_2_GameCart =>
+    PrimaryMode_G0 & !SW_1_OnPower_n
+
+MODE_ID_4_StoROMMap =>
+    !PrimaryMode_G0 & !SW_1_OnPower_n
+
+PrimaryMode_G0.d  =>
+    AD6
+
+PrimaryMode_G0.ck  =>
+    IO_0x2000_0x3FFF_WR
+
+RAM_A14 =>
+    0 
+
+RAM_A15 =>
+    0 
+
+RAM_A16 =>
+    0 
+
+!RAM_CE_n =>
+    0 
+
+SW_1_OnPower_n.d  =>
+    SW_1_n
+
+SW_1_OnPower_n.ck  =>
+    ARST_n
+
+%END

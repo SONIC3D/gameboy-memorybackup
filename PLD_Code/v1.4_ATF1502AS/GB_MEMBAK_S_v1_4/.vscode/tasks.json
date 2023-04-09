@@ -1,0 +1,32 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "build",
+			"detail": "CUPL build",
+			"type": "shell",
+			"options": {
+				"env": {
+					"PATH": "C:\\Wincupl\\Shared;C:\\Wincupl\\WinCupl\\Fitters;${env:PATH}"
+				}
+			},
+			"command": "cupl",
+			"args": [
+				"-jnafpbm1",
+				"-xle",
+				"-u",
+				"C:\\Wincupl\\Shared\\Atmel.dl",
+				"${file}"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"presentation": {
+				"focus": false,
+				"panel": "shared"
+			},
+			"problemMatcher": []
+		}
+	]
+}

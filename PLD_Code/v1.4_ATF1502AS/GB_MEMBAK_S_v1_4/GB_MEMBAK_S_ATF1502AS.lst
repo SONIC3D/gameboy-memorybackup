@@ -1,0 +1,179 @@
+LISTING FOR LOGIC DESCRIPTION FILE: GB_MEMBAK_S_ATF1502AS.pld        Page 1
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# MW-10400000
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Mon Apr 03 23:05:25 2023
+
+  1:Name     GB_MEMBAK_S_V1_4_ATF1502AS ;
+  2:PartNo   00 ;
+  3:Date     2023/04/03 ;
+  4:Revision 01 ;
+  5:Designer SONIC3D ;
+  6:Company  SONIC3D ;
+  7:Assembly GB_MEMBAK_PCB_v1_4 ;
+  8:Location U3 ;
+  9:Device   f1502ispplcc44 ;
+ 10:
+ 11:/* ReadMe:                                                                      */
+ 12:/*                                                                              */
+ 13:/* This project contains logic equations to turn the cart into a Nintendo       */
+ 14:/* Gameboy memory storage cart. Compatibility depends on the boot ROM code      */
+ 15:/* inside this cart.                                                            */
+ 16:
+ 17:/* ATF15xx usable extention:                                                    */
+ 18:/*      D, T, S, R, L                                                           */
+ 19:/*      OE, OEMUX                                                               */
+ 20:/*      CK, CKMUX                                                               */
+ 21:/*      CE                                                                      */
+ 22:/*      AR, AP                                                                  */
+ 23:/*      DQ, LQ, LE                                                              */
+ 24:/*      IO, IOD, IOL                                                            */
+ 25:/*      IOCK, IOAR                                                              */
+ 26:/* Notes:                                                                       */
+ 27:/*      L, CE, AP, LE are missed in doc3303, but tested usable in 1504 fitter)  */
+ 28:/* Documents:                                                                   */
+ 29:/*      doc3303_AN_3303 - Converting ABEL Design Files to CUPL)                 */
+ 30:/*      doc0737_WinCUPL USER MANUAL                                             */
+ 31:/*      Atmel-3614-CPLD-ATF15-Overview                                          */
+ 32:/*      file:///C:/Wincupl/WinCupl/AtmelHlp/Devhelp.pdf                         */
+ 33:
+ 34:/* *************** INPUT PINS *********************/
+ 35:PIN 1   = AWR_n                   ; /*                                 */
+ 36:PIN 2   = ARD_n                   ; /*                                 */
+ 37:PIN 6   = AA0                     ; /* Unused in v1.4                  */
+ 38:PIN 8   = AA13                    ; /*                                 */
+ 39:PIN 9   = AA14                    ; /*                                 */
+ 40:PIN 11  = AA15                    ; /*                                 */
+ 41:PIN 12  = AD0                     ; /*                                 */
+ 42:PIN 14  = AD1                     ; /*                                 */
+ 43:PIN 16  = AD2                     ; /*                                 */
+ 44:PIN 17  = AD3                     ; /*                                 */
+ 45:PIN 18  = AD4                     ; /*                                 */
+ 46:PIN 19  = AD5                     ; /*                                 */
+ 47:PIN 20  = AD6                     ; /*                                 */
+ 48:PIN 21  = AD7                     ; /*                                 */
+ 49:PIN 43  = ARST_n                  ; /*                                 */
+ 50:PIN 44  = SW_1_n                  ; /*                                 */
+ 51:
+ 52:/* *************** OUTPUT PINS *********************/
+ 53:PIN 41  = AA15_T                  ; /*                                 */
+
+LISTING FOR LOGIC DESCRIPTION FILE: GB_MEMBAK_S_ATF1502AS.pld        Page 2
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# MW-10400000
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Mon Apr 03 23:05:25 2023
+
+ 54:PIN 4   = AWR_T_n                 ; /*                                 */
+ 55:PIN 5   = ARD_T_n                 ; /*                                 */
+ 56:PIN 24  = RAM_CE_n                ; /*                                 */
+ 57:PIN 25  = RAM_A14                 ; /*                                 */
+ 58:PIN 26  = RAM_A15                 ; /*                                 */
+ 59:PIN 27  = RAM_A16                 ; /*                                 */
+ 60:PIN 28  = HC373_040_LE            ; /*                                 */
+ 61:/*PIN 29  = HC373_010_LE            ;*/ /* Unused in v1.4                  */
+ 62:PIN 31  = F_CE_010_n              ; /*                                 */
+ 63:PIN 33  = F010_A14                ; /*                                 */
+ 64:PIN 34  = F010_A15                ; /*                                 */
+ 65:PIN 36  = F010_A16                ; /*                                 */
+ 66:PIN 37  = F010_A17                ; /*                                 */
+ 67:PIN 39  = F010_A18                ; /*                                 */
+ 68:PIN 40  = F_CE_040_n              ; /*                                 */
+ 69:
+ 70:/* *********** INPUT/OUTPUT PINS *******************/
+ 71:
+ 72:/* ********** REGISTERED OUTPUT PINS ***************/
+ 73:
+ 74:/* ******************* NODEs ***********************/
+ 75:NODE IO_0x2000_0x3FFF_WR          ; /*                                 */
+ 76:
+ 77:NODE MODE_ID_0_PassThru           ; /*                                 */
+ 78:NODE MODE_ID_2_GameCart           ; /*                                 */
+ 79:NODE MODE_ID_4_StoROMMap          ; /*                                 */
+ 80:
+ 81:/* ****************** PINNODES *********************/
+ 82:/* Check fitter documentation P.15 */
+ 83:/* for valid feedback node number. */
+ 84:PINNODE 610 = SW_1_OnPower_n      ; /* Latch the SW_1_n state on power-on                       */
+ 85:
+ 86:
+ 87:
+ 88:PINNODE 614 = PrimaryMode_G0      ;
+ 89:
+ 90:/* ****** Output and output enable equations *******/
+ 91:
+ 92:IO_0x2000_0x3FFF_WR = !AWR_n & !AA15 & !AA14 &  AA13;   /* Write access to 0x2000-0x3FFF */
+ 93:
+ 94:/* ----- [BEGIN] Buried nodes logic ----- */
+ 95:SW_1_OnPower_n.ck   = ARST_n;
+ 96:SW_1_OnPower_n.d    = SW_1_n;               /* Latch the SW_1_n state on power-on power-on(The /Reset signal goes from low to high on power-on.)    */
+ 97:
+ 98:PrimaryMode_G0.ck   = IO_0x2000_0x3FFF_WR;
+ 99:PrimaryMode_G0.d    = AD6;
+100:/* ----- [END] Buried nodes logic ----- */
+101:
+102:/* ----- [BEGIN] Simplified expression ----- */
+103:MODE_ID_0_PassThru  =  SW_1_OnPower_n;  /* PrimaryMode 0, Pass-Through mode. */
+104:MODE_ID_2_GameCart  = !SW_1_OnPower_n &  PrimaryMode_G0;    /* PrimaryMode 2, MemoryBackup - GameCart mode. */
+105:MODE_ID_4_StoROMMap = !SW_1_OnPower_n & !PrimaryMode_G0;    /* PrimaryMode 4, MemoryBackup - Storage ROM mapping mode. */
+106:/* ----- [END] Simplified expression ----- */
+107:
+
+LISTING FOR LOGIC DESCRIPTION FILE: GB_MEMBAK_S_ATF1502AS.pld        Page 3
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# MW-10400000
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Mon Apr 03 23:05:25 2023
+
+108:/* ----- [BEGIN] Control signal expression ----- */
+109:!ARD_T_n    = SW_1_OnPower_n & !ARD_n                       /* Switch is turned off, pass-through */
+110:            # MODE_ID_2_GameCart & !ARD_n & (AA15 # AA14);  /* Switch is turned on, and stays in GameCart Mode and read 0x4000-0xFFFF(pass-through partial read) */
+111:
+112:!AWR_T_n    = SW_1_OnPower_n & !AWR_n       /* Switch is turned off, pass-through */
+113:            # MODE_ID_2_GameCart & !AWR_n &  AA15                   /* 8000-FFFF */
+114:            # MODE_ID_2_GameCart & !AWR_n & !AA15 &  AA14           /* 4000-7FFF */
+115:            # MODE_ID_2_GameCart & !AWR_n & !AA15 & !AA14 & !AA13;  /* 0000-1FFF */
+116:            /* # MODE_ID_2_GameCart & !AWR_n */  /* Switch is turned on, and stays in GameCart Mode and write 0x0000-0xFFFF(pass-through all write) */
+117:
+118:AA15_T      = SW_1_OnPower_n & AA15         /* Switch is turned off, pass-through */
+119:            # MODE_ID_2_GameCart & AA15;    /* Switch is turned on, and stays in GameCart Mode and AA15=1 */
+120:
+121:!F_CE_040_n = MODE_ID_4_StoROMMap & !AA15 & AA14;  /* Switch is turned on, and stays in MemoryBackup Mode, and not in Flash010_Only mode, and R/W accessing 0x4000-0x7FFF. */
+122:
+123:!F_CE_010_n = !SW_1_OnPower_n & !ARD_n & !AA15 & !AA14; /* Switch is turned on, and stays in MemoryBackup Mode, and Read accessing 0x0000-0x3FFF(write access goes to the mapper register). */
+124:
+125:!RAM_CE_n   = 'b'0;     /* Always disabled */
+126:/* ----- [END] Control signal expression ----- */
+127:
+128:
+129:/* ----- [BEGIN] Storage ROM banking address line latch ----- */
+130:/* Write to 0x2000 with value: 'b'100xxxxx, switch the storage ROM 28SF040 bank with D[4..0] */
+131:HC373_040_LE    = IO_0x2000_0x3FFF_WR;
+132:/* ----- [END]   Storage ROM banking address line latch ----- */
+133:
+134:
+135:/* ----- [BEGIN] Program ROM banking address line latch ----- */
+136:F010_A14    = 'b'0;
+137:F010_A15    = 'b'0;
+138:F010_A16    = 'b'0;
+139:F010_A17    = 'b'0;
+140:F010_A18    = 'b'0;
+141:/* ----- [END]   Program ROM banking address line latch ----- */
+142:
+143:
+144:/* ----- [BEGIN] RAM banking address line latch ----- */
+145:RAM_A16 = 'b'0;
+146:RAM_A15 = 'b'0;
+147:RAM_A14 = 'b'0;
+148:/* ----- [END] RAM banking address line latch ----- */
+149:
+150:
+151:/* End */
+152:
+153:
+
+
+

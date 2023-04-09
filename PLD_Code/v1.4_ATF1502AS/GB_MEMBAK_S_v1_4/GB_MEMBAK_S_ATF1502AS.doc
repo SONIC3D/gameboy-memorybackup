@@ -1,0 +1,153 @@
+
+*******************************************************************************
+                          GB_MEMBAK_S_V1_4_ATF1502AS
+*******************************************************************************
+
+CUPL(WM)        5.0a Serial# MW-10400000
+Device          f1502ispplcc44  Library DLIB-h-40-1
+Created         Mon Apr 03 23:05:25 2023
+Name            GB_MEMBAK_S_V1_4_ATF1502AS 
+Partno          00 
+Revision        01 
+Date            2023/04/03 
+Designer        SONIC3D 
+Company         SONIC3D 
+Assembly        GB_MEMBAK_PCB_v1_4 
+Location        U3 
+
+===============================================================================
+                            Expanded Product Terms
+===============================================================================
+
+AA15_T =>
+    AA15 & SW_1_OnPower_n
+  # AA15 & MODE_ID_2_GameCart
+
+!ARD_T_n =>
+    !ARD_n & SW_1_OnPower_n
+  # AA14 & !ARD_n & MODE_ID_2_GameCart
+  # AA15 & !ARD_n & MODE_ID_2_GameCart
+
+!AWR_T_n =>
+    !AWR_n & SW_1_OnPower_n
+  # AA15 & !AWR_n & MODE_ID_2_GameCart
+  # AA14 & !AA15 & !AWR_n & MODE_ID_2_GameCart
+  # !AA13 & !AA14 & !AA15 & !AWR_n & MODE_ID_2_GameCart
+
+F010_A14 =>
+    0 
+
+F010_A15 =>
+    0 
+
+F010_A16 =>
+    0 
+
+F010_A17 =>
+    0 
+
+F010_A18 =>
+    0 
+
+!F_CE_010_n =>
+    !AA14 & !AA15 & !ARD_n & !SW_1_OnPower_n
+
+!F_CE_040_n =>
+    AA14 & !AA15 & MODE_ID_4_StoROMMap
+
+HC373_040_LE =>
+    IO_0x2000_0x3FFF_WR
+
+IO_0x2000_0x3FFF_WR =>
+    AA13 & !AA14 & !AA15 & !AWR_n
+
+MODE_ID_0_PassThru =>
+    SW_1_OnPower_n
+
+MODE_ID_2_GameCart =>
+    PrimaryMode_G0 & !SW_1_OnPower_n
+
+MODE_ID_4_StoROMMap =>
+    !PrimaryMode_G0 & !SW_1_OnPower_n
+
+PrimaryMode_G0.d  =>
+    AD6
+
+PrimaryMode_G0.ck  =>
+    IO_0x2000_0x3FFF_WR
+
+RAM_A14 =>
+    0 
+
+RAM_A15 =>
+    0 
+
+RAM_A16 =>
+    0 
+
+!RAM_CE_n =>
+    0 
+
+SW_1_OnPower_n.d  =>
+    SW_1_n
+
+SW_1_OnPower_n.ck  =>
+    ARST_n
+
+
+===============================================================================
+                                 Symbol Table
+===============================================================================
+
+Pin Variable                                    Pterms   Max     Min    
+Pol   Name              Ext     Pin     Type     Used   Pterms  Level   
+--- --------            ---     ---     ----    ------  ------  -----   
+
+    AA0                         6        V        -       -       -     
+    AA13                        8        V        -       -       -     
+    AA14                        9        V        -       -       -     
+    AA15                        11       V        -       -       -     
+    AA15_T                      41       V        2       0       1     
+    AD0                         12       V        -       -       -     
+    AD1                         14       V        -       -       -     
+    AD2                         16       V        -       -       -     
+    AD3                         17       V        -       -       -     
+    AD4                         18       V        -       -       -     
+    AD5                         19       V        -       -       -     
+    AD6                         20       V        -       -       -     
+    AD7                         21       V        -       -       -     
+    ARD_T_n                     5        V        3       0       1     
+    ARD_n                       2        V        -       -       -     
+    ARST_n                      43       V        -       -       -     
+    AWR_T_n                     4        V        4       0       1     
+    AWR_n                       1        V        -       -       -     
+    F010_A14                    33       V        1       0       1     
+    F010_A15                    34       V        1       0       1     
+    F010_A16                    36       V        1       0       1     
+    F010_A17                    37       V        1       0       1     
+    F010_A18                    39       V        1       0       1     
+    F_CE_010_n                  31       V        1       0       1     
+    F_CE_040_n                  40       V        1       0       1     
+    HC373_040_LE                28       V        1       0       1     
+    IO_0x2000_0x3FFF_WR         45       N        1       0       1     
+    MODE_ID_0_PassThru          46       N        1       0       1     
+    MODE_ID_2_GameCart          47       N        1       0       1     
+    MODE_ID_4_StoROMMap         48       N        1       0       1     
+    PrimaryMode_G0              614      N        -       -       -     
+    PrimaryMode_G0      d       614      M        1       0       1     
+    PrimaryMode_G0      ck      614      M        1       0       1     
+    RAM_A14                     25       V        1       0       1     
+    RAM_A15                     26       V        1       0       1     
+    RAM_A16                     27       V        1       0       1     
+    RAM_CE_n                    24       V        1       0       1     
+    SW_1_OnPower_n              610      N        -       -       -     
+    SW_1_OnPower_n      d       610      M        1       0       1     
+    SW_1_OnPower_n      ck      610      M        1       0       1     
+    SW_1_n                      44       V        -       -       -     
+
+
+LEGEND    D : default variable         F : field      G : group
+          I : intermediate variable    N : node       M : extended node
+          U : undefined                V : variable   X : extended variable
+          T : function
+
