@@ -87,7 +87,7 @@ F010_A18 =>
     AA14 & !AA15 & MODE_ID_4_StoROMMap
 
 HC373_040_LE =>
-    IO_0x2000_0x3FFF_WR
+    AWR_n & AddrLatched_0x2000_Valid
 
 IO_0x2000_0x3FFF_WR =>
     AA13 & !AA14 & !AA15 & !AWR_n

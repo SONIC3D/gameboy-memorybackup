@@ -3,7 +3,7 @@ LISTING FOR LOGIC DESCRIPTION FILE: GB_MEMBAK_S_ATF1502AS.pld        Page 1
 CUPL(WM): Universal Compiler for Programmable Logic
 Version 5.0a Serial# MW-10400000
 Copyright (c) 1983, 1998 Logical Devices, Inc.
-Created Sun Apr 09 22:38:01 2023
+Created Sun Apr 09 22:55:16 2023
 
   1:Name     GB_MEMBAK_S_V1_4_ATF1502AS ;
   2:PartNo   00 ;
@@ -64,7 +64,7 @@ LISTING FOR LOGIC DESCRIPTION FILE: GB_MEMBAK_S_ATF1502AS.pld        Page 2
 CUPL(WM): Universal Compiler for Programmable Logic
 Version 5.0a Serial# MW-10400000
 Copyright (c) 1983, 1998 Logical Devices, Inc.
-Created Sun Apr 09 22:38:01 2023
+Created Sun Apr 09 22:55:16 2023
 
  54:PIN 4   = AWR_T_n                 ; /*                                 */
  55:PIN 5   = ARD_T_n                 ; /*                                 */
@@ -126,7 +126,7 @@ LISTING FOR LOGIC DESCRIPTION FILE: GB_MEMBAK_S_ATF1502AS.pld        Page 3
 CUPL(WM): Universal Compiler for Programmable Logic
 Version 5.0a Serial# MW-10400000
 Copyright (c) 1983, 1998 Logical Devices, Inc.
-Created Sun Apr 09 22:38:01 2023
+Created Sun Apr 09 22:55:16 2023
 
 108:MODE_ID_0_PassThru  =  SW_1_OnPower_n;  /* PrimaryMode 0, Pass-Through mode. */
 109:MODE_ID_2_GameCart  = !SW_1_OnPower_n &  PrimaryMode_G0;    /* PrimaryMode 2, MemoryBackup - GameCart mode. */
@@ -156,7 +156,7 @@ Created Sun Apr 09 22:38:01 2023
 133:
 134:/* ----- [BEGIN] Storage ROM banking address line latch ----- */
 135:/* Write to 0x2000 with value: 'b'100xxxxx, switch the storage ROM 28SF040 bank with D[4..0] */
-136:HC373_040_LE    = IO_0x2000_0x3FFF_WR;
+136:HC373_040_LE    = AddrLatched_0x2000_Valid & AWR_n;
 137:/* ----- [END]   Storage ROM banking address line latch ----- */
 138:
 139:

@@ -1,4 +1,4 @@
-Atmel ATF1502AS Fitter Version 1.8.7.8 ,running Sun Apr 09 22:38:02 2023
+Atmel ATF1502AS Fitter Version 1.8.7.8 ,running Sun Apr 09 22:55:16 2023
 
 
 fit1502 C:\Wincupl\project\GB_MEMBAK_S\GB_MEMBAK_S_ATF1502AS.tt2 -CUPL -dev P1502C44 -JTAG ON
@@ -157,40 +157,37 @@ NC = Unused I/O pins which must be unconnected on the board
 
 Universal-Interconnect-Multiplexer assignments
 ------------------------------------------------
-FanIn assignment for block A [11]
+FanIn assignment for block A [10]
 {
 AA13,AA14,AA15,AD6,AWR_n,ARD_n,AddrLatched_0x2000_Valid,
-HC373_040_LE,
 PrimaryMode_G0,
 SW_1_OnPower_n,SW_1_n,
 }
 Multiplexer assignment for block A
 AA13			(MC8	P)   : MUX 2		Ref (A5p)
-AA14			(MC5	P)   : MUX 3		Ref (A6p)
-AA15			(MC6	P)   : MUX 4		Ref (A7p)
+AA14			(MC4	P)   : MUX 3		Ref (A6p)
+AA15			(MC5	P)   : MUX 4		Ref (A7p)
 PrimaryMode_G0		(MC2	FB)  : MUX 9		Ref (A14fb)
 SW_1_OnPower_n		(MC1	FB)  : MUX 13		Ref (A10fb)
-SW_1_n			(MC11	FB)  : MUX 19		Ref (OE1)
-AD6			(MC10	P)   : MUX 20		Ref (A15p)
-AWR_n			(MC9	FB)  : MUX 28		Ref (GCLR)
-ARD_n			(MC7	FB)  : MUX 30		Ref (OE2)
+SW_1_n			(MC10	FB)  : MUX 19		Ref (OE1)
+AD6			(MC9	P)   : MUX 20		Ref (A15p)
+AWR_n			(MC7	FB)  : MUX 28		Ref (GCLR)
+ARD_n			(MC6	FB)  : MUX 30		Ref (OE2)
 AddrLatched_0x2000_Valid		(MC3	FB)  : MUX 31		Ref (B20fb)
-HC373_040_LE		(MC4	P)   : MUX 32		Ref (B28p)
 
-FanIn assignment for block B [9]
+FanIn assignment for block B [8]
 {
-AA14,AA15,AA13,AddrLatched_0x2000_Valid.C,AWR_n,ARD_n,AddrLatched_0x2000_Valid,
+AA14,AA15,AddrLatched_0x2000_Valid.C,AWR_n,ARD_n,AddrLatched_0x2000_Valid,
 PrimaryMode_G0,
 SW_1_OnPower_n,
 }
 Multiplexer assignment for block B
 AA14			(MC5	P)   : MUX 3		Ref (A6p)
 AA15			(MC6	P)   : MUX 4		Ref (A7p)
-AA13			(MC8	P)   : MUX 5		Ref (A5p)
-AddrLatched_0x2000_Valid.C		(MC3	FB)  : MUX 6		Ref (A15fb)
+AddrLatched_0x2000_Valid.C		(MC3	FB)  : MUX 5		Ref (A15fb)
 PrimaryMode_G0		(MC2	FB)  : MUX 9		Ref (A14fb)
 SW_1_OnPower_n		(MC1	FB)  : MUX 13		Ref (A10fb)
-AWR_n			(MC9	FB)  : MUX 20		Ref (GCLR)
+AWR_n			(MC8	FB)  : MUX 20		Ref (GCLR)
 ARD_n			(MC7	FB)  : MUX 30		Ref (OE2)
 AddrLatched_0x2000_Valid		(MC4	FB)  : MUX 31		Ref (B20fb)
 
@@ -210,39 +207,39 @@ F010_A16 = 0;
 
 F010_A17 = 0;
 
-!F_CE_010_n = (!AA14 & !AA15 & !ARD_n & !SW_1_OnPower_n.Q);
+HC373_040_LE = (AWR_n & AddrLatched_0x2000_Valid.Q);
 
-!MODE_ID_2_GameCart = (PrimaryMode_G0.Q & !SW_1_OnPower_n.Q);
+!F_CE_010_n = (!AA14 & !AA15 & !ARD_n & !SW_1_OnPower_n.Q);
 
 PrimaryMode_G0.D = AD6;
 
-RAM_A15 = 0;
-
-RAM_CE_n = 1;
+!MODE_ID_2_GameCart = (PrimaryMode_G0.Q & !SW_1_OnPower_n.Q);
 
 RAM_A14 = 0;
 
-RAM_A16 = 0;
+RAM_A15 = 0;
 
 SW_1_OnPower_n.D = SW_1_n;
 
-HC373_040_LE = (AA13 & !AA14 & !AA15 & !AWR_n);
+RAM_A16 = 0;
 
-AA15_T = ((AA15 & SW_1_OnPower_n.Q)
-	# (AA15 & PrimaryMode_G0.Q));
+RAM_CE_n = 1;
 
 ARD_T_n = ((!SW_1_OnPower_n.Q & !AA14 & !AA15)
 	# (!SW_1_OnPower_n.Q & MODE_ID_2_GameCart)
 	# ARD_n);
 
+AA15_T = ((AA15 & SW_1_OnPower_n.Q)
+	# (AA15 & PrimaryMode_G0.Q));
+
+!F_CE_040_n = (AA14 & !AA15 & !PrimaryMode_G0.Q & !SW_1_OnPower_n.Q);
+
 AWR_T_n = ((!SW_1_OnPower_n.Q & AA13 & !AA14 & !AA15)
 	# AWR_n
 	# (!SW_1_OnPower_n.Q & MODE_ID_2_GameCart));
 
-!F_CE_040_n = (AA14 & !AA15 & !PrimaryMode_G0.Q & !SW_1_OnPower_n.Q);
-
-AddrLatched_0x2000_Valid.C = ((AddrLatched_0x2000_Valid.Q & AWR_n)
-	# (!AddrLatched_0x2000_Valid.Q & HC373_040_LE));
+AddrLatched_0x2000_Valid.C = ((!AddrLatched_0x2000_Valid.Q & !AWR_n & AA13 & !AA14 & !AA15)
+	# (AddrLatched_0x2000_Valid.Q & AWR_n));
 
 PrimaryMode_G0.C = (AWR_n & AddrLatched_0x2000_Valid.Q);
 
@@ -340,8 +337,8 @@ MC0   44        SW_1_n       INPUT  --                                --        
 MC0   43        ARST_n       INPUT  --                                --                 --             0     slow
 
 Logic Array Block	Logic Cells	I/O Pins	Foldbacks	TotalPT		FanIN	Cascades
-A: LC1	- LC16		5/16(31%)	8/16(50%)	1/16(6%)	12/80(15%)	(11)	0
-B: LC17	- LC32		14/16(87%)	15/16(93%)	0/16(0%)	7/80(8%)	(9)	0
+A: LC1	- LC16		5/16(31%)	8/16(50%)	1/16(6%)	12/80(15%)	(10)	0
+B: LC17	- LC32		14/16(87%)	15/16(93%)	0/16(0%)	7/80(8%)	(8)	0
 
 Total dedicated input used:	4/4 	(100%)
 Total I/O pins used		23/32 	(71%)

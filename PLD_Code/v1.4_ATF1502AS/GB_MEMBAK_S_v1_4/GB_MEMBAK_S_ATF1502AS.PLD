@@ -133,7 +133,7 @@ AA15_T      = SW_1_OnPower_n & AA15         /* Switch is turned off, pass-throug
 
 /* ----- [BEGIN] Storage ROM banking address line latch ----- */
 /* Write to 0x2000 with value: 'b'100xxxxx, switch the storage ROM 28SF040 bank with D[4..0] */
-HC373_040_LE    = IO_0x2000_0x3FFF_WR;
+HC373_040_LE    = AddrLatched_0x2000_Valid & AWR_n;
 /* ----- [END]   Storage ROM banking address line latch ----- */
 
 
