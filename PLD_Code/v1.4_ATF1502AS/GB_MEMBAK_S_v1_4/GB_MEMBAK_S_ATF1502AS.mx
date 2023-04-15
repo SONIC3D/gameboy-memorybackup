@@ -58,7 +58,7 @@ PIN 25  = RAM_A14                 ; /*                                 */
 PIN 26  = RAM_A15                 ; /*                                 */
 PIN 27  = RAM_A16                 ; /*                                 */
 PIN 28  = HC373_040_LE            ; /*                                 */
-/*PIN 29  = HC373_010_LE            ;*/ /* Unused in v1.4                  */
+PIN 29  = DEBUG                   ; /* Unused in v1.4                  */
 PIN 31  = F_CE_010_n              ; /*                                 */
 PIN 33  = F010_A14                ; /*                                 */
 PIN 34  = F010_A15                ; /*                                 */
@@ -111,17 +111,22 @@ MODE_ID_4_StoROMMap = !SW_1_OnPower_n & !PrimaryMode_G0;    /* PrimaryMode 4, Me
 /* ----- [END] Simplified expression ----- */
 
 /* ----- [BEGIN] Control signal expression ----- */
+DEBUG       = PrimaryMode_G0;                               /* For Debugging only */
+
 !ARD_T_n    = SW_1_OnPower_n & !ARD_n                       /* Switch is turned off, pass-through */
-            # MODE_ID_2_GameCart & !ARD_n & (AA15 # AA14);  /* Switch is turned on, and stays in GameCart Mode and read 0x4000-0xFFFF(pass-through partial read) */
+            # MODE_ID_2_GameCart & !ARD_n & (AA15 # AA14)   /* Switch is turned on, and stays in GameCart Mode and read 0x4000-0xFFFF(pass-through partial read) */
+            # MODE_ID_4_StoROMMap & !ARD_n & AA15;          /* Switch is turned on, and even stays in StoROMMap Mode and read 0x8000-0xFFFF(pass-through partial read), check original ROM code $08ED and $08FA */
 
 !AWR_T_n    = SW_1_OnPower_n & !AWR_n       /* Switch is turned off, pass-through */
             # MODE_ID_2_GameCart & !AWR_n &  AA15                   /* 8000-FFFF */
             # MODE_ID_2_GameCart & !AWR_n & !AA15 &  AA14           /* 4000-7FFF */
-            # MODE_ID_2_GameCart & !AWR_n & !AA15 & !AA14 & !AA13;  /* 0000-1FFF */
+            # MODE_ID_2_GameCart & !AWR_n & !AA15 & !AA14 & !AA13   /* 0000-1FFF */
             /* # MODE_ID_2_GameCart & !AWR_n */  /* Switch is turned on, and stays in GameCart Mode and write 0x0000-0xFFFF(pass-through all write) */
+            # MODE_ID_4_StoROMMap & !AWR_n & AA15;                  /* 8000-FFFF, even stays in MemoryBackup Mode, we still need to pass-through write to $A000-BFFF, check original ROM code $0A34 and $0A3D */
 
 AA15_T      = SW_1_OnPower_n & AA15         /* Switch is turned off, pass-through */
-            # MODE_ID_2_GameCart & AA15;    /* Switch is turned on, and stays in GameCart Mode and AA15=1 */
+            # MODE_ID_2_GameCart & AA15     /* Switch is turned on, and stays in GameCart Mode and AA15=1 */
+            # MODE_ID_4_StoROMMap & AA15;   /* Switch is turned on, even stays in MemoryBackup Mode, we still need to pass-through AA15, check original ROM code $08ED and $08FA */
 
 !F_CE_040_n = MODE_ID_4_StoROMMap & !AA15 & AA14;  /* Switch is turned on, and stays in MemoryBackup Mode, and not in Flash010_Only mode, and R/W accessing 0x4000-0x7FFF. */
 

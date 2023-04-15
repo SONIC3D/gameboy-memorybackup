@@ -5,7 +5,7 @@
   {Program "CUPL(WM) Version 5.0a"}
   {DBtype "Schematic"}
   {DBvrev 1.01}
-  {DBtime "Sun Apr 09 22:55:16 2023 "}
+  {DBtime "Sat Apr 15 07:30:52 2023 "}
   {DBunit "MIL"}
   {DBgrid 10}
   {Lyrstr "WIRES" 1 "BUS" 1 "GATE" 2 "IEEE" 2 "PINFUN" 3 "PINNUM" 1 
@@ -56,14 +56,15 @@
    {P RAM_A15 {Pt "I/O"}{Lq 0}{Ploc 340 100}}
    {P RAM_A16 {Pt "I/O"}{Lq 0}{Ploc 340 120}}
    {P HC373_04 {Pt "I/O"}{Lq 0}{Ploc 340 140}}
-   {P F_CE_010 {Pt "I/O"}{Lq 0}{Ploc 340 160}}
-   {P F010_A14 {Pt "I/O"}{Lq 0}{Ploc 340 180}}
-   {P F010_A15 {Pt "I/O"}{Lq 0}{Ploc 340 200}}
-   {P F010_A16 {Pt "I/O"}{Lq 0}{Ploc 340 220}}
-   {P F010_A17 {Pt "I/O"}{Lq 0}{Ploc 340 240}}
-   {P F010_A18 {Pt "I/O"}{Lq 0}{Ploc 340 260}}
-   {P F_CE_040 {Pt "I/O"}{Lq 0}{Ploc 340 280}}
-   {P AA15_T {Pt "I/O"}{Lq 0}{Ploc 340 300}}
+   {P DEBUG {Pt "I/O"}{Lq 0}{Ploc 340 160}}
+   {P F_CE_010 {Pt "I/O"}{Lq 0}{Ploc 340 180}}
+   {P F010_A14 {Pt "I/O"}{Lq 0}{Ploc 340 200}}
+   {P F010_A15 {Pt "I/O"}{Lq 0}{Ploc 340 220}}
+   {P F010_A16 {Pt "I/O"}{Lq 0}{Ploc 340 240}}
+   {P F010_A17 {Pt "I/O"}{Lq 0}{Ploc 340 260}}
+   {P F010_A18 {Pt "I/O"}{Lq 0}{Ploc 340 280}}
+   {P F_CE_040 {Pt "I/O"}{Lq 0}{Ploc 340 300}}
+   {P AA15_T {Pt "I/O"}{Lq 0}{Ploc 340 320}}
   }
 
   {PKG
@@ -106,8 +107,9 @@
    {Pnl 320 270}
    {Pnl 320 290}
    {Pnl 320 310}
+   {Pnl 320 330}
 
-   {Sd A 43 1 2 6 8 9 11 12 14 16 17 18 19 20 21 44 4 5 24 25 26 27 28 31 33 34 36 37 39 40 41}
+   {Sd A 43 1 2 6 8 9 11 12 14 16 17 18 19 20 21 44 4 5 24 25 26 27 28 29 31 33 34 36 37 39 40 41}
   }
 
   {PIC
@@ -146,6 +148,7 @@
    {L 310 260 340 260}
    {L 310 280 340 280}
    {L 310 300 340 300}
+   {L 310 320 340 320}
    [Ly "PINNAM"]
    [Tj "LC"]
    {T "ARST_N" 140 340}
@@ -172,14 +175,15 @@
    {T "RAM_A15" 300 100}
    {T "RAM_A16" 300 120}
    {T "HC373_04" 300 140}
-   {T "F_CE_010" 300 160}
-   {T "F010_A14" 300 180}
-   {T "F010_A15" 300 200}
-   {T "F010_A16" 300 220}
-   {T "F010_A17" 300 240}
-   {T "F010_A18" 300 260}
-   {T "F_CE_040" 300 280}
-   {T "AA15_T" 300 300}
+   {T "DEBUG" 300 160}
+   {T "F_CE_010" 300 180}
+   {T "F010_A14" 300 200}
+   {T "F010_A15" 300 220}
+   {T "F010_A16" 300 240}
+   {T "F010_A17" 300 260}
+   {T "F010_A18" 300 280}
+   {T "F_CE_040" 300 300}
+   {T "AA15_T" 300 320}
    [Ly "DEVICE"]
    [Tj "CT"]
    {T "F1502ISPPLCC44" 220 -10}
@@ -248,6 +252,8 @@
    {N RAM_A16
    }
    {N HC373_04
+   }
+   {N DEBUG
    }
    {N F_CE_010
    }
