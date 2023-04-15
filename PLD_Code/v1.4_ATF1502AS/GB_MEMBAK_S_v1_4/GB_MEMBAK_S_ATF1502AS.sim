@@ -18,7 +18,6 @@ PIN  43 =  ARST_n
 PIN   4 =  AWR_T_n 
 PIN   1 =  AWR_n 
 PIN 620 =  AddrLatched_0x2000_Valid 
-PIN  29 =  DEBUG 
 PIN  33 =  F010_A14 
 PIN  34 =  F010_A15 
 PIN  36 =  F010_A16 
@@ -68,9 +67,6 @@ AddrLatched_0x2000_Valid.d  =>
 AddrLatched_0x2000_Valid.ck  =>
     !AddrLatched_0x2000_Valid & IO_0x2000_0x3FFF_WR
   # AWR_n & AddrLatched_0x2000_Valid
-
-DEBUG =>
-    PrimaryMode_G0
 
 F010_A14 =>
     0 

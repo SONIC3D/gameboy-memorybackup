@@ -58,7 +58,7 @@ PIN 25  = RAM_A14                 ; /*                                 */
 PIN 26  = RAM_A15                 ; /*                                 */
 PIN 27  = RAM_A16                 ; /*                                 */
 PIN 28  = HC373_040_LE            ; /*                                 */
-PIN 29  = DEBUG                   ; /* Unused in v1.4                  */
+/*PIN 29  = HC373_010_LE            ;*/ /* Unused in v1.4                  */
 PIN 31  = F_CE_010_n              ; /*                                 */
 PIN 33  = F010_A14                ; /*                                 */
 PIN 34  = F010_A15                ; /*                                 */
@@ -111,8 +111,6 @@ MODE_ID_4_StoROMMap = !SW_1_OnPower_n & !PrimaryMode_G0;    /* PrimaryMode 4, Me
 /* ----- [END] Simplified expression ----- */
 
 /* ----- [BEGIN] Control signal expression ----- */
-DEBUG       = PrimaryMode_G0;                               /* For Debugging only */
-
 !ARD_T_n    = SW_1_OnPower_n & !ARD_n                       /* Switch is turned off, pass-through */
             # MODE_ID_2_GameCart & !ARD_n & (AA15 # AA14)   /* Switch is turned on, and stays in GameCart Mode and read 0x4000-0xFFFF(pass-through partial read) */
             # MODE_ID_4_StoROMMap & !ARD_n & AA15;          /* Switch is turned on, and even stays in StoROMMap Mode and read 0x8000-0xFFFF(pass-through partial read), check original ROM code $08ED and $08FA */

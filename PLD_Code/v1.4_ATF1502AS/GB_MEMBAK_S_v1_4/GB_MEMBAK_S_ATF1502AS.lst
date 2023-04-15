@@ -3,7 +3,7 @@ LISTING FOR LOGIC DESCRIPTION FILE: GB_MEMBAK_S_ATF1502AS.pld        Page 1
 CUPL(WM): Universal Compiler for Programmable Logic
 Version 5.0a Serial# MW-10400000
 Copyright (c) 1983, 1998 Logical Devices, Inc.
-Created Sat Apr 15 07:30:52 2023
+Created Sat Apr 15 08:08:25 2023
 
   1:Name     GB_MEMBAK_S_V1_4_ATF1502AS ;
   2:PartNo   00 ;
@@ -64,7 +64,7 @@ LISTING FOR LOGIC DESCRIPTION FILE: GB_MEMBAK_S_ATF1502AS.pld        Page 2
 CUPL(WM): Universal Compiler for Programmable Logic
 Version 5.0a Serial# MW-10400000
 Copyright (c) 1983, 1998 Logical Devices, Inc.
-Created Sat Apr 15 07:30:52 2023
+Created Sat Apr 15 08:08:25 2023
 
  54:PIN 4   = AWR_T_n                 ; /*                                 */
  55:PIN 5   = ARD_T_n                 ; /*                                 */
@@ -73,7 +73,7 @@ Created Sat Apr 15 07:30:52 2023
  58:PIN 26  = RAM_A15                 ; /*                                 */
  59:PIN 27  = RAM_A16                 ; /*                                 */
  60:PIN 28  = HC373_040_LE            ; /*                                 */
- 61:PIN 29  = DEBUG                   ; /* Unused in v1.4                  */
+ 61:/*PIN 29  = HC373_010_LE            ;*/ /* Unused in v1.4                  */
  62:PIN 31  = F_CE_010_n              ; /*                                 */
  63:PIN 33  = F010_A14                ; /*                                 */
  64:PIN 34  = F010_A15                ; /*                                 */
@@ -126,7 +126,7 @@ LISTING FOR LOGIC DESCRIPTION FILE: GB_MEMBAK_S_ATF1502AS.pld        Page 3
 CUPL(WM): Universal Compiler for Programmable Logic
 Version 5.0a Serial# MW-10400000
 Copyright (c) 1983, 1998 Logical Devices, Inc.
-Created Sat Apr 15 07:30:52 2023
+Created Sat Apr 15 08:08:25 2023
 
 108:MODE_ID_0_PassThru  =  SW_1_OnPower_n;  /* PrimaryMode 0, Pass-Through mode. */
 109:MODE_ID_2_GameCart  = !SW_1_OnPower_n &  PrimaryMode_G0;    /* PrimaryMode 2, MemoryBackup - GameCart mode. */
@@ -134,64 +134,54 @@ Created Sat Apr 15 07:30:52 2023
 111:/* ----- [END] Simplified expression ----- */
 112:
 113:/* ----- [BEGIN] Control signal expression ----- */
-114:DEBUG       = PrimaryMode_G0;                               /* For Debugging only */
-115:
-116:!ARD_T_n    = SW_1_OnPower_n & !ARD_n                       /* Switch is turned off, pass-through */
-117:            # MODE_ID_2_GameCart & !ARD_n & (AA15 # AA14)   /* Switch is turned on, and stays in GameCart Mode and read 0x4000-0xFFFF(pass-through partial read) */
-118:            # MODE_ID_4_StoROMMap & !ARD_n & AA15;          /* Switch is turned on, and even stays in StoROMMap Mode and read 0x8000-0xFFFF(pass-through partial read), check original ROM code $08ED and $08FA */
-119:
-120:!AWR_T_n    = SW_1_OnPower_n & !AWR_n       /* Switch is turned off, pass-through */
-121:            # MODE_ID_2_GameCart & !AWR_n &  AA15                   /* 8000-FFFF */
-122:            # MODE_ID_2_GameCart & !AWR_n & !AA15 &  AA14           /* 4000-7FFF */
-123:            # MODE_ID_2_GameCart & !AWR_n & !AA15 & !AA14 & !AA13   /* 0000-1FFF */
-124:            /* # MODE_ID_2_GameCart & !AWR_n */  /* Switch is turned on, and stays in GameCart Mode and write 0x0000-0xFFFF(pass-through all write) */
-125:            # MODE_ID_4_StoROMMap & !AWR_n & AA15;                  /* 8000-FFFF, even stays in MemoryBackup Mode, we still need to pass-through write to $A000-BFFF, check original ROM code $0A34 and $0A3D */
-126:
-127:AA15_T      = SW_1_OnPower_n & AA15         /* Switch is turned off, pass-through */
-128:            # MODE_ID_2_GameCart & AA15     /* Switch is turned on, and stays in GameCart Mode and AA15=1 */
-129:            # MODE_ID_4_StoROMMap & AA15;   /* Switch is turned on, even stays in MemoryBackup Mode, we still need to pass-through AA15, check original ROM code $08ED and $08FA */
+114:!ARD_T_n    = SW_1_OnPower_n & !ARD_n                       /* Switch is turned off, pass-through */
+115:            # MODE_ID_2_GameCart & !ARD_n & (AA15 # AA14)   /* Switch is turned on, and stays in GameCart Mode and read 0x4000-0xFFFF(pass-through partial read) */
+116:            # MODE_ID_4_StoROMMap & !ARD_n & AA15;          /* Switch is turned on, and even stays in StoROMMap Mode and read 0x8000-0xFFFF(pass-through partial read), check original ROM code $08ED and $08FA */
+117:
+118:!AWR_T_n    = SW_1_OnPower_n & !AWR_n       /* Switch is turned off, pass-through */
+119:            # MODE_ID_2_GameCart & !AWR_n &  AA15                   /* 8000-FFFF */
+120:            # MODE_ID_2_GameCart & !AWR_n & !AA15 &  AA14           /* 4000-7FFF */
+121:            # MODE_ID_2_GameCart & !AWR_n & !AA15 & !AA14 & !AA13   /* 0000-1FFF */
+122:            /* # MODE_ID_2_GameCart & !AWR_n */  /* Switch is turned on, and stays in GameCart Mode and write 0x0000-0xFFFF(pass-through all write) */
+123:            # MODE_ID_4_StoROMMap & !AWR_n & AA15;                  /* 8000-FFFF, even stays in MemoryBackup Mode, we still need to pass-through write to $A000-BFFF, check original ROM code $0A34 and $0A3D */
+124:
+125:AA15_T      = SW_1_OnPower_n & AA15         /* Switch is turned off, pass-through */
+126:            # MODE_ID_2_GameCart & AA15     /* Switch is turned on, and stays in GameCart Mode and AA15=1 */
+127:            # MODE_ID_4_StoROMMap & AA15;   /* Switch is turned on, even stays in MemoryBackup Mode, we still need to pass-through AA15, check original ROM code $08ED and $08FA */
+128:
+129:!F_CE_040_n = MODE_ID_4_StoROMMap & !AA15 & AA14;  /* Switch is turned on, and stays in MemoryBackup Mode, and not in Flash010_Only mode, and R/W accessing 0x4000-0x7FFF. */
 130:
-131:!F_CE_040_n = MODE_ID_4_StoROMMap & !AA15 & AA14;  /* Switch is turned on, and stays in MemoryBackup Mode, and not in Flash010_Only mode, and R/W accessing 0x4000-0x7FFF. */
+131:!F_CE_010_n = !SW_1_OnPower_n & !ARD_n & !AA15 & !AA14; /* Switch is turned on, and stays in MemoryBackup Mode, and Read accessing 0x0000-0x3FFF(write access goes to the mapper register). */
 132:
-133:!F_CE_010_n = !SW_1_OnPower_n & !ARD_n & !AA15 & !AA14; /* Switch is turned on, and stays in MemoryBackup Mode, and Read accessing 0x0000-0x3FFF(write access goes to the mapper register). */
-134:
-135:!RAM_CE_n   = 'b'0;     /* Always disabled */
-136:/* ----- [END] Control signal expression ----- */
-137:
-138:
-139:/* ----- [BEGIN] Storage ROM banking address line latch ----- */
-140:/* Write to 0x2000 with value: 'b'100xxxxx, switch the storage ROM 28SF040 bank with D[4..0] */
-141:HC373_040_LE    = AddrLatched_0x2000_Valid & AWR_n;
-142:/* ----- [END]   Storage ROM banking address line latch ----- */
-143:
-144:
-145:/* ----- [BEGIN] Program ROM banking address line latch ----- */
-146:F010_A14    = 'b'0;
-147:F010_A15    = 'b'0;
-148:F010_A16    = 'b'0;
-149:F010_A17    = 'b'0;
-150:F010_A18    = 'b'0;
-151:/* ----- [END]   Program ROM banking address line latch ----- */
-152:
-153:
-154:/* ----- [BEGIN] RAM banking address line latch ----- */
-155:RAM_A16 = 'b'0;
-156:RAM_A15 = 'b'0;
-157:RAM_A14 = 'b'0;
-158:/* ----- [END] RAM banking address line latch ----- */
-159:
+133:!RAM_CE_n   = 'b'0;     /* Always disabled */
+134:/* ----- [END] Control signal expression ----- */
+135:
+136:
+137:/* ----- [BEGIN] Storage ROM banking address line latch ----- */
+138:/* Write to 0x2000 with value: 'b'100xxxxx, switch the storage ROM 28SF040 bank with D[4..0] */
+139:HC373_040_LE    = AddrLatched_0x2000_Valid & AWR_n;
+140:/* ----- [END]   Storage ROM banking address line latch ----- */
+141:
+142:
+143:/* ----- [BEGIN] Program ROM banking address line latch ----- */
+144:F010_A14    = 'b'0;
+145:F010_A15    = 'b'0;
+146:F010_A16    = 'b'0;
+147:F010_A17    = 'b'0;
+148:F010_A18    = 'b'0;
+149:/* ----- [END]   Program ROM banking address line latch ----- */
+150:
+151:
+152:/* ----- [BEGIN] RAM banking address line latch ----- */
+153:RAM_A16 = 'b'0;
+154:RAM_A15 = 'b'0;
+155:RAM_A14 = 'b'0;
+156:/* ----- [END] RAM banking address line latch ----- */
+157:
+158:
+159:/* End */
 160:
-161:/* End */
-
-LISTING FOR LOGIC DESCRIPTION FILE: GB_MEMBAK_S_ATF1502AS.pld        Page 4
-
-CUPL(WM): Universal Compiler for Programmable Logic
-Version 5.0a Serial# MW-10400000
-Copyright (c) 1983, 1998 Logical Devices, Inc.
-Created Sat Apr 15 07:30:52 2023
-
-162:
-163:
+161:
 
 
 
