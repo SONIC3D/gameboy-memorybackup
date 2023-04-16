@@ -1,0 +1,87 @@
+Mapper Logic Documentation
+
+The following content applys to the [Simplified] v1.4 schematic/PCB/CPLD implementation only.
+
+Compare to the [Full] v1.4 CPLD logic:
+    * The [Simplified] v1.4 CPLD logic is pin compatible with the [Full] v1.4
+      CPLD logic.
+    * The [Simplified] v1.4 CPLD logic only implementted a subset of the
+      [Full] v1.4 CPLD logic. Only the basic mapping logic required by the
+      original MegaMemory/Karat MemoryBackup is implemented. Additional feature
+      like PRG ROM mapping and MBC1 Equivalent Mode are not included.
+
+Introduction
+    There are 3 primary modes affect the address mapping logic:
+
+Primary Mode
+    0. Transparent Mode
+        Pass-through all I/O to the game cartridge plugged on top of it.
+    1. Map to top cartridge(MemoryBackup cartridge GameCart mode)
+        Map the following access to the game cartridge plugged on top of it:
+            * 0x0000-0x1FFF: Write access only
+            * 0x4000-0x7FFF: Read/Write access
+            * 0xA000-0xBFFF: Read/Write access(Actually the full 0x8000-0xFFFF.)
+    2. Storage ROM Mode
+        * Map read/write access of 0x4000-0x7FFF to the selected bank of the
+          storage ROM.
+        * 0xA000-0xBFFF(Actually the full 0x8000-0xFFFF range) is still mapped
+          to the game cartridge plugged in.
+
+Switch I/O register of the Primary Mode
+    0. Transparent Mode
+        On power-on the GameBoy, place the on-cart switch to the off.
+    1. Map to top cartridge(MemoryBackup cartridge GameCart mode)
+        Write 'b'11xxxxxx (that's $C0 | BankID) to 0x2000-0x3FFF.
+        Bit 7 is ignored, though the original ROM code always set it to 1.
+        Bit 5 is unused and unset in the original ROM code.
+        Bit 4..0 affect the storage ROM bank ID.
+    2. Storage ROM Mode
+        Write 'b'10xxxxxx (that's $80 | BankID) to 0x2000-0x3FFF.
+        Bit 7 is ignored, though the original ROM code always set it to 1.
+        Bit 5 is unused and unset in the original ROM code.
+        Bit 4..0 affect the storage ROM bank ID.
+    * Notes:
+        1. For switching between Mode ID 1-2, it also write the corresponding
+           ROM Bank ID to the corresponding ROM Bank ID register, because it
+           is a write-only register, the application program itself is
+           responsible for recording the last set Bank ID.
+
+Addressing diagrams(for Primary Mode ID 1-2)
+    0000–3FFF
+        * Always mapped to the PRG ROM
+            Bits:   18 17 16 15 14 13 12 .. 01 00
+                    \____________/ \____________/
+                            |            \-----------   From Game Boy address
+                            \------------------------   Always 0
+    4000–7FFF
+        * Primary Mode ID 1, mapped to the GameCart address space
+            Bits:   18 17 16 15 14 13 12 .. 01 00
+                    \_____/   \________________/
+                        |               \-----------   From Game Boy address
+                        \---------------------------   Always 0
+
+        * Primary Mode ID 2, mapped to the Storage ROM
+            Bits:   18 17 16 15 14 13 12 .. 01 00
+                    \____________/ \____________/
+                            |            \-----------   From Game Boy address
+                            \------------------------   As 2000–3FFF bank register
+                                                        (Write 'b'100xxxxx to 0x2000-0x3FFF.)
+    A000–BFFF
+        * Always mapped to the GameCart address space.
+        * If 0x0000-0x1FFF is not set to 'xA' in Primary Mode ID 1, the GameCart
+          SRAM won't be enabled.(High-Z state.)
+        * If 0x0000-0x1FFF is set to 'xA' in Primary Mode ID 1:
+            * If 0x6000-0x7FFF is set to 0:
+                Bits:   16 15 14 13 12 .. 01 00
+                        \______/  | \_________/
+                            |     |     \----------------   From Game Boy address
+                            |     \----------------------   Always 1(From Game Boy address)
+                            \----------------------------   Always 0
+            * If 0x6000-0x7FFF is set to 1:
+                Bits:   16 15 14 13 12 .. 01 00
+                        \______/  | \_________/
+                            |     |     \----------------   From Game Boy address
+                            |     \----------------------   Always 1(From Game Boy address)
+                            \----------------------------   As 4000–5FFF bank register
+
+End of the document

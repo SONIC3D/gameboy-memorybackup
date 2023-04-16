@@ -1,0 +1,68 @@
+Mapper工作模式说明
+
+以下规则定义仅对应[简化版]v1.4的Schematic/PCB/CPLD实现
+
+相对于v1.4[完全版]的相同点
+    * v1.4[简化版]与v1.4[完全版]CPLD引脚完全兼容，在v1.4的PCB上，可直接替换v1.4[完全版]的CPLD。
+
+相对于v1.4[完全版]的差异
+    * v1.4[简化版]实现了v1.4[完全版]功能子集，只包含原始的MegaMemory/Karat MemoryBackup所需
+        的最基本的Mapper映射逻辑。
+
+主功能模式包含3种主功能模式
+    * 透传模式
+    * MemoryBackup卡的GameCart模式
+    * MemoryBackup卡的MemoryBackup模式
+
+主功能模式的各种模式切换方式
+    0. 透传模式
+        启动时，开关放在透传档(Off档)
+    1. 映射到顶部扩展卡(MemoryBackup卡的GameCart模式)
+        往0x2000写入'b'11xxxxxx,即($C0 | BankID), bit7,bit5忽略
+    2. Storage ROM模式(MemoryBackup卡的MemoryBackup模式)
+        往0x2000写入'b'10xxxxxx,即($80 | BankID), bit7,bit5忽略
+    注意:
+        1. 编号1-2的模式，在切换模式的同时还同时改写了对应ROM的Bank ID，因为是只写寄存器，所以应用程序自身有责任记录最后一次设置的Bank ID。
+
+从映射逻辑角度，不同模式的差异
+    0x0000-0x3FFF
+        0. 透传模式
+            读写时，映射到顶部卡的同地址
+        1. 映射到顶部扩展卡(MemoryBackup卡的GameCart模式)
+            读取时映射到PRG ROM的Bank 0(注意，虽然模式名称叫"映射到顶部扩展卡"，但是不映射低于0x4000的部分)
+            写入0x0000-0x1FFF时，映射到顶部卡的0x0000-0x1FFF
+            写入0x2000-0x3FFF时，由当前卡的CPLD处理寄存器操作
+        2. ROM子模式2,Storage ROM子模式(MemoryBackup卡的MemoryBackup模式)
+            读取时映射到PRG ROM的Bank 0
+            写入0x0000-0x1FFF时，由当前卡的CPLD处理寄存器操作
+            写入0x2000-0x3FFF时，由当前卡的CPLD处理寄存器操作
+    0x4000-0x7FFF
+        0. 透传模式
+            读写时，映射到顶部卡的同地址
+        1. 映射到顶部扩展卡(MemoryBackup卡的GameCart模式)
+            读写时，映射到顶部卡的0x4000-0x7FFF
+        2. ROM子模式2,Storage ROM子模式(MemoryBackup卡的MemoryBackup模式)
+            读写时，映射到Storage ROM指定的Bank ID
+    0xA000-0xBFFF(实际是0x8000-0xFFFF)
+        0. 透传模式
+            读写时，映射到顶部卡的同地址
+        1. 映射到顶部扩展卡(MemoryBackup卡的GameCart模式)
+            同上述编号1的模式
+        2. Storage ROM子模式(MemoryBackup卡的MemoryBackup模式)
+            同上述编号1的模式
+
+主功能模式的模式寄存器规划
+    * 全局共以下寄存器用于主功能模式
+        * SW_1_OnPower_n
+            * 记录是否通电时开关在On档(低电平表示开关在On档)
+            * 直接用于区分是模式编号0，还是模式编号1-2。
+                为高电平表示开关在Off档，即模式编号0。
+                为低电平表示开关在On档，即模式编号1-2。
+        * PrimaryMode_G0
+            * 在SW_1_OnPower_n为高电平的情况下，本寄存器值忽略。
+            * 在SW_1_OnPower_n为低电平的情况下，用于区分主功能模式的编号1和2。
+                * 本寄存器为高电平表示模式编号1(MemoryBackup卡的GameCart模式)。
+                * 本寄存器为低电平表示模式编号2(MemoryBackup卡的MemoryBackup模式)。
+    * 各个寄存器的D触发器值变化条件或者clock条件
+        * SW_1_OnPower_n的比较简单，就是卡槽的/RST信号。
+        * PrimaryMode_G0检测0x2000写入，在写入的下降沿时确定地址线的值，在上升沿时确定数据线的值。
