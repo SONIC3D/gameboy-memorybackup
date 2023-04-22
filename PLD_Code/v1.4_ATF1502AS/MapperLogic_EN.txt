@@ -158,18 +158,20 @@ Addressing diagrams
                         |            \---------------   From Game Boy address
                         \----------------------------   As 2000–3FFF bank register
     A000–BFFF
-        * If 0x6000-0x7FFF is set to 0:
-            Bits:   16 15 14 13 12 .. 01 00
-                    \______/  | \_________/
-                        |     |     \----------------   From Game Boy address
-                        |     \----------------------   Always 1(From Game Boy address)
-                        \----------------------------   Always 0
-        * If 0x6000-0x7FFF is set to 1:
-            Bits:   16 15 14 13 12 .. 01 00
-                    \______/  | \_________/
-                        |     |     \----------------   From Game Boy address
-                        |     \----------------------   Always 1(From Game Boy address)
-                        \----------------------------   As 4000–5FFF bank register
+        * Primary Mode ID 2/4, mapped to the GameCart.(This is required by the original MegaMemory/MemoryBackup ROM code.)
+        * Primary Mode ID 1/3/5, mapped to the MemoryBackup on-cart RAM
+            * If 0x6000-0x7FFF is set to 0:
+                Bits:   16 15 14 13 12 .. 01 00
+                        \______/  | \_________/
+                            |     |     \----------------   From Game Boy address
+                            |     \----------------------   Always 1(From Game Boy address)
+                            \----------------------------   Always 0
+            * If 0x6000-0x7FFF is set to 1:
+                Bits:   16 15 14 13 12 .. 01 00
+                        \______/  | \_________/
+                            |     |     \----------------   From Game Boy address
+                            |     \----------------------   Always 1(From Game Boy address)
+                            \----------------------------   As 4000–5FFF bank register
 
 Diffences between this mapper and MBC1
     1 Does not support ROMs larger than 512KB.

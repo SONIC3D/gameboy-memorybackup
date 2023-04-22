@@ -110,11 +110,11 @@ Mapper工作模式说明
             如果之前对0x0000写入过$0A,读写时映射到当前卡RAM的指定Bank ID
             如果之前对0x0000写入过非$0A的值,则无有效片选输出
         2. 映射到顶部扩展卡(MemoryBackup卡的GameCart模式)
-            读写时，映射到顶部卡的0xA000-0xBFFF
+            读写时，映射到顶部卡的0xA000-0xBFFF(原版MegaMemory/MemoryBackup代码要求)
         3. ROM子模式1,PRG ROM子模式(MemoryBackup卡的MemoryBackup模式)
             同上述编号1的模式
         4. ROM子模式2,Storage ROM子模式(MemoryBackup卡的MemoryBackup模式)
-            同上述编号1的模式
+            读写时，映射到顶部卡的0xA000-0xBFFF(原版MegaMemory/MemoryBackup代码要求)
         5. RAM子模式(MemoryBackup卡的MemoryBackup模式)
             同上述编号1的模式
 
