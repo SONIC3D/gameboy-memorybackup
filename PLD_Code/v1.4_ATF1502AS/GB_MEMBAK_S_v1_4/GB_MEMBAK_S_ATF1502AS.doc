@@ -5,7 +5,7 @@
 
 CUPL(WM)        5.0a Serial# MW-10400000
 Device          f1502ispplcc44  Library DLIB-h-40-1
-Created         Sat Apr 15 08:08:25 2023
+Created         Sun Apr 23 19:49:48 2023
 Name            GB_MEMBAK_S_V1_4_ATF1502AS 
 Partno          00 
 Revision        01 
@@ -37,13 +37,6 @@ AA15_T =>
   # !AA13 & !AA14 & !AA15 & !AWR_n & MODE_ID_2_GameCart
   # AA15 & !AWR_n & MODE_ID_4_StoROMMap
 
-AddrLatched_0x2000_Valid.d  =>
-    !AddrLatched_0x2000_Valid
-
-AddrLatched_0x2000_Valid.ck  =>
-    !AddrLatched_0x2000_Valid & IO_0x2000_0x3FFF_WR
-  # AWR_n & AddrLatched_0x2000_Valid
-
 F010_A14 =>
     0 
 
@@ -66,7 +59,7 @@ F010_A18 =>
     AA14 & !AA15 & MODE_ID_4_StoROMMap
 
 HC373_040_LE =>
-    AWR_n & AddrLatched_0x2000_Valid
+    IO_0x2000_0x3FFF_WR
 
 IO_0x2000_0x3FFF_WR =>
     AA13 & !AA14 & !AA15 & !AWR_n
@@ -80,11 +73,9 @@ MODE_ID_2_GameCart =>
 MODE_ID_4_StoROMMap =>
     !PrimaryMode_G0 & !SW_1_OnPower_n
 
-PrimaryMode_G0.d  =>
-    AD6
-
-PrimaryMode_G0.ck  =>
-    AWR_n & AddrLatched_0x2000_Valid
+PrimaryMode_G0 =>
+    AD6 & IO_0x2000_0x3FFF_WR
+  # !IO_0x2000_0x3FFF_WR & PrimaryMode_G0
 
 RAM_A14 =>
     0 
@@ -131,9 +122,6 @@ Pol   Name              Ext     Pin     Type     Used   Pterms  Level
     ARST_n                      43       V        -       -       -     
     AWR_T_n                     4        V        5       0       1     
     AWR_n                       1        V        -       -       -     
-    AddrLatched_0x2000_Valid        620      N        -       -       -     
-    AddrLatched_0x2000_Validd       620      M        1       0       1     
-    AddrLatched_0x2000_Validck      620      M        2       0       1     
     F010_A14                    33       V        1       0       1     
     F010_A15                    34       V        1       0       1     
     F010_A16                    36       V        1       0       1     
@@ -146,9 +134,7 @@ Pol   Name              Ext     Pin     Type     Used   Pterms  Level
     MODE_ID_0_PassThru          46       N        1       0       1     
     MODE_ID_2_GameCart          47       N        1       0       1     
     MODE_ID_4_StoROMMap         48       N        1       0       1     
-    PrimaryMode_G0              614      N        -       -       -     
-    PrimaryMode_G0      d       614      M        1       0       1     
-    PrimaryMode_G0      ck      614      M        1       0       1     
+    PrimaryMode_G0              614      N        2       0       1     
     RAM_A14                     25       V        1       0       1     
     RAM_A15                     26       V        1       0       1     
     RAM_A16                     27       V        1       0       1     

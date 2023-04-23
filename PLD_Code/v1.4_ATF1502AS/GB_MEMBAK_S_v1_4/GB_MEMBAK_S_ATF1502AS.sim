@@ -17,7 +17,6 @@ PIN   2 =  ARD_n
 PIN  43 =  ARST_n 
 PIN   4 =  AWR_T_n 
 PIN   1 =  AWR_n 
-PIN 620 =  AddrLatched_0x2000_Valid 
 PIN  33 =  F010_A14 
 PIN  34 =  F010_A15 
 PIN  36 =  F010_A16 
@@ -61,13 +60,6 @@ AA15_T =>
   # !AA13 & !AA14 & !AA15 & !AWR_n & MODE_ID_2_GameCart
   # AA15 & !AWR_n & MODE_ID_4_StoROMMap
 
-AddrLatched_0x2000_Valid.d  =>
-    !AddrLatched_0x2000_Valid
-
-AddrLatched_0x2000_Valid.ck  =>
-    !AddrLatched_0x2000_Valid & IO_0x2000_0x3FFF_WR
-  # AWR_n & AddrLatched_0x2000_Valid
-
 F010_A14 =>
     0 
 
@@ -90,7 +82,7 @@ F010_A18 =>
     AA14 & !AA15 & MODE_ID_4_StoROMMap
 
 HC373_040_LE =>
-    AWR_n & AddrLatched_0x2000_Valid
+    IO_0x2000_0x3FFF_WR
 
 IO_0x2000_0x3FFF_WR =>
     AA13 & !AA14 & !AA15 & !AWR_n
@@ -104,11 +96,9 @@ MODE_ID_2_GameCart =>
 MODE_ID_4_StoROMMap =>
     !PrimaryMode_G0 & !SW_1_OnPower_n
 
-PrimaryMode_G0.d  =>
-    AD6
-
-PrimaryMode_G0.ck  =>
-    AWR_n & AddrLatched_0x2000_Valid
+PrimaryMode_G0 =>
+    AD6 & IO_0x2000_0x3FFF_WR
+  # !IO_0x2000_0x3FFF_WR & PrimaryMode_G0
 
 RAM_A14 =>
     0 

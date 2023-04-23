@@ -77,7 +77,6 @@ NODE IO_0x2000_0x3FFF_WR          ; /*                                 */
 NODE MODE_ID_0_PassThru           ; /*                                 */
 NODE MODE_ID_2_GameCart           ; /*                                 */
 NODE MODE_ID_4_StoROMMap          ; /*                                 */
-
 /* ****************** PINNODES *********************/
 /* Check fitter documentation P.15 */
 /* for valid feedback node number. */
@@ -86,7 +85,6 @@ PINNODE 610 = SW_1_OnPower_n      ; /* Latch the SW_1_n state on power-on       
 
 
 PINNODE 614 = PrimaryMode_G0      ;
-PINNODE 620 = AddrLatched_0x2000_Valid;
 
 /* ****** Output and output enable equations *******/
 
@@ -96,12 +94,8 @@ IO_0x2000_0x3FFF_WR = !AWR_n & !AA15 & !AA14 &  AA13;   /* Write access to 0x200
 SW_1_OnPower_n.ck   = ARST_n;
 SW_1_OnPower_n.d    = SW_1_n;               /* Latch the SW_1_n state on power-on power-on(The /Reset signal goes from low to high on power-on.)    */
 
-AddrLatched_0x2000_Valid.ck = !AddrLatched_0x2000_Valid & IO_0x2000_0x3FFF_WR   /* If flag is not set, set it to valid on falling edge of writing to 0x2000-0x3FFF, latch the address. */
-                            #  AddrLatched_0x2000_Valid & AWR_n;                /* If flag is already set, keep it valid until the rising edge of AWR_n. */
-AddrLatched_0x2000_Valid.d  = !AddrLatched_0x2000_Valid;
-
-PrimaryMode_G0.ck   = AddrLatched_0x2000_Valid & AWR_n;     /* If the 0x2000-0x3FFF address is latched, and on the rising edge of AWR_n, latch the data bus value. */
-PrimaryMode_G0.d    = AD6;
+PrimaryMode_G0      =  IO_0x2000_0x3FFF_WR & AD6                /* On writing to 0x2000-0x3FFF, use AD6 as output */
+                    # !IO_0x2000_0x3FFF_WR & PrimaryMode_G0;    /* Other time, keep the previous value as output */
 /* ----- [END] Buried nodes logic ----- */
 
 /* ----- [BEGIN] Simplified expression ----- */
@@ -136,7 +130,7 @@ AA15_T      = SW_1_OnPower_n & AA15         /* Switch is turned off, pass-throug
 
 /* ----- [BEGIN] Storage ROM banking address line latch ----- */
 /* Write to 0x2000 with value: 'b'100xxxxx, switch the storage ROM 28SF040 bank with D[4..0] */
-HC373_040_LE    = AddrLatched_0x2000_Valid & AWR_n;
+HC373_040_LE    = IO_0x2000_0x3FFF_WR;
 /* ----- [END]   Storage ROM banking address line latch ----- */
 
 

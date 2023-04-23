@@ -12,12 +12,10 @@ BEGIN
     "SW_1_OnPower_n"                          : NODE_NUM = 610 ;
     "PrimaryMode_G0"                          : NODE_NUM = 614 ;
     "AD6"                                     : INPUT_PIN = 20 ;
-    "AddrLatched_0x2000_Valid_C"              : NODE_NUM = 615 ;
     "AA15_T"                                  : OUTPUT_PIN = 41 ;
     "F_CE_040_n"                              : OUTPUT_PIN = 40 ;
     "F010_A18"                                : OUTPUT_PIN = 39 ;
     "TDO"                                     : INPUT_PIN = 38 ;
-    "AddrLatched_0x2000_Valid"                : NODE_NUM = 620 ;
     "F010_A17"                                : OUTPUT_PIN = 37 ;
     "F010_A16"                                : OUTPUT_PIN = 36 ;
     "F010_A15"                                : OUTPUT_PIN = 34 ;

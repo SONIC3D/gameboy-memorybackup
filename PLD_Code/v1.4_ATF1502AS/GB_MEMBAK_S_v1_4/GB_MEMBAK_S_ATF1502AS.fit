@@ -1,4 +1,4 @@
-Atmel ATF1502AS Fitter Version 1.8.7.8 ,running Sat Apr 15 08:08:26 2023
+Atmel ATF1502AS Fitter Version 1.8.7.8 ,running Sun Apr 23 19:49:48 2023
 
 
 fit1502 C:\Wincupl\project\GB_MEMBAK_S\GB_MEMBAK_S_ATF1502AS.tt2 -CUPL -dev P1502C44 -JTAG ON
@@ -71,8 +71,6 @@ ARD_n assigned to pin  2
 ARST_n assigned to pin  43
 AWR_n assigned to pin  1
 SW_1_n assigned to pin  44
-AddrLatched_0x2000_Valid.C equation needs patching.
-1 control eqution need patching
 
 Attempt to place floating signals ...
 ------------------------------------
@@ -86,14 +84,12 @@ TMS is placed at pin 13 (MC 9)
 SW_1_OnPower_n is placed at feedback node 610 (MC 10)
 PrimaryMode_G0 is placed at feedback node 614 (MC 14)
 AD6 is placed at pin 20 (MC 15)
-AddrLatched_0x2000_Valid.C is placed at feedback node 615 (MC 15)
 MODE_ID_4_StoROMMap is placed at foldback expander node 315 (MC 15)
 MODE_ID_2_GameCart is placed at foldback expander node 316 (MC 16)
 AA15_T is placed at pin 41 (MC 17)
 F_CE_040_n is placed at pin 40 (MC 18)
 F010_A18 is placed at pin 39 (MC 19)
 TDO is placed at pin 38 (MC 20)
-AddrLatched_0x2000_Valid is placed at feedback node 620 (MC 20)
 F010_A17 is placed at pin 37 (MC 21)
 F010_A16 is placed at pin 36 (MC 22)
 F010_A15 is placed at pin 34 (MC 23)
@@ -162,93 +158,87 @@ Universal-Interconnect-Multiplexer assignments
 ------------------------------------------------
 FanIn assignment for block A [10]
 {
-AA13,AA14,AA15,AD6,AWR_n,ARD_n,AddrLatched_0x2000_Valid,
+AA13,AA14,AA15,AD6,AWR_n,ARD_n,
+HC373_040_LE,
 PrimaryMode_G0,
 SW_1_OnPower_n,SW_1_n,
 }
 Multiplexer assignment for block A
-AA13			(MC8	P)   : MUX 2		Ref (A5p)
+AA13			(MC7	P)   : MUX 2		Ref (A5p)
 AA14			(MC4	P)   : MUX 3		Ref (A6p)
 AA15			(MC5	P)   : MUX 4		Ref (A7p)
 PrimaryMode_G0		(MC2	FB)  : MUX 9		Ref (A14fb)
 SW_1_OnPower_n		(MC1	FB)  : MUX 13		Ref (A10fb)
 SW_1_n			(MC10	FB)  : MUX 19		Ref (OE1)
 AD6			(MC9	P)   : MUX 20		Ref (A15p)
-AWR_n			(MC7	FB)  : MUX 28		Ref (GCLR)
+AWR_n			(MC8	FB)  : MUX 28		Ref (GCLR)
 ARD_n			(MC6	FB)  : MUX 30		Ref (OE2)
-AddrLatched_0x2000_Valid		(MC3	FB)  : MUX 31		Ref (B20fb)
+HC373_040_LE		(MC3	P)   : MUX 32		Ref (B28p)
 
-FanIn assignment for block B [8]
+FanIn assignment for block B [7]
 {
-AA14,AA15,AddrLatched_0x2000_Valid.C,AWR_n,ARD_n,AddrLatched_0x2000_Valid,
+AA13,AA14,AA15,AWR_n,ARD_n,
 PrimaryMode_G0,
 SW_1_OnPower_n,
 }
 Multiplexer assignment for block B
-AA14			(MC5	P)   : MUX 3		Ref (A6p)
-AA15			(MC6	P)   : MUX 4		Ref (A7p)
-AddrLatched_0x2000_Valid.C		(MC3	FB)  : MUX 5		Ref (A15fb)
+AA13			(MC6	P)   : MUX 2		Ref (A5p)
+AA14			(MC3	P)   : MUX 3		Ref (A6p)
+AA15			(MC4	P)   : MUX 4		Ref (A7p)
 PrimaryMode_G0		(MC2	FB)  : MUX 9		Ref (A14fb)
 SW_1_OnPower_n		(MC1	FB)  : MUX 13		Ref (A10fb)
-AWR_n			(MC8	FB)  : MUX 20		Ref (GCLR)
-ARD_n			(MC7	FB)  : MUX 30		Ref (OE2)
-AddrLatched_0x2000_Valid		(MC4	FB)  : MUX 31		Ref (B20fb)
+AWR_n			(MC7	FB)  : MUX 20		Ref (GCLR)
+ARD_n			(MC5	FB)  : MUX 30		Ref (OE2)
 
 Creating JEDEC file C:\Wincupl\project\GB_MEMBAK_S\GB_MEMBAK_S_ATF1502AS.jed ...
 
 PLCC44 programmed logic:
 -----------------------------------
-F010_A14 = 0;
-
-AddrLatched_0x2000_Valid.D = !AddrLatched_0x2000_Valid.Q;
-
 F010_A15 = 0;
-
-F010_A18 = 0;
 
 F010_A16 = 0;
 
-F010_A17 = 0;
-
-HC373_040_LE = (AWR_n & AddrLatched_0x2000_Valid.Q);
+F010_A14 = 0;
 
 !F_CE_010_n = (!AA14 & !AA15 & !ARD_n & !SW_1_OnPower_n.Q);
 
-PrimaryMode_G0.D = AD6;
+F010_A17 = 0;
 
-!MODE_ID_2_GameCart = (PrimaryMode_G0.Q & !SW_1_OnPower_n.Q);
+!MODE_ID_2_GameCart = (PrimaryMode_G0 & !SW_1_OnPower_n.Q);
 
-!MODE_ID_4_StoROMMap = (!PrimaryMode_G0.Q & !SW_1_OnPower_n.Q);
+F010_A18 = 0;
+
+!MODE_ID_4_StoROMMap = (!PrimaryMode_G0 & !SW_1_OnPower_n.Q);
+
+RAM_A15 = 0;
 
 RAM_A14 = 0;
 
-RAM_A15 = 0;
+RAM_CE_n = 1;
 
 SW_1_OnPower_n.D = SW_1_n;
 
 RAM_A16 = 0;
 
-RAM_CE_n = 1;
-
-ARD_T_n = ((!SW_1_OnPower_n.Q & !AA14 & !AA15)
-	# (!SW_1_OnPower_n.Q & MODE_ID_2_GameCart & MODE_ID_4_StoROMMap)
-	# (!SW_1_OnPower_n.Q & MODE_ID_2_GameCart & !AA15)
-	# ARD_n);
-
-!AA15_T = (!AA15
-	# (!SW_1_OnPower_n.Q & MODE_ID_2_GameCart & MODE_ID_4_StoROMMap));
-
-!F_CE_040_n = (AA14 & !AA15 & !PrimaryMode_G0.Q & !SW_1_OnPower_n.Q);
+HC373_040_LE = (AA13 & !AA14 & !AA15 & !AWR_n);
 
 AWR_T_n = ((!SW_1_OnPower_n.Q & AA13 & !AA14 & !AA15)
 	# (!SW_1_OnPower_n.Q & MODE_ID_2_GameCart & !AA15)
 	# AWR_n
 	# (!SW_1_OnPower_n.Q & MODE_ID_2_GameCart & MODE_ID_4_StoROMMap));
 
-AddrLatched_0x2000_Valid.C = ((!AddrLatched_0x2000_Valid.Q & !AWR_n & AA13 & !AA14 & !AA15)
-	# (AddrLatched_0x2000_Valid.Q & AWR_n));
+!F_CE_040_n = (AA14 & !AA15 & !PrimaryMode_G0 & !SW_1_OnPower_n.Q);
 
-PrimaryMode_G0.C = (AWR_n & AddrLatched_0x2000_Valid.Q);
+!AA15_T = (!AA15
+	# (!SW_1_OnPower_n.Q & MODE_ID_2_GameCart & MODE_ID_4_StoROMMap));
+
+ARD_T_n = ((!SW_1_OnPower_n.Q & !AA14 & !AA15)
+	# (!SW_1_OnPower_n.Q & MODE_ID_2_GameCart & MODE_ID_4_StoROMMap)
+	# (!SW_1_OnPower_n.Q & MODE_ID_2_GameCart & !AA15)
+	# ARD_n);
+
+PrimaryMode_G0 = ((!HC373_040_LE & PrimaryMode_G0)
+	# (AD6 & HC373_040_LE));
 
 SW_1_OnPower_n.C = ARST_n;
 
@@ -288,8 +278,6 @@ PINNODE 331 = MODE_ID_4_StoROMMap; /* MC 31 Foldback */
 PINNODE 332 = MODE_ID_2_GameCart; /* MC 32 Foldback */
 PINNODE 610 = SW_1_OnPower_n; /* MC 10 Feedback */
 PINNODE 614 = PrimaryMode_G0; /* MC 14 Feedback */
-PINNODE 615 = AddrLatched_0x2000_Valid.C; /* MC 15 Feedback */
-PINNODE 620 = AddrLatched_0x2000_Valid; /* MC 20 Feedback */
 
 ** Resource Usage **
 
@@ -308,58 +296,58 @@ DCERP Field = Summary of Allocations.
 
 For input only = INPUT.
 
-MCell Pin# Oe   PinDrive     DCERP  FBDrive                    DCERP  Foldback            CascadeOut     TotPT output_slew
-MC1   4    on   AWR_T_n      C----  --                                --                  --             4     slow
-MC2   5    on   ARD_T_n      C----  --                                --                  --             4     slow
-MC3   6         --                  --                                --                  --             0     slow
-MC4   7    --   TDI          INPUT  --                                --                  --             0     slow
-MC5   8    --   AA13         INPUT  --                                --                  --             0     slow
-MC6   9    --   AA14         INPUT  --                                --                  --             0     slow
-MC7   11   --   AA15         INPUT  --                                --                  --             0     slow
-MC8   12        --                  --                                --                  --             0     slow
-MC9   13   --   TMS          INPUT  --                                --                  --             0     slow
-MC10  14        --                  SW_1_OnPower_n             Dg---  --                  --             1     slow
-MC11  16        --                  --                                --                  --             0     slow
-MC12  17        --                  --                                --                  --             0     slow
-MC13  18        --                  --                                --                  --             0     slow
-MC14  19        --                  PrimaryMode_G0             Dc---  --                  --             2     slow
-MC15  20   --   AD6          INPUT  AddrLatched_0x2000_Valid.C C----  MODE_ID_4_StoROMMap --             3     slow
-MC16  21        --                  --                                MODE_ID_2_GameCart  --             1     slow
-MC17  41   on   AA15_T       C----  --                                --                  --             2     slow
-MC18  40   on   F_CE_040_n   C----  --                                --                  --             1     slow
-MC19  39   on   F010_A18     C----  --                                --                  --             0     slow
-MC20  38   --   TDO          INPUT  AddrLatched_0x2000_Valid   Dc---  --                  --             2     slow
-MC21  37   on   F010_A17     C----  --                                --                  --             0     slow
-MC22  36   on   F010_A16     C----  --                                --                  --             0     slow
-MC23  34   on   F010_A15     C----  --                                --                  --             0     slow
-MC24  33   on   F010_A14     C----  --                                --                  --             0     slow
-MC25  32   --   TCK          INPUT  --                                --                  --             0     slow
-MC26  31   on   F_CE_010_n   C----  --                                --                  --             1     slow
-MC27  29        --                  --                                --                  --             0     slow
-MC28  28   on   HC373_040_LE C----  --                                --                  --             1     slow
-MC29  27   on   RAM_A16      C----  --                                --                  --             0     slow
-MC30  26   on   RAM_A15      C----  --                                --                  --             0     slow
-MC31  25   on   RAM_A14      C----  --                                MODE_ID_4_StoROMMap --             1     slow
-MC32  24   on   RAM_CE_n     C----  --                                MODE_ID_2_GameCart  --             1     slow
-MC0   2         ARD_n        INPUT  --                                --                  --             0     slow
-MC0   1         AWR_n        INPUT  --                                --                  --             0     slow
-MC0   44        SW_1_n       INPUT  --                                --                  --             0     slow
-MC0   43        ARST_n       INPUT  --                                --                  --             0     slow
+MCell Pin# Oe   PinDrive     DCERP  FBDrive        DCERP  Foldback            CascadeOut     TotPT output_slew
+MC1   4    on   AWR_T_n      C----  --                    --                  --             4     slow
+MC2   5    on   ARD_T_n      C----  --                    --                  --             4     slow
+MC3   6         --                  --                    --                  --             0     slow
+MC4   7    --   TDI          INPUT  --                    --                  --             0     slow
+MC5   8    --   AA13         INPUT  --                    --                  --             0     slow
+MC6   9    --   AA14         INPUT  --                    --                  --             0     slow
+MC7   11   --   AA15         INPUT  --                    --                  --             0     slow
+MC8   12        --                  --                    --                  --             0     slow
+MC9   13   --   TMS          INPUT  --                    --                  --             0     slow
+MC10  14        --                  SW_1_OnPower_n Dg---  --                  --             1     slow
+MC11  16        --                  --                    --                  --             0     slow
+MC12  17        --                  --                    --                  --             0     slow
+MC13  18        --                  --                    --                  --             0     slow
+MC14  19        --                  PrimaryMode_G0 C----  --                  --             2     slow
+MC15  20   --   AD6          INPUT  --                    MODE_ID_4_StoROMMap --             1     slow
+MC16  21        --                  --                    MODE_ID_2_GameCart  --             1     slow
+MC17  41   on   AA15_T       C----  --                    --                  --             2     slow
+MC18  40   on   F_CE_040_n   C----  --                    --                  --             1     slow
+MC19  39   on   F010_A18     C----  --                    --                  --             0     slow
+MC20  38   --   TDO          INPUT  --                    --                  --             0     slow
+MC21  37   on   F010_A17     C----  --                    --                  --             0     slow
+MC22  36   on   F010_A16     C----  --                    --                  --             0     slow
+MC23  34   on   F010_A15     C----  --                    --                  --             0     slow
+MC24  33   on   F010_A14     C----  --                    --                  --             0     slow
+MC25  32   --   TCK          INPUT  --                    --                  --             0     slow
+MC26  31   on   F_CE_010_n   C----  --                    --                  --             1     slow
+MC27  29        --                  --                    --                  --             0     slow
+MC28  28   on   HC373_040_LE C----  --                    --                  --             1     slow
+MC29  27   on   RAM_A16      C----  --                    --                  --             0     slow
+MC30  26   on   RAM_A15      C----  --                    --                  --             0     slow
+MC31  25   on   RAM_A14      C----  --                    MODE_ID_4_StoROMMap --             1     slow
+MC32  24   on   RAM_CE_n     C----  --                    MODE_ID_2_GameCart  --             1     slow
+MC0   2         ARD_n        INPUT  --                    --                  --             0     slow
+MC0   1         AWR_n        INPUT  --                    --                  --             0     slow
+MC0   44        SW_1_n       INPUT  --                    --                  --             0     slow
+MC0   43        ARST_n       INPUT  --                    --                  --             0     slow
 
 Logic Array Block	Logic Cells	I/O Pins	Foldbacks	TotalPT		FanIN	Cascades
-A: LC1	- LC16		5/16(31%)	8/16(50%)	2/16(12%)	15/80(18%)	(10)	0
-B: LC17	- LC32		14/16(87%)	15/16(93%)	2/16(12%)	9/80(11%)	(8)	0
+A: LC1	- LC16		4/16(25%)	8/16(50%)	2/16(12%)	13/80(16%)	(10)	0
+B: LC17	- LC32		13/16(81%)	15/16(93%)	2/16(12%)	7/80(8%)	(7)	0
 
 Total dedicated input used:	4/4 	(100%)
 Total I/O pins used		23/32 	(71%)
-Total Logic cells used 		19/32 	(59%)
-Total Flip-Flop used 		3/32 	(9%)
+Total Logic cells used 		17/32 	(53%)
+Total Flip-Flop used 		1/32 	(3%)
 Total Foldback logic used 	4/32 	(12%)
-Total Nodes+FB/MCells 		23/32 	(71%)
+Total Nodes+FB/MCells 		21/32 	(65%)
 Total cascade used 		0
 Total input pins 		12
 Total output pins 		15
-Total Pts 			24
+Total Pts 			20
 Creating pla file C:\Wincupl\project\GB_MEMBAK_S\GB_MEMBAK_S_ATF1502AS.tt3 with 0 inputs 0 outputs, 0 pins 0 nodes and 0 pterms...
 
 ----------------  End fitter, Design FITS
