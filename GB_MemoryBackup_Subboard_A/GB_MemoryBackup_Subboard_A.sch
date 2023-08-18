@@ -6,30 +6,15 @@ encoding utf-8
 Sheet 1 1
 Title "GB MemoryBackup Subboard A"
 Date "2023-03-19"
-Rev "1.0"
+Rev "1.1"
 Comp "SONIC3D"
-Comment1 ""
+Comment1 "v1.1 2023.Aug.18"
 Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
 Wire Wire Line
 	14600 4400 14100 4400
-$Comp
-L power:+5V #PWR0104
-U 1 1 64763422
-P 13000 2650
-F 0 "#PWR0104" H 13000 2500 50  0001 C CNN
-F 1 "+5V" H 13015 2823 50  0000 C CNN
-F 2 "" H 13000 2650 50  0001 C CNN
-F 3 "" H 13000 2650 50  0001 C CNN
-	1    13000 2650
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	13000 2650 13000 2750
-Wire Wire Line
-	13000 2750 13500 2750
 $Comp
 L power:GND #PWR0105
 U 1 1 64763423
@@ -184,13 +169,13 @@ $EndComp
 $Comp
 L power:+5V #PWR0137
 U 1 1 66192461
-P 12750 750
-F 0 "#PWR0137" H 12750 600 50  0001 C CNN
-F 1 "+5V" V 12765 878 50  0000 L CNN
-F 2 "" H 12750 750 50  0001 C CNN
-F 3 "" H 12750 750 50  0001 C CNN
-	1    12750 750 
-	0    -1   -1   0   
+P 11600 700
+F 0 "#PWR0137" H 11600 550 50  0001 C CNN
+F 1 "+5V" H 11615 873 50  0000 C CNN
+F 2 "" H 11600 700 50  0001 C CNN
+F 3 "" H 11600 700 50  0001 C CNN
+	1    11600 700 
+	1    0    0    -1  
 $EndComp
 Text Label 13850 1650 0    50   ~ 0
 AA14
@@ -257,7 +242,7 @@ Wire Wire Line
 Text Label 13850 1450 0    50   ~ 0
 AA10
 Wire Wire Line
-	12750 750  13250 750 
+	11600 750  11750 750 
 $Comp
 L power:GND #PWR0138
 U 1 1 66522CD5
@@ -327,4 +312,91 @@ Wire Wire Line
 	12750 950  13250 950 
 Wire Wire Line
 	12750 850  13250 850 
+$Comp
+L Diode:1N4148WS D1
+U 1 1 64E6B76F
+P 12000 1950
+F 0 "D1" V 12046 1870 50  0000 R CNN
+F 1 "1N4148WS" V 11955 1870 50  0000 R CNN
+F 2 "Diode_SMD:D_SOD-323" H 12000 1775 50  0001 C CNN
+F 3 "https://www.vishay.com/docs/85751/1n4148ws.pdf" H 12000 1950 50  0001 C CNN
+	1    12000 1950
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	12000 2100 12000 2750
+Wire Wire Line
+	12000 2750 13500 2750
+Wire Wire Line
+	12000 1800 12000 750 
+Connection ~ 12000 750 
+Wire Wire Line
+	12000 750  13250 750 
+Wire Wire Line
+	11600 700  11600 750 
+$Comp
+L Jumper:SolderJumper_2_Open JP1
+U 1 1 64E7EE70
+P 11750 1950
+F 0 "JP1" V 11704 1862 50  0000 R CNN
+F 1 "SJ_SkipDiode" V 11795 1862 50  0000 R CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm" H 11750 1950 50  0001 C CNN
+F 3 "~" H 11750 1950 50  0001 C CNN
+	1    11750 1950
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	11750 750  11750 1800
+Connection ~ 11750 750 
+Wire Wire Line
+	11750 750  12000 750 
+Wire Wire Line
+	11750 2100 11750 2750
+Wire Wire Line
+	11750 2750 12000 2750
+Connection ~ 12000 2750
+$Comp
+L Device:R_Small R1
+U 1 1 64E8532D
+P 11750 2900
+F 0 "R1" H 11691 2854 50  0000 R CNN
+F 1 "10K" H 11691 2945 50  0000 R CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" H 11750 2900 50  0001 C CNN
+F 3 "~" H 11750 2900 50  0001 C CNN
+	1    11750 2900
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	11750 2800 11750 2750
+Connection ~ 11750 2750
+Wire Wire Line
+	11750 3000 11750 3150
+$Comp
+L Device:LED_Small LED1
+U 1 1 64E8B20D
+P 11750 3250
+F 0 "LED1" V 11796 3180 50  0000 R CNN
+F 1 "PowerLED_Red" V 11705 3180 50  0000 R CNN
+F 2 "Diode_SMD:D_0805_2012Metric" V 11750 3250 50  0001 C CNN
+F 3 "~" V 11750 3250 50  0001 C CNN
+	1    11750 3250
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR0101
+U 1 1 64E8BB5E
+P 11750 3400
+F 0 "#PWR0101" H 11750 3150 50  0001 C CNN
+F 1 "GND" H 11755 3227 50  0000 C CNN
+F 2 "" H 11750 3400 50  0001 C CNN
+F 3 "" H 11750 3400 50  0001 C CNN
+	1    11750 3400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11750 3400 11750 3350
+Text Label 12750 2750 0    50   ~ 0
+CartSlot_5V_Input
+Text Label 11750 3100 2    50   ~ 0
+PwrLED_5V_Input
 $EndSCHEMATC
